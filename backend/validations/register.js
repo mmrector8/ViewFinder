@@ -14,6 +14,9 @@ const validateRegisterInput = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6, max: 30 })
     .withMessage("Password must be between 6 and 30 characters"),
+  check("bio")
+    .isLength({min: 5, max: 150})
+    .withMessage("Your user bio must be between 5 and 150 characters"),
   handleValidationErrors,
 ];
 

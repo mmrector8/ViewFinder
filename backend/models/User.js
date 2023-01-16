@@ -15,6 +15,17 @@ const userSchema = Schema(
       type: String,
       required: true,
     },
+    bio: {
+      type: String,
+      required: true
+    },
+    profilePicUrl:{
+      type: String
+    }, 
+    photos: [{
+      type: Schema.Types.ObjectId, 
+      ref: "Photo"
+    }], 
   },
   {
     timestamps: true,

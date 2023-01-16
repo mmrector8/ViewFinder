@@ -9,12 +9,6 @@ const { isProduction } = require("../../config/keys");
 const validateRegisterInput = require("../../validations/register");
 const validateLoginInput = require("../../validations/login");
 
-// GET /api/users
-router.get("/", (req, res, next) => {
-  res.json({
-    message: "GET /api/users",
-  });
-});
 
 // POST /api/users/register
 router.post("/register", validateRegisterInput, async (req, res, next) => {
@@ -31,7 +25,7 @@ router.post("/register", validateRegisterInput, async (req, res, next) => {
     }
     if (user.username === req.body.username) {
       errors.username = "A user has already registered with this username";
-    }
+    } 
     err.errors = errors;
     return next(err);
   }
@@ -39,6 +33,9 @@ router.post("/register", validateRegisterInput, async (req, res, next) => {
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
+    bio: req.body.bio,
+    profilePicUrl: req.body.profilePicUrl,
+    photos: req.body.photos
   });
 
   bcrypt.genSalt(10, (err, salt) => {
@@ -78,10 +75,37 @@ router.get("/current", restoreUser, (req, res) => {
   }
   if (!req.user) return res.json(null);
   return res.json({
-    _id: req.user._id,
-    username: req.user.username,
-    email: req.user.email,
+    user: {
+      _id: req.user._id,
+      username: req.user.username,
+      email: req.user.email,
+      bio: req.user.bio,
+      profilePicUrl: req.user.profilePicUrl,
+      photos: req.user.photos
+    }
   });
+});
+
+router.get("/:userId", async (req, res, next) => {
+  let user;
+  try {
+    user = await User.findById(req.params.userId);
+    return res.json({
+      user: {
+        _id: user.id,
+        username: user.username,
+        email: user.email,
+        bio: user.bio,
+        profilePicUrl: user.profilePicUrl,
+        photos: user.photos
+      }
+      })
+  } catch (err) {
+    const error = new Error("User not found")
+    error.statusCode = 404;
+    error.errors = { message: "No user found with that id" }
+    return next(error)
+  }
 });
 
 module.exports = router;
