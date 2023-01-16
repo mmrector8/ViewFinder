@@ -10,12 +10,14 @@ const { isProduction } = require("./config/keys");
 require("./models/User");
 
 require("./config/passport");
+
+require("./models/Spot"); //remove later
 const passport = require("passport");
 
 const usersRouter = require("./routes/api/users");
 
 const csrfRouter = require("./routes/api/csrf");
-
+const spotRouter = require("./routes/api/spots"); ///remove later 
 const app = express();
 
 app.use(logger("dev"));
@@ -39,6 +41,8 @@ app.use(
 app.use("/api/users", usersRouter);
 
 app.use("/api/csrf", csrfRouter);
+
+app.use("/api/spots", spotRouter); //remove later 
 
 app.use((req, res, next) => {
   const err = new Error("Not Found");
