@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { mongoURI: db } = require("../config/keys.js");
 const User = require("../models/User");
 const Spot = require("../models/Spot")
+const Location = require("../models/Location")
 const bcrypt = require("bcryptjs");
 const { faker } = require("@faker-js/faker");
 
@@ -29,6 +30,10 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
     })
   );
 }
+
+//Location 
+const locations = [];
+
 
 //Spots 
 
@@ -69,7 +74,8 @@ const insertSeeds = () => {
   console.log("Resetting db and seeding users and spots...");
   User.collection
     .drop()
-    .then(() => Spot.collection?.drop()) //remove 
+    .then(() => Location.collection?.drop())
+    .then(() => Spot.collection?.drop())
     .then(() => User.insertMany(users))
     .then(() => Spot.insertMany(spots))
     .then(() => {
