@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { mongoURI: db } = require("../config/keys.js");
 const User = require("../models/User");
-
+const Spot = require("../models/Spot")
 const bcrypt = require("bcryptjs");
 const { faker } = require("@faker-js/faker");
 
@@ -30,6 +30,28 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
   );
 }
 
+//Spots 
+
+const spots = [];
+
+for (let i = 0; i < 10; i++) {
+  const latitude = (i+1.0) * 1000.0;
+  const longitude = (i+1.0) * (-1000);
+  const name = faker.address.city();
+  const comments = [faker.word.interjection()];
+  const photos = [faker.word.noun()];
+  spots.push(
+    new Spot({
+      latitude,
+      longitude,
+      name, 
+      comments, 
+      photos
+    })
+  )
+
+}
+
 
 
 mongoose
@@ -44,10 +66,12 @@ mongoose
   });
 
 const insertSeeds = () => {
-  console.log("Resetting db and seeding users...");
+  console.log("Resetting db and seeding users and spots...");
   User.collection
     .drop()
+    .then(() => Spot.collection?.drop()) //remove 
     .then(() => User.insertMany(users))
+    .then(() => Spot.insertMany(spots))
     .then(() => {
       console.log("done!");
       mongoose.disconnect();
@@ -56,4 +80,5 @@ const insertSeeds = () => {
       console.error(err.stack);
       process.exit(1);
     });
+
 };
