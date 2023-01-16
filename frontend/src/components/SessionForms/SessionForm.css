@@ -1,7 +1,65 @@
-form > .errors {
+form .errors {
   color: red;
-  font-size: 0.875em;
+  font-size: 0.5em;
   height: 15px;
   display: flex;
   align-items: center;
+  margin-top: 5px;
+}
+
+.login-container {
+  width: 20%;
+  border: 1px solid black;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs-container {
+  padding: 15px 25px 0 25px;
+}
+
+.session-form input {
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #D6D6D6;
+  padding: 10px 0;
+  transition: border-bottom 0.2s;
+  font-family: var(--font-apple-system);
+  font-size: 14px;
+}
+
+.session-form input:focus {
+  outline: none;
+  border-bottom: 3px solid #4A42EF;
+  transition: border-bottom 0.2s;
+}
+
+.button-container {
+  background-color: #4A42EF;
+  height: 50px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.button-container > button {
+  margin-left: 10px;
+  border: none;
+  color: white;
+  background: none;
+  cursor: pointer;
+  padding: 10px;
+  font-family: var(--font-apple-system);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.form-header {
+  color: rgb(74, 58, 255);
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 5px;
 }
