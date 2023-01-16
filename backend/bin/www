@@ -11,7 +11,8 @@ const debug = require("debug");
 const serverLogger = debug("backend:server");
 const dbLogger = debug("backend:mongodb");
 var http = require("http");
-const Tweet = require("../models/Tweet");
+
+
 const User = require("../models/User");
 
 /**
