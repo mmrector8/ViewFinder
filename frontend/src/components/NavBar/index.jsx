@@ -46,6 +46,7 @@ const NavBar = () => {
         </div>
       );
     } else {
+      // remove Link and add button to open respective modals
       return (
         <div className="links">
           <Link to={"/signup"}>
