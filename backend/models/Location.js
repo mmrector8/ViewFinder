@@ -7,14 +7,10 @@ const locationSchema = Schema(
       type: String,
       required: true,
     },
-    zipcode: {
-      type: String,
-      required: true,
-    },
-    cityName: {
-      type: String,
-      required: true,
-    },
+    // zipcode: {
+    //   type: String,
+    //   required: true,
+    // },
     spots: [
       {
         type: Schema.Types.ObjectId,

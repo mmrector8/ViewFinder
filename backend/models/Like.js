@@ -6,12 +6,12 @@ const likeSchema = Schema(
     photoId: {
       type: Schema.Types.ObjectId,
       ref: "Photo",
-      require: true
+      required: true
     },
     likerId: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      require: true
+      required: true
     },
   },
   {

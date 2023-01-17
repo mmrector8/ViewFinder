@@ -10,13 +10,15 @@ const commentSchema = Schema({
         // type: String,
         // required: true
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     },
     spotId: {
         // type: String,
         // required: true
         type: Schema.Types.ObjectId,
-        ref: 'Spot'
+        ref: 'Spot',
+        required: true
     }
 }, {
     timestamps: true
