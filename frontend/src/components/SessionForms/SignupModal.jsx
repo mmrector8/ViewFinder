@@ -35,6 +35,12 @@ const SignupModal = () => {
       overlayClassName="Overlay"
       closeTimeoutMS={200}
     >
+      <button
+        onClick={() => dispatch(closeSignupModal())}
+        className="modal-close-button"
+      >
+        &times;
+      </button>
       <SignupForm />
     </Modal>
   );

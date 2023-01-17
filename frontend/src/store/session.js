@@ -1,4 +1,5 @@
 import jwtFetch from "./jwt";
+import { closeSigninModal, closeSignupModal } from "./ui";
 
 const RECEIVE_CURRENT_USER = "session/RECEIVE_CURRENT_USER";
 const RECEIVE_SESSION_ERRORS = "session/RECEIVE_SESSION_ERRORS";
@@ -34,6 +35,8 @@ const startSession = (userInfo, route) => async (dispatch) => {
     });
     const { user, token } = await res.json();
     localStorage.setItem("jwtToken", token);
+    dispatch(closeSigninModal());
+    dispatch(closeSignupModal());
     return dispatch(receiveCurrentUser(user));
   } catch (err) {
     const res = await err.json();

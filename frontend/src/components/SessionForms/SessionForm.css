@@ -7,7 +7,6 @@ form .errors {
   margin-top: 5px;
 }
 
-
 /* containers for both modals */
 .login-container, .sign-up-container {
   width: 300px;
@@ -152,6 +151,16 @@ input[type="file"] {
 
 .upload{
   font-family: var(--font-apple-system);
+}
+
+.modal-close-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  font-size: xx-large;
+  top: 5px;
+  left: 15px;
 }
 
 .Overlay {

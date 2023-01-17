@@ -58,9 +58,7 @@ function SignupForm() {
       bio,
       profilePicUrl,
     };
-    dispatch(signup(user)).then(() => {
-      if (!Object.keys(errors).length) dispatch(closeSignupModal());
-    });
+    dispatch(signup(user));
     setPageNum(1);
   };
 
