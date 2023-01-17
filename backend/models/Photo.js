@@ -9,12 +9,14 @@ const photoSchema = Schema(
         },
         spotId: {
             type: Schema.Types.ObjectId,
-            ref: "Spot"
+            ref: "Spot",
+            required: true 
         },
         userId: {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-            require: true 
+            // type: Schema.Types.ObjectId,
+            // ref: "User",
+            type: String, 
+            required: true 
         },
         latitude: {
             type: Number,
@@ -48,8 +50,9 @@ const photoSchema = Schema(
             required: true 
         },
         likes: [{
-            type: Schema.Types.ObjectId,
-            ref: "Like"
+            // type: Schema.Types.ObjectId,
+            // ref: "Like"
+            type: Number
         }]
     },
     {

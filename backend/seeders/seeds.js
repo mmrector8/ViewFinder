@@ -43,8 +43,8 @@ for (let i = 0; i < 10; i++) {
   const latitude = (i+1.0) * 1000.0;
   const longitude = (i+1.0) * (-1000);
   const name = faker.address.city();
-  const comments = [faker.word.interjection()];
-  const photos = [faker.word.noun()];
+  const comments = [];
+  const photos = [];
   spots.push(
     new Spot({
       latitude,
