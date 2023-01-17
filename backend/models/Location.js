@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const locationSchema = Schema(
   {
+    county: {
+      type: String,
+      required: true,
+    },
     zipcode: {
       type: String,
       required: true,
@@ -11,11 +15,12 @@ const locationSchema = Schema(
       type: String,
       required: true,
     },
-    spots: [{
-        type: String,
-        // type: Schema.Types.ObjectId,
-        ref: "Spot"
-    }]
+    spots: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Spot",
+      },
+    ],
   },
   {
     timestamps: true,
