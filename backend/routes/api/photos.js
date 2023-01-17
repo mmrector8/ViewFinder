@@ -35,7 +35,7 @@ router.post("/", requireUser, validatePhotoInput, async (req, res, next) => {
         { longitude: { $gte: recArea.bottom1[1], $lte: recArea.top1[1] } },
       ],
     });
-
+    ///test
     // return res.json(spot);
     if (!spot.length) {
       //else 'spot does not exist'
