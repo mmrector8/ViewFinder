@@ -16,6 +16,8 @@ const customStyles = {
     display: "flex",
     justifyContent: "center",
     padding: 0,
+    boxShadow:
+      "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
   },
 };
 
@@ -39,11 +41,8 @@ const UserModal = () => {
           <div className="user-dropdown-top">
             <li>
               <h1 className="user-dropdown-username">
-                {currentUser?.username}
+                Hi, {currentUser?.username}!
               </h1>
-            </li>
-            <li>
-              <p className="user-dropdown-email">{currentUser?.email}</p>
             </li>
           </div>
           <li className="user-dropdown-button-li li-first-item">
