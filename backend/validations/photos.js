@@ -44,4 +44,4 @@ const validatePhotoInput = [
     handleValidationErrors,
 ]
 
-module.export = validatePhotoInput;
+module.exports = validatePhotoInput;
