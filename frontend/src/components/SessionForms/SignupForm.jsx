@@ -65,7 +65,7 @@ function SignupForm() {
     <div className="sign-up-container">
       <form className="session-form" onSubmit={handleSubmit}>
         <div className="inputs-container">
-          <h2 className="form-header">Sign Up For ViewFinder</h2>
+          <h2 className="form-header">Hello There!</h2>
             {pageNum === 1 ? <>
           <span className="page-num">Page 1 of 2</span>
           <div className="errors">{errors?.email}</div>

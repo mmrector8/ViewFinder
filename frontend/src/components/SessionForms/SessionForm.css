@@ -11,8 +11,6 @@ form .errors {
 /* containers for both modals */
 .login-container, .sign-up-container {
   width: 300px;
-  border: 1px solid rgb(192, 192, 192);
-  border-radius: 10px;
   padding: 20px;
 }
 
@@ -63,12 +61,12 @@ form .errors {
   color: grey;
 }
 
-.button-container{
+.button-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 45px;
-  width: 300px;
+  width: 250px;
 }
 
 .button-container>button {
@@ -83,39 +81,50 @@ form .errors {
   border-radius: 4px;
 }
 
+.button-container>button:disabled, .button-container>button:disabled:hover {
+  background-color: #241f76;
+  color: rgb(218, 218, 218);
+  cursor: not-allowed;
+}
+
 .button-container>button:hover {
   background-color: #3a34b9;
 }
 
+.signin-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .sign-in-button{
-  width: 300px;
+  width: 250px;
 }
 .next-page-button-container {
   display: flex;
   align-items: right;
   justify-content: right;
-  margin-right: 20px;
-  width: 280px;
+  width: 250px;
+  margin-top: 15px;
 }
-
 
 .next-page-button {
   cursor: pointer;
   background-color: rgb(74, 58, 255);
-  margin-top: 15px;
   color: white;
   font-weight: bold;
-  height: 40px;
+  height: 38px;
   width: 80px;
   font-size: 16px;
   padding: 10px;
   border: none;
   text-align: center;
   border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 .next-page-button:hover {
   background-color: #3a34b9;
+  transition: background-color 0.3s;
 }
 
 .span-padding{
