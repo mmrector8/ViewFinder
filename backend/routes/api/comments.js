@@ -34,11 +34,14 @@ router.patch('/:id', requireUser, validateCommentInput, async (req, res, next) =
     }
 });
 
-router.delete('/:id', requireUser, async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
     try {
         let id = req.params.id
-        let comment = Comment.findOneAndDelete(id)
-        return res.json({message: "Comment deleted!"})
+        let comment = Comment.findOneAndDelete({ _id: id }, function (err, comment) {
+            if(comment) {
+                return res.json({ message: "Comment deleted!" })
+            }
+        });
     }
     catch (err) {
         const error = new Error('Comment could not be deleted')
@@ -48,16 +51,16 @@ router.delete('/:id', requireUser, async (req, res, next) => {
     }
 });
 
-router.post('/spots/:spotId', requireUser, validateCommentInput, async (req, res, next) => {
+router.post('/spots/:spotId', validateCommentInput, async (req, res, next) => {
     try {
         const newComment = new Comment({
             body: req.body.body,
-            userId: req.user._id,
-            spotId: req.spot._id
+            userId: req.body.userId,
+            spotId: req.body.spotId
         });
 
         let comment = await newComment.save();
-        comment = await comment.populate('_id', '_id, body, userId, spotId');
+         comment = await comment.populate('_id', '_id, body, userId, spotId');
         return res.json(comment);
     }
     catch (err) {
