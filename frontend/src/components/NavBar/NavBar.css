@@ -6,8 +6,54 @@
 }
 
 .links {
-  width: 50%;
   display: flex;
   justify-content: flex-end;
   gap: 10%;
+}
+
+.navbar h1 {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.searchbar {
+  display: flex;
+  gap: 3%;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+}
+
+.searchbar input {
+  border: none;
+  border-bottom: 3px solid #D6D6D6;
+  padding: 10px 0;
+  transition: border-bottom 0.2s;
+  font-family: var(--font-apple-system);
+  font-size: 14px;
+}
+
+.searchbar select {
+  border: none;
+  border-bottom: 3px solid #D6D6D6;
+  padding: 9px 0;
+  transition: border-bottom 0.2s;
+  font-family: var(--font-apple-system);
+  font-size: 14px;
+}
+
+.searchbar input:focus, .searchbar select:focus {
+  outline: none;
+  border-bottom: 3px solid #4A42EF;
+  transition: border-bottom 0.2s;
+}
+
+.searchbar button {
+  border: none;
+  color: white;
+  font-family: var(--font-apple-system);
+  border-radius: 3px;
+  padding: 10px;
+  background-color: #4A42EF;
+  cursor: pointer;
 }

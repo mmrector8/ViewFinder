@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./NavBar.css";
 import { logout } from "../../store/session";
+import SearchBar from "../SearchBar";
 
 const NavBar = () => {
   const loggedIn = useSelector((state) => !!state.session.user);
@@ -34,6 +35,7 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <h1>ViewFinder</h1>
+      <SearchBar />
       {getLinks()}
     </div>
   );
