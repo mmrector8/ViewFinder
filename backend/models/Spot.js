@@ -13,8 +13,7 @@ const spotSchema = Schema(
         },
         name: {
             type: String,
-            required: true,
-            unique: true
+            required: true
         },
         comments: [{
             type: Schema.Types.ObjectId,

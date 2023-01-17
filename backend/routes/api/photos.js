@@ -26,15 +26,24 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", requireUser, validatePhotoInput,  async (req, res, next) => {
     try {
-        //find it a spot exists with the given coordinates ~ NEED TO DECIDE on a radius 
-            //radius = 
-        // add +- to latitude and latitude 
-        let spot = Spot.find( {latitude: req.body.latitude, longitude: req.body.latitude})
-        let spotId;
-        if (spot) {
+        //find it a spot exists with the given coordinates within 1 mile  
+        let spot; 
+        try {
+            recArea = spotSearchRectangle(req.body.latitude, req.body.longitude)
+            spot = await Spot.find({ latitude: { $gte: recArea.top1[0], $lte: recArea.bottom1[0] } }, 
+                                        { longitude: { $gte: recArea.top1[1], $lte: recArea.bottom1[1] } 
+                                        })
             
         }
-            //spotId = spot._id 
+        catch {
+            const newSpot = new Spot({
+                latitude: req.body.latitude,
+                longitude: req.body.longitude,
+                name: req.body.description
+            })
+            spot = await newSpot.save();
+            
+        }
 
         //else 'spot does not exist'
             //create and save new spot 
@@ -84,6 +93,22 @@ router.delete('/:id', requireUser, async(req, res, next) => {
         return next(error);
     }
 })
+
+function spotSearchRectangle(latP, longP) {
+    //used to create the possible spot cooridnates within 1 mile distance 
+
+        // 1 latitude = 69 miles & 1 longitude = 54.6 miles 
+        // 1.014493 lat = 70 miles & 1.282051 long = 70 miles 
+    const latSd = 1.014493 / 70 // lat standard deviation 
+    const longSd = 1.282051 / 70 //long standard deviation 
+    
+    //formula to create an rectanglar search area 
+        //top1: [latP - latSd, longP + longSd]
+        //bottom1: [latP + latSd, longP - longSd]
+    return { top1: [latP - latSd, longP + longSd ], 
+                bottom1: [latP + latSd, longP - longSd]
+            }
+}
 
 
 
