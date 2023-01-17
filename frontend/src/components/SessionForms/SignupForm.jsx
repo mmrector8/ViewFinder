@@ -126,7 +126,7 @@ function SignupForm() {
             {errors?.bio}
           </div>
           <label>
-                  <textarea value={bio} onChange={e => setBio(e.target.value)} placeholder="Please input a short bio (Optional)" className='bio-input' />
+            <textarea value={bio} onChange={e => setBio(e.target.value)} placeholder="Please input a short bio (Optional)" className='bio-input' />
           </label>
           <div className="button-container">
             <button onClick={(() => setPageNum(1))} className="go-back-button">Go Back</button>
