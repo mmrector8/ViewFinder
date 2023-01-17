@@ -35,4 +35,24 @@ router.get("/:id", async (req, res, next) => {
     }
 });
 
+router.post("/", async (req, res, next) => {
+
+    try {
+        let newSpot = new Spot({
+            latitude: req.body.latitude,
+            longitude: req.body.longitude,
+            name: req.body.name 
+        })
+        const spot = await newSpot.save()
+        //may need 
+        return res.json(spot)
+    }
+    catch {
+        const error = new Error('Spot not found');
+        error.statusCode = 404;
+        error.errors = { message: "Not Spot with that id was found." };
+        return next(error);
+    }
+});
+
 module.exports = router
