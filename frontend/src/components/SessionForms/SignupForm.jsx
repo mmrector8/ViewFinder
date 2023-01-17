@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./SessionForm.css";
 import { signup, clearSessionErrors } from "../../store/session";
 import "./SessionForm.css";
+import { closeSignupModal } from "../../store/ui";
 
 function SignupForm() {
   const [email, setEmail] = useState("");
@@ -50,6 +51,7 @@ function SignupForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(closeSignupModal());
     const user = {
       email,
       username,

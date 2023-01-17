@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./SessionForm.css";
 
 import { login, clearSessionErrors } from "../../store/session";
+import { closeSigninModal } from "../../store/ui";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -23,6 +24,7 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(closeSigninModal());
     dispatch(login({ email, password }));
   };
 
