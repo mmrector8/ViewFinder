@@ -114,7 +114,7 @@ function SignupForm() {
           <span className="page-num">Page 2 of 2</span><br></br>
           <label>
             <div className="span-padding">
-              <span>Upload a profile photo {'(optional)'}</span>
+              <span className='upload'>Upload a profile photo {'(optional)'}</span>
             </div>
             <input 
               type="file"

@@ -76,7 +76,6 @@ form .errors {
   background-color: #3a34b9;
 }
 
-
 .form-header {
   color: rgb(74, 58, 255);
   font-weight: bold;
@@ -142,4 +141,8 @@ input[type="file"] {
 
 .confirm{
   padding-top: 20px;
+}
+
+.upload{
+  font-family: var(--font-apple-system);
 }
