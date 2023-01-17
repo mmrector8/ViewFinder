@@ -7,6 +7,11 @@ import SearchBar from "../SearchBar";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import {
+  openSigninModal,
+  openSignupModal,
+  openUserModal,
+} from "../../store/ui";
 
 const NavBar = () => {
   const loggedIn = useSelector((state) => !!state.session.user);
@@ -19,8 +24,7 @@ const NavBar = () => {
 
   const handleUserIcon = (e) => {
     e.preventDefault();
-    // open dropdown here
-    dispatch(logout());
+    dispatch(openUserModal());
   };
 
   const getLinks = () => {
@@ -28,33 +32,38 @@ const NavBar = () => {
       return (
         <div className="links">
           <IconButton
-            color="primary"
+            color="disabled"
             aria-label="upload picture"
             component="label"
             onClick={handleUpload}
           >
-            <PhotoCamera />
+            <PhotoCamera sx={{ color: "black" }} />
           </IconButton>
           <IconButton
-            color="primary"
+            color="disabled"
             aria-label="upload picture"
             component="label"
             onClick={handleUserIcon}
           >
-            <AccountCircleIcon />
+            <AccountCircleIcon sx={{ color: "black" }} />
           </IconButton>
         </div>
       );
     } else {
-      // remove Link and add button to open respective modals
       return (
         <div className="links">
-          <Link to={"/signup"}>
-            <button className="navbar-button">Signup</button>
-          </Link>
-          <Link to={"/login"}>
-            <button className="navbar-button">Login</button>
-          </Link>
+          <button
+            className="navbar-button"
+            onClick={() => dispatch(openSignupModal())}
+          >
+            Signup
+          </button>
+          <button
+            className="navbar-button"
+            onClick={() => dispatch(openSigninModal())}
+          >
+            Login
+          </button>
         </div>
       );
     }

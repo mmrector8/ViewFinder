@@ -1,9 +1,10 @@
 import React from "react";
+import Footer from "../Footer";
 
 const MainPage = () => {
   return (
     <>
-      <footer>Copyright &copy; 2023 ViewFinder</footer>
+      <Footer />
     </>
   );
 };

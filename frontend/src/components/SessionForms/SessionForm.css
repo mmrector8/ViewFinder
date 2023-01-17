@@ -1,23 +1,16 @@
 form .errors {
   color: red;
-  font-size: 0.95em;
+  font-size: 0.7em;
   height: 15px;
   display: flex;
   align-items: center;
   margin-top: 5px;
 }
 
-
 /* containers for both modals */
 .login-container, .sign-up-container {
   width: 300px;
-  border: 1px solid rgb(192, 192, 192);
-  border-radius: 10px;
   padding: 20px;
-}
-
-.sign-up-container{
-  height: 420px;
 }
 
 .session-form {
@@ -63,12 +56,12 @@ form .errors {
   color: grey;
 }
 
-.button-container{
+.button-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 45px;
-  width: 300px;
+  width: 250px;
 }
 
 .button-container>button {
@@ -83,38 +76,50 @@ form .errors {
   border-radius: 4px;
 }
 
+.button-container>button:disabled, .button-container>button:disabled:hover {
+  background-color: #4A42EF;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .button-container>button:hover {
   background-color: #3a34b9;
 }
 
+.signin-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .sign-in-button{
-  width: 300px;
+  width: 250px;
 }
 .next-page-button-container {
   display: flex;
   align-items: right;
   justify-content: right;
-  margin-right: 20px;
-  width: 280px;
+  width: 250px;
+  margin-top: 15px;
 }
 
 .next-page-button {
   cursor: pointer;
   background-color: rgb(74, 58, 255);
-  margin-top: 15px;
   color: white;
   font-weight: bold;
-  height: 40px;
+  height: 38px;
   width: 80px;
   font-size: 16px;
   padding: 10px;
   border: none;
   text-align: center;
   border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 .next-page-button:hover {
   background-color: #3a34b9;
+  transition: background-color 0.3s;
 }
 
 .span-padding{
@@ -136,10 +141,48 @@ input[type="file"] {
   font-family: var(--font-apple-system);
 }
 
+.bio-input:focus {
+  outline-color:rgb(74, 58, 255);
+}
+
 .confirm{
   padding-top: 20px;
 }
 
 .upload{
   font-family: var(--font-apple-system);
+}
+
+.modal-close-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  font-size: xx-large;
+  top: 5px;
+  left: 15px;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(8, 9, 10, 0.8);
+  z-index: 500;
+  transition: background-color 200ms;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
 }

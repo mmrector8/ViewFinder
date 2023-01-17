@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./SessionForm.css";
 
 import { login, clearSessionErrors } from "../../store/session";
+import { closeSigninModal } from "../../store/ui";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -46,10 +47,16 @@ function LoginForm() {
             placeholder="Password"
           />
         </div>
-        <div className="button-container">
-          <button type="submit" disabled={!email || !password} className="sign-in-button">
-            Sign In
-          </button>
+        <div className="signin-button-wrapper">
+          <div className="button-container">
+            <button
+              type="submit"
+              disabled={!email || !password}
+              className="sign-in-button"
+            >
+              Sign In
+            </button>
+          </div>
         </div>
       </form>
     </div>

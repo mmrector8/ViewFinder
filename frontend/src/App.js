@@ -2,16 +2,17 @@ import { Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "./components/Routes";
 import NavBar from "./components/NavBar";
 import MainPage from "./components/MainPage";
-import LoginForm from "./components/SessionForms/LoginForm";
-import SignupForm from "./components/SessionForms/SignupForm";
 import { getCurrentUser } from "./store/session";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
 import Profile from "./components/Profile";
+import LoginModal from "./components/SessionForms/LoginModal";
+import SignupModal from "./components/SessionForms/SignupModal";
+import UserModal from "./components/UserModal";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
+  const currentUser = useSelector(store => store.session.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,11 +23,11 @@ const App = () => {
     loaded && (
       <>
         <NavBar />
+        <LoginModal />
+        <SignupModal />
+        {currentUser && <UserModal />}
         <Switch>
           <AuthRoute exact path="/" component={MainPage} />
-          <AuthRoute exact path="/login" component={LoginForm} />
-          <AuthRoute exact path="/signup" component={SignupForm} />
-
           <ProtectedRoute exact path="/profile" component={Profile} />
         </Switch>
       </>
