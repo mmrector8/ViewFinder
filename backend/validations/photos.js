@@ -13,10 +13,10 @@ const validatePhotoInput = [
         .exists({ checkFalsy: true })
         .withMessage("Missing an associated photographer for the photo"),
     check("latitude")
-        .isFloat({min: 36.9949, max: 42.0126})
+        .isFloat({min: 32.553080, max: 42.0126})
         .withMessage("Selected Latitude is not within the range of California"),
     check("longitude")
-        .isFloat({min: -109.0489, max: -102.0424})
+        .isFloat({min: -124.205482, max: -114.137746})
         .withMessage("Selected Longitude is not within the range of California"),
     check("genre") 
         .isIn(['wildlife', 'street', 'landscape', 'portrait', 'astro', 'aerial'])
