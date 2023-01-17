@@ -7,16 +7,16 @@ const commentSchema = Schema({
         required: true
     },
     userId: {
-        type: String,
-        required: true
-        // type: Schema.Types.ObjectId,
-        // ref: 'User'
+        // type: String,
+        // required: true
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
     spotId: {
-        type: String,
-        required: true
-        // type: Schema.Types.ObjectId,
-        // ref: 'User'
+        // type: String,
+        // required: true
+        type: Schema.Types.ObjectId,
+        ref: 'Spot'
     }
 }, {
     timestamps: true
