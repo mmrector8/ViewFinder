@@ -24,8 +24,9 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(closeSigninModal());
-    dispatch(login({ email, password }));
+    dispatch(login({ email, password })).then(() => {
+      if (!Object.keys(errors).length) dispatch(closeSigninModal());
+    });
   };
 
   return (

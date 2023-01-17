@@ -51,7 +51,6 @@ function SignupForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(closeSignupModal());
     const user = {
       email,
       username,
@@ -59,7 +58,9 @@ function SignupForm() {
       bio,
       profilePicUrl,
     };
-    dispatch(signup(user));
+    dispatch(signup(user)).then(() => {
+      if (!Object.keys(errors).length) dispatch(closeSignupModal());
+    });
     setPageNum(1);
   };
 
