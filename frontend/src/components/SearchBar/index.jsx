@@ -8,6 +8,7 @@ const SearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = { queryString, queryType };
+    // dispatch search request here
     console.log(query);
   };
 
@@ -27,7 +28,7 @@ const SearchBar = () => {
         <option value="spots">Spots</option>
         <option value="locations">Locations</option>
       </select>
-      <button>Search</button>
+      <button className="navbar-button">Search</button>
     </form>
   );
 };

@@ -15,7 +15,7 @@ const NavBar = () => {
   const handleUpload = (e) => {
     e.preventDefault();
     // open upload photo modal here
-  } 
+  };
 
   const handleUserIcon = (e) => {
     e.preventDefault();
@@ -48,8 +48,12 @@ const NavBar = () => {
     } else {
       return (
         <div className="links">
-          <Link to={"/signup"}>Signup</Link>
-          <Link to={"/login"}>Login</Link>
+          <Link to={"/signup"}>
+            <button className="navbar-button">Signup</button>
+          </Link>
+          <Link to={"/login"}>
+            <button className="navbar-button">Login</button>
+          </Link>
         </div>
       );
     }

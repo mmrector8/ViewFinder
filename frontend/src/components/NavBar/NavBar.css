@@ -53,7 +53,7 @@
   transition: border-bottom 0.2s;
 }
 
-.searchbar button {
+.navbar-button {
   border: none;
   color: white;
   font-family: var(--font-apple-system);
@@ -61,4 +61,11 @@
   padding: 10px;
   background-color: #4A42EF;
   cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.navbar-button:hover, .navbar-button:active {
+  background-color: #564ef0;
+  transition: background-color 0.3s;
 }
