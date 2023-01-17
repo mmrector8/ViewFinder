@@ -24,9 +24,9 @@ const spotSchema = Schema(
             ref: 'Photo'
         }]
     },
-    {
-        timestamps: true,
-    }
+  {
+    timestamps: true,
+  }
 );
 
 module.exports = mongoose.model("Spot", spotSchema);
