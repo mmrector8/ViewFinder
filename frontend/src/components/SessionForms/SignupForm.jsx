@@ -62,7 +62,6 @@ function SignupForm() {
   };
 
   return (
-    <div className="page">
     <div className="sign-up-container">
       <form className="session-form" onSubmit={handleSubmit}>
         <div className="inputs-container">
@@ -138,7 +137,6 @@ function SignupForm() {
             </>}
           </div>
       </form>
-    </div>
     </div>
   );
 }

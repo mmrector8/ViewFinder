@@ -7,10 +7,11 @@ form .errors {
   margin-top: 5px;
 }
 
+
+/* containers for both modals */
 .login-container, .sign-up-container {
   width: 300px;
   border: 1px solid rgb(192, 192, 192);
-  box-shadow: 0 30px 40px rgba(0, 0, 0, .5);
   border-radius: 10px;
   padding: 20px;
 }
@@ -47,6 +48,21 @@ form .errors {
   transition: border-bottom 0.2s;
 }
 
+.form-header {
+  color: rgb(74, 58, 255);
+  font-weight: bold;
+  font-size: 34px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  line-height: 40px;
+}
+
+.page-num {
+  font-size: 12px;
+  color: grey;
+}
+
 .button-container{
   display: flex;
   align-items: center;
@@ -55,12 +71,7 @@ form .errors {
   width: 300px;
 }
 
-.sign-in-button{
-  width: 300px;
-}
-
-
-.button-container > button {
+.button-container>button {
   border: none;
   color: white;
   background-color: #4A42EF;
@@ -72,24 +83,39 @@ form .errors {
   border-radius: 4px;
 }
 
-.button-container > button:hover{
+.button-container>button:hover {
   background-color: #3a34b9;
 }
 
-.form-header {
-  color: rgb(74, 58, 255);
-  font-weight: bold;
-  font-size: 34px;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  line-height: 40px;
+.sign-in-button{
+  width: 300px;
+}
+.next-page-button-container {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  margin-right: 20px;
+  width: 280px;
 }
 
 
-.page-num{
-  font-size: 12px;
-  color: grey;
+.next-page-button {
+  cursor: pointer;
+  background-color: rgb(74, 58, 255);
+  margin-top: 15px;
+  color: white;
+  font-weight: bold;
+  height: 40px;
+  width: 80px;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.next-page-button:hover {
+  background-color: #3a34b9;
 }
 
 .span-padding{
@@ -109,34 +135,6 @@ input[type="file"] {
   padding: 10px;
   padding-bottom: 0px;
   font-family: var(--font-apple-system);
-}
-
-.next-page-button-container{
-  display: flex;
-  align-items: right;
-  justify-content: right;
-  margin-right: 20px;
-  width: 280px;
-}
-
-
-.next-page-button{
-  cursor: pointer;
-  background-color:rgb(74, 58, 255);
-  margin-top: 15px;
-  color: white;
-  font-weight: bold;
-  height: 40px;
-  width: 80px;
-  font-size: 16px;
-  padding: 10px;
-  border: none;
-  text-align: center;
-  border-radius: 4px;
-}
-
-.next-page-button:hover{
-  background-color: #3a34b9;
 }
 
 .confirm{
