@@ -12,6 +12,8 @@ require("./models/User");
 require("./config/passport");
 require("./models/Location")
 require("./models/Spot"); 
+//delete this
+require("./models/Comment")
 const passport = require("passport");
 
 const usersRouter = require("./routes/api/users");
@@ -19,6 +21,8 @@ const usersRouter = require("./routes/api/users");
 const csrfRouter = require("./routes/api/csrf");
 const locationRouter = require("./routes/api/locations")
 const spotRouter = require("./routes/api/spots"); 
+//delete this
+const commentRouter = require("./routes/api/comments")
 const app = express();
 
 app.use(logger("dev"));
@@ -42,8 +46,10 @@ app.use(
 app.use("/api/users", usersRouter);
 
 app.use("/api/csrf", csrfRouter);
-app.use("/api/locations", locationRouter)
+app.use("/api/locations", locationRouter);
 app.use("/api/spots", spotRouter); 
+//delete this
+app.use("/api/comments", commentRouter);
 
 app.use((req, res, next) => {
   const err = new Error("Not Found");
