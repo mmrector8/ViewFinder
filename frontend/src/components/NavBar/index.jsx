@@ -7,6 +7,7 @@ import SearchBar from "../SearchBar";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { openSigninModal, openSignupModal } from "../../store/ui";
 
 const NavBar = () => {
   const loggedIn = useSelector((state) => !!state.session.user);
@@ -46,15 +47,20 @@ const NavBar = () => {
         </div>
       );
     } else {
-      // remove Link and add button to open respective modals
       return (
         <div className="links">
-          <Link to={"/signup"}>
-            <button className="navbar-button">Signup</button>
-          </Link>
-          <Link to={"/login"}>
-            <button className="navbar-button">Login</button>
-          </Link>
+          <button
+            className="navbar-button"
+            onClick={() => dispatch(openSignupModal())}
+          >
+            Signup
+          </button>
+          <button
+            className="navbar-button"
+            onClick={() => dispatch(openSigninModal())}
+          >
+            Login
+          </button>
         </div>
       );
     }

@@ -14,10 +14,6 @@ form .errors {
   padding: 20px;
 }
 
-.sign-up-container{
-  height: 420px;
-}
-
 .session-form {
   display: flex;
   flex-direction: column;
@@ -82,8 +78,8 @@ form .errors {
 }
 
 .button-container>button:disabled, .button-container>button:disabled:hover {
-  background-color: #241f76;
-  color: rgb(218, 218, 218);
+  background-color: #4A42EF;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
@@ -146,10 +142,38 @@ input[type="file"] {
   font-family: var(--font-apple-system);
 }
 
+.bio-input:focus {
+  outline-color:rgb(74, 58, 255);
+}
+
 .confirm{
   padding-top: 20px;
 }
 
 .upload{
   font-family: var(--font-apple-system);
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(8, 9, 10, 0.8);
+  z-index: 500;
+  transition: background-color 200ms;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
 }
