@@ -14,12 +14,15 @@ const spotSchema = Schema(
         name: {
             type: String,
             required: true,
+            unique: true
         },
         comments: [{
-            type: String
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
         }],
         photos: [{
-            type: String 
+            type: Schema.Types.ObjectId,
+            ref: 'Photo'
         }]
     },
     {
