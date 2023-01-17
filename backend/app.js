@@ -8,21 +8,22 @@ const csurf = require("csurf");
 const { isProduction } = require("./config/keys");
 
 require("./models/User");
-
 require("./config/passport");
 require("./models/Location")
 require("./models/Spot"); 
-//delete this
+require("./models/Like")
 require("./models/Comment")
+require("./models/Photo")
+
 const passport = require("passport");
 
 const usersRouter = require("./routes/api/users");
-
 const csrfRouter = require("./routes/api/csrf");
 const locationRouter = require("./routes/api/locations")
 const spotRouter = require("./routes/api/spots"); 
-//delete this
+const likeRouter = require("./routes/api/likes")
 const commentRouter = require("./routes/api/comments")
+const photoRouter = require("./routes/api/photos")
 const app = express();
 
 app.use(logger("dev"));
@@ -44,13 +45,12 @@ app.use(
 );
 
 app.use("/api/users", usersRouter);
-
 app.use("/api/csrf", csrfRouter);
 app.use("/api/locations", locationRouter);
 app.use("/api/spots", spotRouter); 
-//delete this
+app.use("/api/likes", likeRouter)
 app.use("/api/comments", commentRouter);
-
+app.use("/api/photos", photoRouter)
 
 
 app.use((req, res, next) => {
