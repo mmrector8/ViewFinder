@@ -4,13 +4,15 @@ import NavBar from "./components/NavBar";
 import MainPage from "./components/MainPage";
 import { getCurrentUser } from "./store/session";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Profile from "./components/Profile";
 import LoginModal from "./components/SessionForms/LoginModal";
 import SignupModal from "./components/SessionForms/SignupModal";
+import UserModal from "./components/UserModal";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
+  const currentUser = useSelector(store => store.session.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,6 +25,7 @@ const App = () => {
         <NavBar />
         <LoginModal />
         <SignupModal />
+        {currentUser && <UserModal />}
         <Switch>
           <AuthRoute exact path="/" component={MainPage} />
           <ProtectedRoute exact path="/profile" component={Profile} />

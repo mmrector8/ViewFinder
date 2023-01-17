@@ -31,7 +31,7 @@ const SignupModal = () => {
       isOpen={signupModalOpen}
       onRequestClose={() => dispatch(closeSignupModal())}
       style={customStyles}
-      contentLabel="Add Server Modal"
+      contentLabel="Sign Up Modal"
       overlayClassName="Overlay"
       closeTimeoutMS={200}
     >

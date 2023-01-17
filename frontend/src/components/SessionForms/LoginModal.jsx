@@ -30,7 +30,7 @@ const LoginModal = () => {
       isOpen={signinModalOpen}
       onRequestClose={() => dispatch(closeSigninModal())}
       style={customStyles}
-      contentLabel="Add Server Modal"
+      contentLabel="Sign In Modal"
       overlayClassName="Overlay"
       closeTimeoutMS={200}
     >
