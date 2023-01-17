@@ -69,7 +69,7 @@ form .errors {
   font-family: var(--font-apple-system);
   font-weight: bold;
   font-size: 16px;
-  border-radius: 20px;
+  border-radius: 4px;
 }
 
 .button-container > button:hover{
@@ -109,6 +109,7 @@ input[type="file"] {
   resize: none;
   padding: 10px;
   padding-bottom: 0px;
+  font-family: var(--font-apple-system);
 }
 
 .next-page-button-container{
@@ -132,7 +133,7 @@ input[type="file"] {
   padding: 10px;
   border: none;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 4px;
 }
 
 .next-page-button:hover{
