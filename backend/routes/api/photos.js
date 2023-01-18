@@ -18,7 +18,14 @@ router.get("/", async (req, res, next) => {
       .addFields({ length: { $size: `$${sortBy}` } }) //adds a new field called length within counts the size of the likes array
       .sort({ length: -1 }); //orders the aggregate/array based on ascending order
 
-    return res.json(standardizeData(photos)); //returns the photos in ascending order based on likes
+    //populates the userId
+    await Photo.populate(photos, {
+      path: "userId",
+      select: "_id username email",
+    });
+    
+    //returns the standardized date in ascending order based on likes
+    return res.json(standardizeData(photos)); 
   } catch (err) {
     const error = new Error("Photos were not found");
     error.statusCode = 404;
