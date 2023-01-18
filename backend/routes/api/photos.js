@@ -5,6 +5,7 @@ const Photo = mongoose.model("Photo");
 const Spot = mongoose.model("Spot");
 const validatePhotoInput = require("../../validations/photos");
 const { requireUser } = require("../../config/passport");
+const { Client } = require("@googlemaps/google-maps-services-js");
 
 router.get("/", async (req, res, next) => {
   //route needed for the splash page
@@ -23,11 +24,21 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", requireUser, validatePhotoInput, async (req, res, next) => {
+router.post("/", validatePhotoInput, async (req, res, next) => {
+  //requireUser
+  //!MUST INCLUDE REQUIRE USER
   try {
-    //!MUST INCLUDE REQUIRE USER
     //find it a spot exists with the given coordinates within 1 mile
-
+    const client = new Client({})
+    const mapResult = await client.reverseGeocode({
+      params: {
+        latlng: [req.body.latitude, req.body.longitude],
+        key: process.env.GOOGLE_MAPS_API_KEY,
+      },
+      timeout: 1000, // milliseconds
+    });
+    let county = countySearch(mapResult.data.results) //retrives county from api call 
+    return res.json(county);
     recArea = spotSearchRectangle(req.body.latitude, req.body.longitude);
     let spot = await Spot.find({
       $and: [
@@ -64,7 +75,7 @@ router.post("/", requireUser, validatePhotoInput, async (req, res, next) => {
     const newPhoto = new Photo({
       url: req.body.url,
       spotId: spot._id, //using the existing or new spot
-      userId: req.user._id, //retrived from requireUser
+      userId: 'kzk', //req.user._id, //retrived from requireUser
       latitude: req.body.latitude,
       longitude: req.body.longitude,
       genre: req.body.genre,
@@ -126,6 +137,26 @@ function spotSearchRectangle(latP, longP) {
     top1: [latP - latSd, longP + longSd],
     bottom1: [latP + latSd, longP - longSd],
   };
+}
+
+function countySearch(result) {
+  // retrives data.result array  
+  for (let resultObj of result ) {
+    //loops through the objects
+    for (let addressCompEle of resultObj.address_components) {
+      //keys into address_components and loops through its objects
+      if (
+        addressCompEle.types.includes("administrative_area_level_2") &&
+        addressCompEle.types.includes("political")
+      ) {
+        // checks if the object inculdes those two key phrases within types 
+          //returns keys into long_name which has county name 
+        return addressCompEle.long_name;
+      }
+    }
+  }
+  //return falsey if county not found 
+  return ""
 }
 
 module.exports = router;
