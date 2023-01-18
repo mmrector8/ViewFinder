@@ -2,19 +2,26 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 const Spot = mongoose.model('Spot')
+const Location = mongoose.model('Location')
 
 router.get("/", async(req, res, next) => {
+    /*  This is router is for testing*/
 
     try {
-     
+        // const location = await Location.findById(req.params.locationId)
+        //                     // .populate({path: "spots", populate: {
+        //                     //     path: "photos"}})
+        //                     // .populate({path: "spots", populate: {
+        //                     //     path: "comments"}})
+                            
+        // spots = location.spots //.populate("spots.photos");
         const spots = await Spot.find()
-            // .populate("id", "latitude, longitude, name, comments, photos");
         return res.json(spots)
     }
     catch(err) {
         const error = new Error('Spot not found');
         error.statusCode = 404;
-        error.errors = { message: "No Spots were found." };
+        error.errors = { message: `No Spots were found. ${err}` };
         return next(error);
     }
 });
@@ -22,15 +29,16 @@ router.get("/", async(req, res, next) => {
 router.get("/:id", async (req, res, next) => {
     
     try {
-      
-        const spot = await Spot.findById(req.params.id)
-            // .populate("id", "latitude, longitude, name, comments, photos");
-        return res.json(spot)
+      const spot = await Spot.findById(req.params.id)
+                            .populate("photos", "") //_id latitude
+                            .populate("comments");
+                       
+      return res.json(spot);
     }
-    catch {
+    catch(err) {
         const error = new Error('Spot not found');
         error.statusCode = 404;
-        error.errors = { message: "Not Spot with that id was found."};
+        error.errors = { message: `Not Spot with that id was found ${err}`};
         return next(error);
     }
 });

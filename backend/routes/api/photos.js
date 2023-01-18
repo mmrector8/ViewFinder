@@ -32,7 +32,7 @@ router.post("/", validatePhotoInput, async (req, res, next) => {
     //find it a spot exists with the given coordinates within 1 mile
     const client = new Client({})
   
-    recArea = spotSearchRectangle(req.body.latitude, req.body.longitude);
+    recArea = spotSearchRectangle(req.body.latitude, req.body.longitude); // retrives top and bottom coordinates within a 1 mile radius
     let spot = await Spot.find({
       $and: [
         { latitude: { $gte: recArea.top1[0], $lte: recArea.bottom1[0] } },
@@ -40,16 +40,16 @@ router.post("/", validatePhotoInput, async (req, res, next) => {
       ],
     });
     
-    // return res.json(spot);
+    
     if (!spot.length) {
-      //else 'spot does not exist'
+      //spot does not exist
       //create and save new spot
-      // retrive new spot._id and use it as a ref for the photo
       const newSpot = new Spot({
         latitude: req.body.latitude,
         longitude: req.body.longitude,
         name: req.body.description,
       });
+      //new spot used for spotId
       spot = await newSpot.save();
 
       //Finding and updating a location's spot field based on spot's lat and long
