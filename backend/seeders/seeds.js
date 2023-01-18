@@ -174,6 +174,8 @@ const badWaterBasin = new Spot({
 spots.push(tunnelPoint, coitTower, halfDome, badWaterBasin)
 
 locations[21].spots.push(tunnelPoint)
+locations[13].spots.push(badWaterBasin)
+
 
 //comments
 const comments = []
@@ -189,6 +191,8 @@ for (let i = 0; i < 10; i++) {
       spotId
     })
   )
+  spots[i%4].comments.push(comments[i])
+
 }
 
 
@@ -225,16 +229,26 @@ for (let i = 0; i < 10; i++) {
       likes: []
     })
   )
+  users[i % 5].photos.push(photos[i]);
+  spots[i%4].photos.push(photos[i])
 }
 
 //likes
 const likes = []
 
-for(let i =0; i < 10; i++){
-  let newLike = new Like({ photoId: photos[i], likerId: users[i]})
+for(let i =0; i < 31; i++){
+  let newLike = new Like({ photoId: photos[i%10], likerId: users[i%5]})
   likes.push(newLike);
-  photos[i].likes.push(newLike)
+  photos[i % 10].likes.push(newLike)
+  
 }
+//extra like 
+let extraLike = new Like({
+  photoId: badWaterBasin.photos[0]._id,
+  likerId: users[2],
+});
+likes.push(extraLike)
+badWaterBasin.photos[0].likes.push(extraLike);
 
 
 mongoose

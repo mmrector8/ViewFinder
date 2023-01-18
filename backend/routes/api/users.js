@@ -88,17 +88,9 @@ router.get("/current", restoreUser, (req, res) => {
 router.get("/:userId", async (req, res, next) => {
   let user;
   try {
-    user = await User.findById(req.params.userId);
-    return res.json({
-      // user: {
-        _id: user.id,
-        username: user.username,
-        email: user.email,
-        bio: user.bio,
-        profilePicUrl: user.profilePicUrl,
-        photos: user.photos
-      // }
-      })
+    user = await User.findById(req.params.userId)
+                .populate("photos");
+    return res.json(user)
   } catch (err) {
     const error = new Error("User not found");
     error.statusCode = 404;

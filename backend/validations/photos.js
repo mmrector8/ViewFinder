@@ -6,12 +6,12 @@ const validatePhotoInput = [
     check("url")
         .exists({checkFalsy: true})
         .withMessage("Url is missing"),
-    check("spotId") //will be setting the spotId within router 
-        .exists({checkFalsy: true})
-        .withMessage("Missing an associated spot for the photo"),
-    check("userId")
-        .exists({ checkFalsy: true })
-        .withMessage("Missing an associated photographer for the photo"),
+    // check("spotId") //will be setting the spotId within router 
+    //     .exists({checkFalsy: false}) //must be false
+    //     .withMessage("Missing an associated spot for the photo"),
+    // check("userId")
+    //     .exists({ checkFalsy: false }) //must be false 
+    //     .withMessage("Missing an associated photographer for the photo"),
     check("latitude")
         .isFloat({min: 32.553080, max: 42.0126})
         .withMessage("Selected Latitude is not within the range of California"),
@@ -37,9 +37,9 @@ const validatePhotoInput = [
     check("payment")
         .isIn(['0', '$', '$$', '$$$'])
         .withMessage("Selected price range is not within approved payment amount list: 0, $, $$, $$$"),
-    check("likes")
-        .exists({checkFalsy: false})
-        .withMessage("no likes are needed"),
+    // check("likes")
+    //     .exists({checkFalsy: false})
+    //     .withMessage("no likes are needed"),
 
     handleValidationErrors,
 ]

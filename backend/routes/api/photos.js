@@ -1,10 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+const Location = mongoose.model("Location")
 const Photo = mongoose.model("Photo");
 const Spot = mongoose.model("Spot");
+const User = mongoose.model("User")
 const validatePhotoInput = require("../../validations/photos");
 const { requireUser } = require("../../config/passport");
+const { Client } = require("@googlemaps/google-maps-services-js");
 
 router.get("/", async (req, res, next) => {
   //route needed for the splash page
@@ -23,32 +26,49 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", requireUser, validatePhotoInput, async (req, res, next) => {
+router.post("/", validatePhotoInput, async (req, res, next) => {
+  //requireUser
+  //!MUST INCLUDE REQUIRE USER
   try {
-    //!MUST INCLUDE REQUIRE USER
     //find it a spot exists with the given coordinates within 1 mile
-
-    recArea = spotSearchRectangle(req.body.latitude, req.body.longitude);
+    const client = new Client({})
+  
+    recArea = spotSearchRectangle(req.body.latitude, req.body.longitude); // retrives top and bottom coordinates within a 1 mile radius
     let spot = await Spot.find({
       $and: [
         { latitude: { $gte: recArea.top1[0], $lte: recArea.bottom1[0] } },
         { longitude: { $gte: recArea.bottom1[1], $lte: recArea.top1[1] } },
       ],
     });
-
-    // return res.json(spot);
+    
+    
     if (!spot.length) {
-      //else 'spot does not exist'
+      //spot does not exist
       //create and save new spot
-      // retrive new spot._id and use it as a ref for the photo
       const newSpot = new Spot({
         latitude: req.body.latitude,
         longitude: req.body.longitude,
         name: req.body.description,
       });
+      //new spot used for spotId
       spot = await newSpot.save();
-      
+
+      //Finding and updating a location's spot field based on spot's lat and long
+      //pulg coordinates into an api
+      const mapResult = await client.reverseGeocode({
+        params: {
+          latlng: [req.body.latitude, req.body.longitude],
+          key: process.env.GOOGLE_MAPS_API_KEY,
+        },
+        timeout: 1000, // milliseconds
+      });
+      // use the county name retrived from api to find the location
+      let county = countySearch(mapResult.data.results); //retrives county from api call
+      //find the location based on countyName & push spot._id 
+      await Location.updateOne({county: county}, {$push: {spots: spot._id}})
+    
     } else {
+      //found spot comes in an array with a single object 
       spot = spot.pop();
     }
 
@@ -75,6 +95,9 @@ router.post("/", requireUser, validatePhotoInput, async (req, res, next) => {
     //update and save spot photo ref array
     await spot.photos.addToSet(photo._id); //adds id if it does not exist
     await spot.save();
+    
+    //update user's photo list 
+    await User.updateOne({_id: photo.userId}, {$push: {photos: photo._id}})
 
     return res.json(photo); // returns new photo
   } catch (err) {
@@ -89,11 +112,11 @@ router.delete("/:id", requireUser, async (req, res, next) => {
   try {
     let id = req.params.id;
     let photo = await Photo.findOneAndDelete({ _id: id }); //find and deletes photo based on params
-    ////Updating the spot photo ref array 
+    ////Updating the spot and user photo ref array 
         //first arg is filter: getting spot by id 
         //sec arg pulls the photo id within the photoos field 
-    let spot = await Spot.updateOne({_id: photo.spotId}, {$pull: {photos: photo._id}}) 
-
+    await Spot.updateOne({_id: photo.spotId}, {$pull: {photos: photo._id}}) 
+    await User.updateOne({ _id: photo.userId }, { $pull: { photos: photo._id } });
     return res.json({ message: ` Successfully Deleted photo with id ${id} and updated Spot` });
   } catch (err) {
     const error = new Error("Delete Photo failed");
@@ -120,6 +143,26 @@ function spotSearchRectangle(latP, longP) {
     top1: [latP - latSd, longP + longSd],
     bottom1: [latP + latSd, longP - longSd],
   };
+}
+
+function countySearch(result) {
+  // retrives data.result array  
+  for (let resultObj of result ) {
+    //loops through the objects
+    for (let addressCompEle of resultObj.address_components) {
+      //keys into address_components and loops through its objects
+      if (
+        addressCompEle.types.includes("administrative_area_level_2") &&
+        addressCompEle.types.includes("political")
+      ) {
+        // checks if the object inculdes those two key phrases within types 
+          //returns keys into long_name which has county name 
+        return addressCompEle.long_name;
+      }
+    }
+  }
+  //return falsey if county not found 
+  return ""
 }
 
 module.exports = router;
