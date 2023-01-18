@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+const Location = mongoose.model("Location")
 const Photo = mongoose.model("Photo");
 const Spot = mongoose.model("Spot");
 const validatePhotoInput = require("../../validations/photos");
@@ -30,15 +31,7 @@ router.post("/", validatePhotoInput, async (req, res, next) => {
   try {
     //find it a spot exists with the given coordinates within 1 mile
     const client = new Client({})
-    const mapResult = await client.reverseGeocode({
-      params: {
-        latlng: [req.body.latitude, req.body.longitude],
-        key: process.env.GOOGLE_MAPS_API_KEY,
-      },
-      timeout: 1000, // milliseconds
-    });
-    let county = countySearch(mapResult.data.results) //retrives county from api call 
-    return res.json(county);
+  
     recArea = spotSearchRectangle(req.body.latitude, req.body.longitude);
     let spot = await Spot.find({
       $and: [
@@ -59,11 +52,20 @@ router.post("/", validatePhotoInput, async (req, res, next) => {
       });
       spot = await newSpot.save();
 
-      //Finding and updating a location's spot field based on spot's lat and long 
-          //pulg coordinates into an api 
-          // use the county name retrived from api to find the location 
-              //update the location
-      
+      //Finding and updating a location's spot field based on spot's lat and long
+      //pulg coordinates into an api
+      const mapResult = await client.reverseGeocode({
+        params: {
+          latlng: [req.body.latitude, req.body.longitude],
+          key: process.env.GOOGLE_MAPS_API_KEY,
+        },
+        timeout: 1000, // milliseconds
+      });
+      // use the county name retrived from api to find the location
+      let county = countySearch(mapResult.data.results); //retrives county from api call
+      //find the location based on countyName & push spot._id 
+      await Location.updateOne({county: county}, {$push: {spots: spot._id}})
+    
     } else {
       //found spot comes in an array with a single object 
       spot = spot.pop();
@@ -75,7 +77,7 @@ router.post("/", validatePhotoInput, async (req, res, next) => {
     const newPhoto = new Photo({
       url: req.body.url,
       spotId: spot._id, //using the existing or new spot
-      userId: 'kzk', //req.user._id, //retrived from requireUser
+      userId: req.user._id, //retrived from requireUser
       latitude: req.body.latitude,
       longitude: req.body.longitude,
       genre: req.body.genre,
