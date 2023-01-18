@@ -45,10 +45,8 @@
     width: 65%;
     background-color: rgb(246, 160, 246);
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* margin-right: 200px; */
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 

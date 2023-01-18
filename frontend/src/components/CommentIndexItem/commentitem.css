@@ -1,0 +1,23 @@
+.comment-item{
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    margin-top: 30px;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid grey;
+}
+
+.username-for-comment{
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.comment-date{
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.comment-body{
+    margin-top: 10px;
+}

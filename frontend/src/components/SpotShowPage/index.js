@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchSpot } from "../../store/spot"
+import CommentIndexItem from "../CommentIndexItem";
 import "./spotshow.css"
 
 const SpotShowPage = ()=>{
@@ -28,7 +29,7 @@ const SpotShowPage = ()=>{
                 </div>
                 <div className="comments-and-info-container">
                     <div className="comments-box">
-                        {spot.comments?.map((comment, i)=> <p className="comment-item" key={i}>{comment.body}</p>)}
+                        {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment}/>)}
                     </div>
                     <div className="spot-info-container">
                         <p className="spot-info-item">{spot.name}</p>
