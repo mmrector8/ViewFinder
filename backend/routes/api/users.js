@@ -75,14 +75,14 @@ router.get("/current", restoreUser, (req, res) => {
   }
   if (!req.user) return res.json(null);
   return res.json({
-    user: {
+    // user: {
       _id: req.user._id,
       username: req.user.username,
       email: req.user.email,
       bio: req.user.bio,
       profilePicUrl: req.user.profilePicUrl,
       photos: req.user.photos
-    }
+    // }
   });
 });
 

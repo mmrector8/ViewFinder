@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const Photo = mongoose.model("Photo");
 const Spot = mongoose.model("Spot");
-const validatePhotoInput = require("../../validations/locations");
+const validatePhotoInput = require("../../validations/photos");
 const { requireUser } = require("../../config/passport");
 
 router.get("/", async (req, res, next) => {
