@@ -24,12 +24,14 @@
     width: 600px;
     background-color: rgb(143, 250, 245);
     margin-right: 20px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .top-upvoted-smaller-images{
     height: 190px;
     width: 305px;
     background-color: rgb(143, 250, 245);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .comments-and-info-container{
@@ -47,6 +49,7 @@
     justify-content: center;
     flex-direction: column;
     /* margin-right: 200px; */
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .spot-info-container{
@@ -58,4 +61,5 @@
     background-color: green;
     width: 30%;
     padding: 20px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }

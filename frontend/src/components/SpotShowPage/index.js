@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchSpot } from "../../store/spot"
 import "./spotshow.css"
 
 const SpotShowPage = ()=>{
     const spot = useSelector(state=> state.spots)
-    const spotId = useParams();
+    const {spotId} = useParams();
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchSpot(spotId))
-    }, [dispatch])
+    }, [dispatch, spotId])
 
     if(!spot){
         return null
@@ -19,7 +19,7 @@ const SpotShowPage = ()=>{
 
     return(
         <div className="spot-show-page-container">
-            {/* <div className="spot-show-grid-container"> */}
+            <div className="spot-show-grid-container">
                 <div className="upvoted-photos">
                     <img src="" alt="most upvoted image" className="most-upvoted-image"></img>
                     <div className="top-upvoted-photos">
@@ -28,9 +28,7 @@ const SpotShowPage = ()=>{
                 </div>
                 <div className="comments-and-info-container">
                     <div className="comments-box">
-                        <p>example comment 1</p>
-                        <p>example comment 2</p>
-                        <p>example comment 3</p>
+                        {spot.comments?.map((comment, i)=> <p className="comment-item" key={i}>{comment}</p>)}
                     </div>
                     <div className="spot-info-container">
                         <p className="spot-info-item">{spot.name}</p>
@@ -40,7 +38,7 @@ const SpotShowPage = ()=>{
                         <p className="spot-info-item">Transportation</p>
                     </div>
                 </div>
-            {/* </div> */}
+            </div>
         </div>
         
     )

@@ -28,10 +28,10 @@ const App = () => {
         <LoginModal />
         <SignupModal />
         {currentUser && <UserModal />}
-        <Route exact path="/users/:id">
+        <Route exact path="/users/:userId">
           <UserShowPage />
         </Route>
-        <Route exact path="/spots/:id">
+        <Route exact path="/spots/:spotId">
           <SpotShowPage />
         </Route>
         <Switch>

@@ -8,11 +8,10 @@ export const receiveSpot = spot => ({
 })
 
 export const fetchSpot = (spotId) => async dispatch => {
-    spotId = (spotId.id)
     try {
         const res = await jwtFetch(`/api/spots/${spotId}`)
         const spot = await res.json()
-        return dispatch(receiveSpot(spot))
+        dispatch(receiveSpot(spot))
     } catch (err) {
         const res = await err.json();
         if (res.statusCode === 400) {

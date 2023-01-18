@@ -14,7 +14,6 @@ export const getUser = (userId)=>(state)=>{
 }
 
 export const fetchUser = (userId)=> async dispatch =>{
-    userId = (userId.id)
     try{
         const res = await jwtFetch(`/api/users/${userId}`)
         const user = await res.json()
