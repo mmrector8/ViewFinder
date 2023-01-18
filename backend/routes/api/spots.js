@@ -4,6 +4,7 @@ const router = express.Router();
 const Spot = mongoose.model('Spot')
 const Location = mongoose.model('Location')
 
+
 router.get("/", async(req, res, next) => {
     /*  This is router is for testing*/
 
