@@ -1,4 +1,4 @@
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "./components/Routes";
 import NavBar from "./components/NavBar";
 import MainPage from "./components/MainPage";
@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import LoginModal from "./components/SessionForms/LoginModal";
 import SignupModal from "./components/SessionForms/SignupModal";
 import UserModal from "./components/UserModal";
+import UserShowPage from "./components/UserShowPage";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -26,6 +27,9 @@ const App = () => {
         <LoginModal />
         <SignupModal />
         {currentUser && <UserModal />}
+        <Route exact path="/users/:id">
+          <UserShowPage />
+        </Route>
         <Switch>
           <AuthRoute exact path="/" component={MainPage} />
           <ProtectedRoute exact path="/profile" component={Profile} />
