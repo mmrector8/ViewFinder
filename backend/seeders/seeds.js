@@ -229,7 +229,7 @@ for (let i = 0; i < 10; i++) {
       likes: []
     })
   )
-
+  users[i % 5].photos.push(photos[i]);
   spots[i%4].photos.push(photos[i])
 }
 
