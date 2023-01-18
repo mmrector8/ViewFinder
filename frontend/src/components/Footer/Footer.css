@@ -6,8 +6,6 @@
   align-items: center;
   background-color: rgb(74, 58, 255);
   color: white;
-  /* remove these later */
-  position: fixed;
   bottom: 0;
 }
 

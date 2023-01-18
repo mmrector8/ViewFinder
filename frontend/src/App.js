@@ -1,4 +1,4 @@
-import { Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "./components/Routes";
 import NavBar from "./components/NavBar";
 import MainPage from "./components/MainPage";
@@ -12,7 +12,7 @@ import UserModal from "./components/UserModal";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
-  const currentUser = useSelector(store => store.session.user);
+  const currentUser = useSelector((store) => store.session.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,8 +27,11 @@ const App = () => {
         <SignupModal />
         {currentUser && <UserModal />}
         <Switch>
-          <AuthRoute exact path="/" component={MainPage} />
+          <Route exact path="/" component={MainPage} />
           <ProtectedRoute exact path="/profile" component={Profile} />
+          <Route path="/locations">
+            <LocationShowPage />
+          </Route>
         </Switch>
       </>
     )
