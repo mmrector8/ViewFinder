@@ -4,13 +4,15 @@ import sessionReducer from "./session";
 import errorsReducer from "./errors"
 import uiReducer from "./ui";
 import usersReducer from "./user";
+import spotsReducer from "./spot";
 
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   errors: errorsReducer,
   ui: uiReducer,
-  users: usersReducer
+  users: usersReducer,
+  spots: spotsReducer
 });
 
 let enhancer;

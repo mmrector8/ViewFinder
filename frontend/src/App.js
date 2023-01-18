@@ -10,6 +10,7 @@ import LoginModal from "./components/SessionForms/LoginModal";
 import SignupModal from "./components/SessionForms/SignupModal";
 import UserModal from "./components/UserModal";
 import UserShowPage from "./components/UserShowPage";
+import SpotShowPage from "./components/SpotShowPage";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -29,6 +30,9 @@ const App = () => {
         {currentUser && <UserModal />}
         <Route exact path="/users/:id">
           <UserShowPage />
+        </Route>
+        <Route exact path="/spots/:id">
+          <SpotShowPage />
         </Route>
         <Switch>
           <AuthRoute exact path="/" component={MainPage} />
