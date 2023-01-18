@@ -1,5 +1,4 @@
 import { Switch, Route } from "react-router-dom";
-import { AuthRoute, ProtectedRoute } from "./components/Routes";
 import NavBar from "./components/NavBar";
 import MainPage from "./components/MainPage";
 import { getCurrentUser } from "./store/session";
@@ -29,15 +28,15 @@ const App = () => {
         <LoginModal />
         <SignupModal />
         {currentUser && <UserModal />}
-        <Route exact path="/users/:userId">
-          <UserShowPage />
-        </Route>
-        <Route exact path="/spots/:spotId">
-          <SpotShowPage />
-        </Route>
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <ProtectedRoute exact path="/profile" component={Profile} />
+          <Route exact path="/users/:userId">
+            <UserShowPage />
+          </Route>
+          <Route exact path="/spots/:spotId">
+            <SpotShowPage />
+          </Route>
+          <Route exact path="/profile" component={Profile} />
           <Route path="/locations/:locationId">
             <LocationShowPage />
           </Route>
