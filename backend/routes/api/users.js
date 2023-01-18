@@ -75,12 +75,12 @@ router.get("/current", restoreUser, (req, res) => {
   if (!req.user) return res.json(null);
   return res.json({
     // user: {
-    _id: req.user._id,
-    username: req.user.username,
-    email: req.user.email,
-    bio: req.user.bio,
-    profilePicUrl: req.user.profilePicUrl,
-    photos: req.user.photos,
+      _id: req.user._id,
+      username: req.user.username,
+      email: req.user.email,
+      bio: req.user.bio,
+      profilePicUrl: req.user.profilePicUrl,
+      photos: req.user.photos
     // }
   });
 });
@@ -90,15 +90,15 @@ router.get("/:userId", async (req, res, next) => {
   try {
     user = await User.findById(req.params.userId);
     return res.json({
-      user: {
+      // user: {
         _id: user.id,
         username: user.username,
         email: user.email,
         bio: user.bio,
         profilePicUrl: user.profilePicUrl,
-        photos: user.photos,
-      },
-    });
+        photos: user.photos
+      // }
+      })
   } catch (err) {
     const error = new Error("User not found");
     error.statusCode = 404;
