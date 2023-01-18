@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const Photo = mongoose.model("Photo");
 const Spot = mongoose.model("Spot");
-const validatePhotoInput = require("../../validations/locations");
+const validatePhotoInput = require("../../validations/photos");
 const { requireUser } = require("../../config/passport");
 
 router.get("/", async (req, res, next) => {
@@ -35,7 +35,7 @@ router.post("/", requireUser, validatePhotoInput, async (req, res, next) => {
         { longitude: { $gte: recArea.bottom1[1], $lte: recArea.top1[1] } },
       ],
     });
-    ///test
+    
     // return res.json(spot);
     if (!spot.length) {
       //else 'spot does not exist'
@@ -47,8 +47,14 @@ router.post("/", requireUser, validatePhotoInput, async (req, res, next) => {
         name: req.body.description,
       });
       spot = await newSpot.save();
+
+      //Finding and updating a location's spot field based on spot's lat and long 
+          //pulg coordinates into an api 
+          // use the county name retrived from api to find the location 
+              //update the location
       
     } else {
+      //found spot comes in an array with a single object 
       spot = spot.pop();
     }
 
