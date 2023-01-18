@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import LoginModal from "./components/SessionForms/LoginModal";
 import SignupModal from "./components/SessionForms/SignupModal";
 import UserModal from "./components/UserModal";
+import LocationShowPage from "./components/LocationShowPage";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -29,7 +30,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={MainPage} />
           <ProtectedRoute exact path="/profile" component={Profile} />
-          <Route path="/locations">
+          <Route path="/locations/:locationId">
             <LocationShowPage />
           </Route>
         </Switch>
