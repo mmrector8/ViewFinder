@@ -31,8 +31,13 @@ router.get("/:id", async (req, res, next) => {
     try {
       const spot = await Spot.findById(req.params.id)
                             .populate("photos", "") //_id latitude
-                            .populate("comments");
-                       
+                            .populate({
+                                path: "comments",
+                                populate :{
+                                    path: "userId",
+                                    select: "_id username"
+                                }
+                            });
       return res.json(spot);
     }
     catch(err) {
