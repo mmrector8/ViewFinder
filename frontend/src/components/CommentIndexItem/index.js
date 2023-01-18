@@ -37,10 +37,11 @@ const CommentIndexItem = ({comment})=>{
 
     return (
         <div className="comment-item">
-            <div className="name-and-date-comment">
+            <div className="name-and-profile-comment">
+                <img src="prof-pic" className="comment-prof-pic"></img>
                 <p className='username-for-comment'>{comment.userId.username}</p>
-                <p className="comment-date">{convertDate(comment.updatedAt)}</p>
             </div>
+            <p className="comment-date">{convertDate(comment.updatedAt)}</p>
             <p className="comment-body">{comment.body}</p>
         </div>
     )

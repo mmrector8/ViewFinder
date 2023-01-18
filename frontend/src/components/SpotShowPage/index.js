@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchSpot } from "../../store/spot"
 import CommentIndexItem from "../CommentIndexItem";
+import CommentForm from "../CommentForm";
 import "./spotshow.css"
 
 const SpotShowPage = ()=>{
@@ -29,7 +30,8 @@ const SpotShowPage = ()=>{
                 </div>
                 <div className="comments-and-info-container">
                     <div className="comments-box">
-                        {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment}/>)}
+                        <CommentForm />
+                        {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>)}
                     </div>
                     <div className="spot-info-container">
                         <p className="spot-info-item">{spot.name}</p>
