@@ -4,6 +4,7 @@ const router = express.Router();
 const Location = mongoose.model("Location")
 const Photo = mongoose.model("Photo");
 const Spot = mongoose.model("Spot");
+const User = mongoose.model("User")
 const validatePhotoInput = require("../../validations/photos");
 const { requireUser } = require("../../config/passport");
 const { Client } = require("@googlemaps/google-maps-services-js");
@@ -94,6 +95,9 @@ router.post("/", validatePhotoInput, async (req, res, next) => {
     //update and save spot photo ref array
     await spot.photos.addToSet(photo._id); //adds id if it does not exist
     await spot.save();
+    
+    //update user's photo list 
+    await User.updateOne({_id: photo.userId}, {$push: {photos: photo._id}})
 
     return res.json(photo); // returns new photo
   } catch (err) {
@@ -108,11 +112,11 @@ router.delete("/:id", requireUser, async (req, res, next) => {
   try {
     let id = req.params.id;
     let photo = await Photo.findOneAndDelete({ _id: id }); //find and deletes photo based on params
-    ////Updating the spot photo ref array 
+    ////Updating the spot and user photo ref array 
         //first arg is filter: getting spot by id 
         //sec arg pulls the photo id within the photoos field 
-    let spot = await Spot.updateOne({_id: photo.spotId}, {$pull: {photos: photo._id}}) 
-
+    await Spot.updateOne({_id: photo.spotId}, {$pull: {photos: photo._id}}) 
+    await User.updateOne({ _id: photo.userId }, { $pull: { photos: photo._id } });
     return res.json({ message: ` Successfully Deleted photo with id ${id} and updated Spot` });
   } catch (err) {
     const error = new Error("Delete Photo failed");

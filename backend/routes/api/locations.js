@@ -23,12 +23,17 @@ router.get("/", async (req, res, next) => {
 // GET /api/locations/:id
 router.get("/:id", async (req, res, next) => {
   try {
-    const location = await Location.findById(req.params.id)
-                        .populate({path: "spots", populate: {
-                            path: "photos"}}) //need 
+    const location = await Location.findById(req.params.id).populate({
+      path: "spots",
+      select: "_id latitude longitude name",
+      populate: {
+        path: "photos",
+        select: "_id url latitude longitude userId likes",
+        populate: { path: "userId", select: "_id username email" },
+      },
+    });
                        
-                        // .populate({path: "spots", populate: {
-                        //     path: "comments"}}) //may not need comments within location show page 
+                       
     location.spots.forEach((spot) => {
       spot.photos.sort((a, b) => b.likes.length - a.likes.length);
     })
