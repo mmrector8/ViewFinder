@@ -9,7 +9,6 @@ const { isProduction } = require("../../config/keys");
 const validateRegisterInput = require("../../validations/register");
 const validateLoginInput = require("../../validations/login");
 
-
 // POST /api/users/register
 router.post("/register", validateRegisterInput, async (req, res, next) => {
   const user = await User.findOne({
@@ -25,7 +24,7 @@ router.post("/register", validateRegisterInput, async (req, res, next) => {
     }
     if (user.username === req.body.username) {
       errors.username = "A user has already registered with this username";
-    } 
+    }
     err.errors = errors;
     return next(err);
   }
@@ -35,7 +34,7 @@ router.post("/register", validateRegisterInput, async (req, res, next) => {
     email: req.body.email,
     bio: req.body.bio,
     profilePicUrl: req.body.profilePicUrl,
-    photos: req.body.photos
+    photos: req.body.photos,
   });
 
   bcrypt.genSalt(10, (err, salt) => {
@@ -75,14 +74,14 @@ router.get("/current", restoreUser, (req, res) => {
   }
   if (!req.user) return res.json(null);
   return res.json({
-    user: {
-      _id: req.user._id,
-      username: req.user.username,
-      email: req.user.email,
-      bio: req.user.bio,
-      profilePicUrl: req.user.profilePicUrl,
-      photos: req.user.photos
-    }
+    // user: {
+    _id: req.user._id,
+    username: req.user.username,
+    email: req.user.email,
+    bio: req.user.bio,
+    profilePicUrl: req.user.profilePicUrl,
+    photos: req.user.photos,
+    // }
   });
 });
 
@@ -97,14 +96,14 @@ router.get("/:userId", async (req, res, next) => {
         email: user.email,
         bio: user.bio,
         profilePicUrl: user.profilePicUrl,
-        photos: user.photos
-      }
-      })
+        photos: user.photos,
+      },
+    });
   } catch (err) {
-    const error = new Error("User not found")
+    const error = new Error("User not found");
     error.statusCode = 404;
-    error.errors = { message: "No user found with that id" }
-    return next(error)
+    error.errors = { message: "No user found with that id" };
+    return next(error);
   }
 });
 
