@@ -9,7 +9,7 @@ const MapBox = () => {
   const map = useRef(null);
   const [lng, setLng] = useState(-119.5249);
   const [lat, setLat] = useState(38.1918);
-  const [zoom, setZoom] = useState(4.55);
+  const [zoom, setZoom] = useState(5);
 
   useEffect(() => {
     if (map.current) return;

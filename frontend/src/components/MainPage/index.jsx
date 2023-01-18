@@ -7,7 +7,12 @@ const MainPage = () => {
   return (
     <>
       <div className="map-and-carousel-container">
-        <div className="carousel"></div>
+        <div className="carousel">
+          <div className="info-sidebar"></div>
+          <div className="carousel-top"></div>
+          <div className="carousel-bottom-left"></div>
+          <div className="carousel-bottom-right"></div>
+        </div>
         <div className="mainpage-mapbox">
           <MapBox />
         </div>

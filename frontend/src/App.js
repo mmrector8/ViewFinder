@@ -29,6 +29,9 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={MainPage} />
           <ProtectedRoute exact path="/profile" component={Profile} />
+          <Route path="/locations">
+            <LocationShowPage />
+          </Route>
         </Switch>
       </>
     )
