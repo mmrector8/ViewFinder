@@ -8,6 +8,7 @@ const User = mongoose.model("User")
 const validatePhotoInput = require("../../validations/photos");
 const { requireUser } = require("../../config/passport");
 const { Client } = require("@googlemaps/google-maps-services-js");
+const standardizeData = require("../../utils/standardizeData")
 
 router.get("/", async (req, res, next) => {
   //route needed for the splash page
@@ -17,7 +18,7 @@ router.get("/", async (req, res, next) => {
       .addFields({ length: { $size: `$${sortBy}` } }) //adds a new field called length within counts the size of the likes array
       .sort({ length: -1 }); //orders the aggregate/array based on ascending order
 
-    return res.json(photos); //returns the photos in ascending order based on likes
+    return res.json(standardizeData(photos)); //returns the photos in ascending order based on likes
   } catch (err) {
     const error = new Error("Photos were not found");
     error.statusCode = 404;

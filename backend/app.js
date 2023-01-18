@@ -19,11 +19,12 @@ const passport = require("passport");
 
 const usersRouter = require("./routes/api/users");
 const csrfRouter = require("./routes/api/csrf");
-const locationRouter = require("./routes/api/locations")
+const locationRouter = require("./routes/api/locations");
 const spotRouter = require("./routes/api/spots"); 
-const likeRouter = require("./routes/api/likes")
-const commentRouter = require("./routes/api/comments")
-const photoRouter = require("./routes/api/photos")
+const likeRouter = require("./routes/api/likes");
+const commentRouter = require("./routes/api/comments");
+const photoRouter = require("./routes/api/photos");
+const searchRouter = require("./routes/api/search");
 const app = express();
 
 app.use(logger("dev"));
@@ -51,7 +52,7 @@ app.use("/api/spots", spotRouter);
 app.use("/api/likes", likeRouter)
 app.use("/api/comments", commentRouter);
 app.use("/api/photos", photoRouter)
-
+app.use('/api/search', searchRouter)
 
 app.use((req, res, next) => {
   const err = new Error("Not Found");
