@@ -16,6 +16,7 @@ const MapBox = ({ locations, spots }) => {
 
   const options = {
     // mapId: "73cef3161f877bcd",
+    mapTypeId: "terrain",
     disableDefaultUI: false,
     clickableIcons: false,
   };
@@ -32,10 +33,20 @@ const MapBox = ({ locations, spots }) => {
           {(clusterer) =>
             locations
               ? Object.values(locations).map((location, idx) => (
-                  <CustomMarker place={location} key={idx} type={"locations"} clusterer={clusterer} />
+                  <CustomMarker
+                    place={location}
+                    key={idx}
+                    type={"locations"}
+                    clusterer={clusterer}
+                  />
                 ))
               : spots?.map((spot, idx) => (
-                  <CustomMarker place={spot} key={idx} type={"spots"} clusterer={clusterer} />
+                  <CustomMarker
+                    place={spot}
+                    key={idx}
+                    type={"spots"}
+                    clusterer={clusterer}
+                  />
                 ))
           }
         </MarkerClustererF>

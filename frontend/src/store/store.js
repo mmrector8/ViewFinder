@@ -1,13 +1,13 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
-import errorsReducer from "./errors"
+import errorsReducer from "./errors";
 import uiReducer from "./ui";
 import locationReducer from "./location";
 import usersReducer from "./user";
 import spotsReducer from "./spot";
 import photosReducer from "./photos";
-
+import resultsReducer from "./search";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -17,6 +17,7 @@ const rootReducer = combineReducers({
   users: usersReducer,
   spots: spotsReducer,
   photos: photosReducer,
+  search: resultsReducer,
 });
 
 let enhancer;

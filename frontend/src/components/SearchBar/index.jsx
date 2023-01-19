@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import { useDispatch } from "react-redux";
+import { openSearchModal } from "../../store/ui";
+import { fetchResults } from "../../store/search";
 
 const SearchBar = () => {
   const [queryString, setQueryString] = useState("");
   const [queryType, setQueryType] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = { body: queryString, type: queryType };
-    // dispatch search request here
-    console.log(query);
+    dispatch(fetchResults(query));
+    dispatch(openSearchModal());
   };
 
   return (
@@ -19,6 +23,7 @@ const SearchBar = () => {
         type="text"
         name="queryString"
         placeholder="Search"
+        autoComplete="off"
         value={queryString}
         onChange={(e) => setQueryString(e.target.value)}
       />
