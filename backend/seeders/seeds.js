@@ -197,12 +197,142 @@ const badWaterBasin = new Spot({
   comments: [],
   photos: [],
 });
+
+const spot1 = new Spot({
+  latitude: 37.827419,
+  longitude: -122.481477,
+  name: "Golden Gate Bridge",
+  comments: [],
+  photos: [],
+});
+const spot2 = new Spot({
+  latitude: 37.79503,
+  longitude: -122.403191,
+  name: "Sf Peace",
+  comments: [],
+  photos: [],
+});
+const spot3 = new Spot({
+  latitude: 37.7204308944536,
+  longitude: -119.646988202019,
+  name: "Yosemite",
+  comments: [],
+  photos: [],
+});
+const spot4 = new Spot({
+  latitude: 34.016925,
+  longitude: -118.492198,
+  name: "Santa Monica beauty",
+  comments: [],
+  photos: [],
+});
+const spot5 = new Spot({
+  latitude: 34.055551,
+  longitude: -118.24951,
+  name: "Disney Opera House",
+  comments: [],
+  photos: [],
+});
+const spot6 = new Spot({
+  latitude: 37.115196,
+  longitude: -122.329892,
+  name: "Cute Lion Seal",
+  comments: [],
+  photos: [],
+});
+const spot7 = new Spot({
+  latitude: 33.980906,
+  longitude: -116.241798,
+  name: "Joshua Tree in River Side",
+  comments: [],
+  photos: [],
+});
+const spot8 = new Spot({
+  latitude: 33.534053,
+  longitude: -117.773975,
+  name: "Laguna Beach",
+  comments: [],
+  photos: [],
+});
+const spot9 = new Spot({
+  latitude: 36.963911,
+  longitude: -122.019289,
+  name: "Santa Cruz Boardwalk",
+  comments: [],
+  photos: [],
+});
+const spot10 = new Spot({
+  latitude: 35.615724,
+  longitude: -117.368011,
+  name: "Trona",
+  comments: [],
+  photos: [],
+});
+const spot11 = new Spot({
+  latitude: 33.9032721761685,
+  longitude: -115.910280800483,
+  name: "Joshua tree",
+  comments: [],
+  photos: [],
+});
+const spot12 = new Spot({
+  latitude: 41.086205,
+  longitude: -122.275215,
+  name: "Shasta",
+  comments: [],
+  photos: [],
+});
+const spot13 = new Spot({
+  latitude: 37.348077,
+  longitude: -121.893392,
+  name: "San Jose Blossom",
+  comments: [],
+  photos: [],
+});
+const spot14 = new Spot({
+  latitude: 38.324028,
+  longitude: -119.632601,
+  name: "Sonora Pass",
+  comments: [],
+  photos: [],
+});
+const spot15 = new Spot({
+  latitude: 38.301839429763,
+  longitude: -122.300260526699,
+  name: "Wine Country",
+  comments: [],
+  photos: [],
+});
+const spot16 = new Spot({
+  latitude: 32.8853829048403,
+  longitude: -117.12275083609,
+  name: "Sunny SD",
+  comments: [],
+  photos: [],
+});
+
 spots.push(tunnelPoint, coitTower, halfDome, badWaterBasin);
+spots.push(spot1 , spot2 , spot3 , spot4 , spot5 , spot6 , spot7 , spot8 , spot9 , spot10 , spot11 , spot12 , spot13 , spot14 , spot15 , spot16)
 
 locations[21].spots.push(tunnelPoint);
 locations[21].spots.push(halfDome);
 locations[13].spots.push(badWaterBasin);
-
+locations[37].spots.push(spot1);
+locations[37].spots.push(spot2);
+locations[21].spots.push(spot3);
+locations[18].spots.push(spot4);
+locations[18].spots.push(spot5);
+locations[40].spots.push(spot6);
+locations[32].spots.push(spot7);
+locations[29].spots.push(spot8);
+locations[43].spots.push(spot9);
+locations[35].spots.push(spot10);
+locations[35].spots.push(spot11);
+locations[52].spots.push(spot12);
+locations[42].spots.push(spot13);
+locations[25].spots.push(spot14);
+locations[27].spots.push(spot15);
+locations[36].spots.push(spot16);
 //comments
 const comments = [];
 
@@ -292,7 +422,7 @@ for (let i = 0; i < 10; i++) {
 
 let photo1 = new Photo({
   url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite1.jpg",
-  spotId: spots[2]._id,
+  spotId: spot1._id,
   userId: users[0]._id,
   latitude: 37.72043089,
   longitude: -119.6469882,
@@ -303,10 +433,446 @@ let photo1 = new Photo({
   payment: "$",
   likes: [],
 });
-
 photos.push(photo1);
 spots[2].photos.push(photo1);
 users[0].photos.push(photo1);
+
+let photo2 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite1.jpg",
+  spotId: spot3._id,
+  userId: users[0]._id,
+  latitude: 37.7204308944536,
+  longitude: -119.646988202019,
+  genre: "landscape",
+  description: "Yosemite down by the river",
+  condition: ["slippery, rocky"],
+  transportation: ["hike, walk"],
+  bestTimeOfDay: "morning",
+  payment: "$",
+  likes: [],
+});
+let photo3 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite2.jpg",
+  spotId: spot3._id,
+  userId: users[0]._id,
+  latitude: 37.7342494301547,
+  longitude: -119.637670179482,
+  genre: "landscape",
+  description: "El Capitan looking beautiful",
+  condition: ["rocky"],
+  transportation: ["hike, walk"],
+  bestTimeOfDay: "night",
+  payment: "$$",
+  likes: [],
+});
+let photo4 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite3.jpg",
+  spotId: spot3._id,
+  userId: users[1]._id,
+  latitude: 37.7474105119472,
+  longitude: -119.533199345531,
+  genre: "wildlife",
+  description: "A beautiful deer frolicing in yosemite",
+  condition: ["wildlife", "windy"],
+  transportation: ["backpacking", "hike"],
+  bestTimeOfDay: "afternoon",
+  payment: "$$",
+  likes: [],
+});
+let photo5 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite4.jpg",
+  spotId: spot3._id,
+  userId: users[1]._id,
+  latitude: 37.7204308944536,
+  longitude: -119.646988202019,
+  genre: "landscape",
+  description: "The wide open road going to Yosemite",
+  condition: ["slope", "windy"],
+  transportation: ["car", "public"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo6 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite5.jpg",
+  spotId: spot3._id,
+  userId: users[0]._id,
+  latitude: 37.7474105119472,
+  longitude: -119.533199345531,
+  genre: "landscape",
+  description: "At the top of half dome",
+  condition: ["slope", "heat"],
+  transportation: ["backpacking", "hike"],
+  bestTimeOfDay: "golden hour",
+  payment: "$$",
+  likes: [],
+});
+let photo7 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite6.jpg",
+  spotId: spot3._id,
+  userId: users[0]._id,
+  latitude: 37.7342494301547,
+  longitude: -119.637670179482,
+  genre: "landscape",
+  description: "The sun peaking in saying hi",
+  condition: ["shade"],
+  transportation: ["car", "hike"],
+  bestTimeOfDay: "first light",
+  payment: "0",
+  likes: [],
+});
+let photo8 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/santa-monica.jpg",
+  spotId: spot4._id,
+  userId: users[0]._id,
+  latitude: 34.016925,
+  longitude: -118.492198,
+  genre: "landscape",
+  description: "Beautiful Day In Santa Monica",
+  condition: ["heat"],
+  transportation: ["car"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo9 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/michael-herren-0NCAaIAOMfc-unsplash.jpg",
+  spotId: spot6._id,
+  userId: users[1]._id,
+  latitude: 37.115196,
+  longitude: -122.329892,
+  genre: "wildlife",
+  description: "*Bark* *Bark*",
+  condition: ["heat", "shade"],
+  transportation: ["public", "walk"],
+  bestTimeOfDay: "afternoon",
+  payment: "$",
+  likes: [],
+});
+let photo10 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/snowy-joshua-tree.jpg",
+  spotId: spot7._id,
+  userId: users[0]._id,
+  latitude: 33.980906,
+  longitude: -116.241798,
+  genre: "landscape",
+  description: "Them Joshin Trees",
+  condition: ["snowy", "rocky"],
+  transportation: ["car", "hike"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo11 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/walt-disney-concert-hall.jpg",
+  spotId: spot5._id,
+  userId: users[0]._id,
+  latitude: 34.055551,
+  longitude: -118.24951,
+  genre: "street",
+  description: "Disney does is again",
+  condition: ["heat"],
+  transportation: ["car"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo12 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/laguna-beach.jpg",
+  spotId: spot8._id,
+  userId: users[0]._id,
+  latitude: 33.534053,
+  longitude: -117.773975,
+  genre: "landscape",
+  description: "Laguna Laguna",
+  condition: ["rocky, slippery"],
+  transportation: ["car"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo13 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/laguna-beach.jpg",
+  spotId: spot2._id,
+  userId: users[2]._id,
+  latitude: 37.79503,
+  longitude: -122.403191,
+  genre: "street",
+  description: "Peace",
+  condition: ["heat"],
+  transportation: ["public", "bike"],
+  bestTimeOfDay: "afternoon",
+  payment: "$",
+  likes: [],
+});
+let photo14 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/santa-cruz-boardwalk.jpg",
+  spotId: spot9._id,
+  userId: users[2]._id,
+  latitude: 36.963911,
+  longitude: -122.019289,
+  genre: "street",
+  description: "Cruising thru the board walk",
+  condition: ["heat"],
+  transportation: ["car", "walk"],
+  bestTimeOfDay: "afternoon",
+  payment: "$$",
+  likes: [],
+});
+let photo15 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/trona-astro.jpg",
+  spotId: spot10._id,
+  userId: users[0]._id,
+  latitude: 35.615724,
+  longitude: -117.368011,
+  genre: "astro",
+  description: "Trona Pinnacle",
+  condition: ["windy"],
+  transportation: ["car"],
+  bestTimeOfDay: "night",
+  payment: "$",
+  likes: [],
+});
+let photo16 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/shasta-trinity-aerial.jpg",
+  spotId: spot12._id,
+  userId: users[0]._id,
+  latitude: 41.086205,
+  longitude: -122.275215,
+  genre: "aerial",
+  description: "Shasta Trinity",
+  condition: ["windy", "slope"],
+  transportation: ["car"],
+  bestTimeOfDay: "afternoon",
+  payment: "$",
+  likes: [],
+});
+let photo17 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/downtown-sj-1.jpg",
+  spotId: spot13._id,
+  userId: users[3]._id,
+  latitude: 37.348077,
+  longitude: -121.893392,
+  genre: "landscape",
+  description: "Boba and Vibez",
+  condition: ["windy"],
+  transportation: ["public"],
+  bestTimeOfDay: "afternoon",
+  payment: "$",
+  likes: [],
+});
+let photo18 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/drive-download-20230119T201742Z-001/sonora-pass.jpg",
+  spotId: spot14._id,
+  userId: users[3]._id,
+  latitude: 38.324028,
+  longitude: -119.632601,
+  genre: "landscape",
+  description: "Sonora Pass",
+  condition: ["heat"],
+  transportation: ["car"],
+  bestTimeOfDay: "afternoon",
+  payment: "$",
+  likes: [],
+});
+let photo19 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/joshuatree.jpg",
+  spotId: spot11._id,
+  userId: users[2]._id,
+  latitude: 33.9032721761685,
+  longitude: -115.910280800483,
+  genre: "landscape",
+  description: "Cute lil tree",
+  condition: ["heat", "shade"],
+  transportation: ["backpacking", "hike", "car"],
+  bestTimeOfDay: "afternoon",
+  payment: "$$$",
+  likes: [],
+});
+let photo20 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/joshuatreeastro1.jpg",
+  spotId: spot11._id,
+  userId: users[3]._id,
+  latitude: 33.9032721761685,
+  longitude: -115.910280800483,
+  genre: "astro",
+  description: "Red tent in the night sky",
+  condition: ["windy", "rocky"],
+  transportation: ["car", "backpacking"],
+  bestTimeOfDay: "night",
+  payment: "$$",
+  likes: [],
+});
+let photo21 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/joshuaastro2.jpg",
+  spotId: spot11._id,
+  userId: users[2]._id,
+  latitude: 33.9032721761685,
+  longitude: -115.910280800483,
+  genre: "astro",
+  description: "Sparkly stars in the night",
+  condition: ["heat"],
+  transportation: ["backpacking"],
+  bestTimeOfDay: "night",
+  payment: "$",
+  likes: [],
+});
+let photo22 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/joshua+astro.jpg",
+  spotId: spot11._id,
+  userId: users[0]._id,
+  latitude: 33.9032721761685,
+  longitude: -115.910280800483,
+  genre: "astro",
+  description: "Purpley blue sky",
+  condition: ["rocky"],
+  transportation: ["backpacking"],
+  bestTimeOfDay: "night",
+  payment: "$",
+  likes: [],
+});
+let photo23 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/napa.jpg",
+  spotId: spot15._id,
+  userId: users[0]._id,
+  latitude: 38.301839429763,
+  longitude: -122.300260526699,
+  genre: "landscape",
+  description: "Big juicy grapes",
+  condition: ["heat"],
+  transportation: ["car"],
+  bestTimeOfDay: "afternoon",
+  payment: "$$$",
+  likes: [],
+});
+let photo24 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/napa2.jpg",
+  spotId: spot15._id,
+  userId: users[0]._id,
+  latitude: 38.301839429763,
+  longitude: -122.300260526699,
+  genre: "landscape",
+  description: "Growing Grapes",
+  condition: ["windy"],
+  transportation: ["car"],
+  bestTimeOfDay: "golden hour",
+  payment: "$$$",
+  likes: [],
+});
+let photo25 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/sandiegocity.jpg",
+  spotId: spot16._id,
+  userId: users[0]._id,
+  latitude: 32.8853829048403,
+  longitude: -117.12275083609,
+  genre: "landscape",
+  description: "Beautiful San Diego",
+  condition: ["windy"],
+  transportation: ["airplane"],
+  bestTimeOfDay: "sunrise",
+  payment: "$$$",
+  likes: [],
+});
+let photo26 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/sandiego1.jpg",
+  spotId: spot16._id,
+  userId: users[0]._id,
+  latitude: 32.8853829048403,
+  longitude: -117.12275083609,
+  genre: "landscape",
+  description: "The pacific ocean",
+  condition: ["windy"],
+  transportation: ["walk", "car"],
+  bestTimeOfDay: "golden hour",
+  payment: "0",
+  likes: [],
+});
+let photo27 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/sandiegopalms.jpg",
+  spotId: spot16._id,
+  userId: users[0]._id,
+  latitude: 32.8853829048403,
+  longitude: -117.12275083609,
+  genre: "landscape",
+  description: "Loving the palm trees",
+  condition: ["heat"],
+  transportation: ["walk"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+
+photos.push(
+  photo2,
+  photo3,
+  photo4,
+  photo5,
+  photo6,
+  photo7,
+  photo8,
+  photo9,
+  photo10,
+  photo11,
+  photo12,
+  photo13,
+  photo14,
+  photo15,
+  photo16,
+  photo17,
+  photo18,
+  photo19,
+  photo20,
+  photo21,
+  photo22,
+  photo23,
+  photo24,
+  photo25,
+  photo26,
+  photo27
+);
+spot2.photos.push(photo13);
+spot1.photos.push(photo1);
+spot3.photos.push(photo2, photo3, photo4, photo5, photo6, photo7);
+spot4.photos.push(photo8, photo11);
+spot6.photos.push(photo9);
+spot7.photos.push(photo10);
+spot8.photos.push(photo12);
+spot9.photos.push(photo14);
+spot10.photos.push(photo15, photo19, photo20, photo21, photo22);
+spot12.photos.push(photo16);
+spot13.photos.push(photo17);
+spot14.photos.push(photo18);
+spot15.photos.push(photo23, photo24);
+spot16.photos.push(photo25, photo26, photo27);
+
+users[0].photos.push(photo2);
+users[0].photos.push(photo3);
+users[1].photos.push(photo4);
+users[1].photos.push(photo5);
+users[0].photos.push(photo6);
+users[0].photos.push(photo7);
+users[0].photos.push(photo8);
+users[1].photos.push(photo9);
+users[0].photos.push(photo10);
+users[0].photos.push(photo11);
+users[0].photos.push(photo12);
+users[2].photos.push(photo13);
+users[2].photos.push(photo14);
+users[0].photos.push(photo15);
+users[0].photos.push(photo16);
+users[3].photos.push(photo17);
+users[3].photos.push(photo18);
+users[2].photos.push(photo19);
+users[3].photos.push(photo20);
+users[2].photos.push(photo21);
+users[0].photos.push(photo22);
+users[0].photos.push(photo23);
+users[0].photos.push(photo24);
+users[0].photos.push(photo25);
+users[0].photos.push(photo26);
+users[0].photos.push(photo27);
+
+
 
 //likes
 const likes = [];

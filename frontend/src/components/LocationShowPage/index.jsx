@@ -19,9 +19,10 @@ const LocationShowPage = () => {
       <div className="location-header">
         <h1>{location?.county}</h1>
       </div>
+      
+
       <div className="location-photo-grid">
         <img
-          
           className="location-images"
           src={location?.spots[1]?.photos[2]?.url}
         ></img>
