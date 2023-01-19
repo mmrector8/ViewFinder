@@ -19,14 +19,17 @@ const LocationShowPage = () => {
       <div className="location-header">
         <h1>{location?.county}</h1>
       </div>
-      <div className="location-photo-grid">
-        <img
-          
+      <div className="location-container">
+        <div className="location-show-map-container">
+          <MapBox spots={location?.spots} />
+        </div>
+        <div className="location-photo-grid">
+          {/* <img
           className="location-images"
           src={location?.spots[1]?.photos[2]?.url}
-        ></img>
+        ></img> */}
 
-        {/* {location?.spots?.map((spot, idx) => {
+          {/* {location?.spots?.map((spot, idx) => {
           spot?.photos?.map((photo, idx) => {
             {photo.url.includes(".jpg") &&
             <img
@@ -37,13 +40,14 @@ const LocationShowPage = () => {
         }});
         })} */}
 
-        {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num, i) => (
-          <img
-            key={i}
-            className="location-images"
-            src="https://pinnacle-seeds.s3.us-west-1.amazonaws.com/athletic-training.jpg"
-          ></img>
-        ))} */}
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num, i) => (
+            <img
+              key={i}
+              className="location-images"
+              src="https://pinnacle-seeds.s3.us-west-1.amazonaws.com/athletic-training.jpg"
+            ></img>
+          ))}
+        </div>
       </div>
     </div>
   );
