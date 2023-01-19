@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const Spot = mongoose.model('Spot')
 const Location = mongoose.model('Location')
+const standardizeData = require("../../utils/standardizeData")
 
 
 router.get("/", async(req, res, next) => {
@@ -32,12 +33,14 @@ router.get("/:id", async (req, res, next) => {
     try {
       const spot = await Spot.findById(req.params.id)
                             .populate("photos", "") //_id latitude
-                            .populate({path: "comments", populate: {
-                                path: "userId",
-                                select: "_id username"
-                            }});
-                       
-      return res.json(spot);
+                            .populate({
+                                path: "comments",
+                                populate :{
+                                    path: "userId",
+                                    select: "_id _id username"
+                                }
+                            });
+        return res.json(spot);
     }
     catch(err) {
         const error = new Error('Spot not found');

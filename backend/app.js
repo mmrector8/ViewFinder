@@ -54,26 +54,8 @@ app.use("/api/comments", commentRouter);
 app.use("/api/photos", photoRouter)
 app.use('/api/search', searchRouter)
 
-app.use((req, res, next) => {
-  const err = new Error("Not Found");
-  err.statusCode = 404;
-  next(err);
-});
-
-const serverErrorLogger = debug("backend:error");
-
-app.use((err, req, res, next) => {
-  serverErrorLogger(err);
-  const statusCode = err.statusCode || 500;
-  res.status(statusCode);
-  res.json({
-    message: err.message,
-    statusCode,
-    errors: err.errors,
-  });
-});
-
 // Serve static React build files statically in production
+
 if (isProduction) {
   const path = require('path');
   // Serve the frontend's index.html file at the root route
@@ -95,5 +77,27 @@ if (isProduction) {
     );
   });
 }
+
+app.use((req, res, next) => {
+  const err = new Error("Not Found");
+  err.statusCode = 404;
+  next(err);
+});
+
+const serverErrorLogger = debug("backend:error");
+
+app.use((err, req, res, next) => {
+  serverErrorLogger(err);
+  const statusCode = err.statusCode || 500;
+  res.status(statusCode);
+  res.json({
+    message: err.message,
+    statusCode,
+    errors: err.errors,
+  });
+});
+
+// Serve static React build files statically in production
+
 
 module.exports = app;

@@ -4,6 +4,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Comment = mongoose.model('Comment');
+const Spot = mongoose.model("Spot")
 const { requireUser } = require('../../config/passport');
 const validateCommentInput = require('../../validations/comments');
 
@@ -20,7 +21,7 @@ router.get("/", async(req, res, next)=>{
 
 router.patch('/:id', requireUser, validateCommentInput, async (req, res, next) => {
     try {
-        const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate("userId")
             if(!comment){
                 return res.json({message: "comment not found"});
             }
@@ -37,11 +38,9 @@ router.patch('/:id', requireUser, validateCommentInput, async (req, res, next) =
 router.delete('/:id', requireUser, async (req, res, next) => {
         try {
             let id = req.params.id
-            let comment = Comment.findOneAndDelete({ _id: id }, function (err, comment) {
-                if(comment) {
-                    return res.json({ message: "Comment deleted!" })
-                }
-            });
+            let comment = await Comment.findOneAndDelete({ _id: id })
+            // await Spot.updateOne({ _id: comment.spotId }, { $pull: { comments: comment._id } })
+            return res.json({ message: "Comment deleted!" })
         }
         catch (err) {
             const error = new Error('Comment could not be deleted')
@@ -51,7 +50,7 @@ router.delete('/:id', requireUser, async (req, res, next) => {
         }
 });
 
-router.post('/spots/:spotId', requireUser, validateCommentInput, async (req, res, next) => { 
+router.post('/spots/:spotId', requireUser, validateCommentInput, async (req, res, next) => {
      try {
             const newComment = new Comment({
                 body: req.body.body,
@@ -60,7 +59,8 @@ router.post('/spots/:spotId', requireUser, validateCommentInput, async (req, res
             });
 
             let comment = await newComment.save();
-            comment = await comment.populate('_id', '_id, body, userId, spotId');
+            await Spot.updateOne({ _id: comment.spotId }, { $push: { comments: comment } })
+            comment = await comment.populate('userId', '_id username');
             return res.json(comment);
         }
     catch (err) {
