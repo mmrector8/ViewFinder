@@ -17,6 +17,9 @@ const customStyles = {
     borderRadius: "5px",
     display: "flex",
     justifyContent: "center",
+    backgroundColor: "black",
+    color: "white",
+    border: "1px solid black"
   },
 };
 
