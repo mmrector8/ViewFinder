@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLocation, getLocation } from "../../store/location";
-import ScrollImages from "./ScrollImages";
-import "./LocationShowPage.css";
+import "./LocationShowPage.css"
 import { useParams } from "react-router-dom";
 import MapBox from "../MapBox";
 

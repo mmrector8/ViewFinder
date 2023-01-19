@@ -220,22 +220,56 @@ for (let i = 0; i < 10; i++) {
 }
 
 //photos
+
 const photos = [];
-// let likes = [];
+
+const conditions = 
+  [
+    "rocky",
+    "slippery",
+    "slope",
+    "snowy",
+    "windy",
+    "rainy",
+    "wildlife",
+    "heat",
+    "shade",
+  ];
+
+const transportations = [
+  "walk",
+  "hike",
+  "car",
+  "backpacking",
+  "bike",
+  "airplane",
+  "public",
+];
+
+const genres = [
+  "wildlife",
+  "street",
+  "landscape",
+  "portrait",
+  "astro",
+  "aerial",
+];
+const bestTimeOfDays = ["first light", "sunrise", "afternoon", "sunset", "golden hour", "night"];
+
+const payments = ["0", "$", "$$", "$$$"];
+
 for (let i = 0; i < 10; i++) {
   const randomIdx = Math.floor(Math.random() * users.length); // from 0 to 10 exculsive; used for user and spot id
   const url = faker.word.noun();
   const userId = users[randomIdx]._id;
   const spotId = spots[i % 4]._id;
   const latitude = spots[i % 4].latitude;
-  const longitude = spots[i % 4].longitude;
-  const genre = "wildlife";
-  const condition = ["rockey", "slope"];
-  const transportation = ["car", "hike"];
-  const bestTimeOfDay = "Golden Hour";
-  const payment = "$";
-  // likes.push(i);
-
+  const longitude = spots[i % 4 ].longitude;
+  const genre = genres[i % 6];
+  const condition = [conditions[i % 9], conditions[i % 4], conditions[i % 2]];
+  const transportation = [transportations[i % 7], transportations[i % 3]];
+  const bestTimeOfDay = bestTimeOfDays[i % 6];
+  const payment = payments[i % 4];
   photos.push(
     new Photo({
       url,

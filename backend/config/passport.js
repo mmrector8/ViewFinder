@@ -12,6 +12,7 @@ passport.use(
     {
       session: false,
       usernameField: "email",
+      profilePicUrl: User.profilePicUrl,
       passwordField: "password",
     },
     async function (email, password, done) {

@@ -5,6 +5,8 @@ export const OPEN_SIGNUP_MODAL = "ui/openSignupModal";
 export const CLOSE_SIGNUP_MODAL = "ui/closeSignupModal";
 export const OPEN_USER_MODAL = "ui/openUserModal";
 export const CLOSE_USER_MODAL = "ui/closeUserModal";
+export const OPEN_PHOTO_SHOW_MODAL = "ui/openPhotoShowModal"
+export const CLOSE_PHOTO_SHOW_MODAL = "ui/closePhotoShowModal"
 
 // ACTION CREATORS
 export const openSigninModal = () => ({
@@ -31,11 +33,20 @@ export const closeUserModal = () => ({
   type: CLOSE_USER_MODAL,
 });
 
+export const openPhotoShowModal = () => ({
+  type: OPEN_PHOTO_SHOW_MODAL,
+})
+
+export const closePhotoShowModal = () => ({
+  type: CLOSE_PHOTO_SHOW_MODAL,
+})
+
 // REDUCER
 const initialState = {
   signinModalOpen: false,
   signupModalOpen: false,
   userModalOpen: false,
+  photoShowModalOpen: false
 };
 
 const uiReducer = (state = initialState, action) => {
@@ -52,6 +63,10 @@ const uiReducer = (state = initialState, action) => {
       return { ...state, userModalOpen: true };
     case CLOSE_USER_MODAL:
       return { ...state, userModalOpen: false };
+    case OPEN_PHOTO_SHOW_MODAL:
+      return { ...state, photoShowModalOpen: true };
+    case CLOSE_PHOTO_SHOW_MODAL:
+      return { ...state, photoShowModalOpen: false };
     default:
       return state;
   }

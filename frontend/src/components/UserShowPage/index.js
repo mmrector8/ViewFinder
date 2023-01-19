@@ -8,6 +8,7 @@ const UserShowPage = () =>{
     const user = useSelector((state=> state.users))   
     const {userId} = useParams();
     const dispatch = useDispatch();
+    console.log(user)
 
     useEffect(()=>{
         dispatch(fetchUser(userId))
@@ -18,21 +19,28 @@ const UserShowPage = () =>{
     }
 
     return (
-        <div className='user-show-page-container'>
-            <div className='top-field'>
-                <img src="" alt="" className="profile-pic"></img>
-                <h1 className="profile-title">{user.username}'s Profile</h1>
-            </div>
-            <div className="user-photo-grid">
-                {/* {user.photos?.map((photo, i)=> {
+      <div className="user-show-page-container">
+        <div className="top-field">
+    
+          <img alt="" className="profile-pic" src={user.profilePicUrl}></img> 
+    
+          <h1 className="profile-title">{user.username}'s Profile</h1>
+        </div>
+        <div className="user-photo-grid">
+          {/* {user.photos?.map((photo, i)=> {
                     <img src={`${photo.url}`} alt="img grid" className="user-image-grid" key={i}></img>
                 })} */}
-                {[1,2,3,4,5,6,7,8,9].map((num, i)=> <img src="" className="user-image-grid-photo" alt='placeholder' key={i}></img>)}
-            </div>
-
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num, i) => (
+            <img
+              src=""
+              className="user-image-grid-photo"
+              alt="placeholder"
+              key={i}
+            ></img>
+          ))}
         </div>
-        
-    )
+      </div>
+    );
 }
 
 export default UserShowPage;

@@ -11,7 +11,9 @@ import {
   openSigninModal,
   openSignupModal,
   openUserModal,
+  openPhotoShowModal
 } from "../../store/ui";
+
 
 const NavBar = () => {
   const loggedIn = useSelector((state) => !!state.session.user);
@@ -28,6 +30,7 @@ const NavBar = () => {
     dispatch(openUserModal());
   };
 
+
   const getLinks = () => {
     if (loggedIn) {
       return (
@@ -38,7 +41,7 @@ const NavBar = () => {
             component="label"
             onClick={handleUpload}
           >
-            <PhotoCamera sx={{ color: "black" }} />
+            <PhotoCamera sx={{ color: "black" }} onClick={() => dispatch(openPhotoShowModal())}/>
           </IconButton>
           <IconButton
             color="disabled"
