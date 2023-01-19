@@ -1,4 +1,5 @@
 @import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600&family=Prompt:wght@600&display=swap');
 
 :root {
   --font-apple-system: -apple-system,
@@ -16,7 +17,7 @@
 
 body {
   margin: 0;
-  font-family: var(--font-apple-system);
+  font-family: "Manrope", sans-serif, var(--font-apple-system);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;

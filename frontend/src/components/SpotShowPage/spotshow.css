@@ -68,7 +68,8 @@
     border: none;
     padding: 10px;
     font-size: 25px;
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: "Manrope",
+        sans-serif, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
             monospace;
 }
 
