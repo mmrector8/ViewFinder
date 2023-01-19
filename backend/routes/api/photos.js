@@ -23,7 +23,7 @@ router.get("/", async (req, res, next) => {
       path: "userId",
       select: "_id username email",
     });
-    
+
     //returns the standardized date in ascending order based on likes
     return res.json(standardizeData(photos)); 
   } catch (err) {
@@ -33,6 +33,23 @@ router.get("/", async (req, res, next) => {
     return next(error);
   }
 });
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const photo = await Photo.findById(req.params.id)
+                  .populate("likes", 'likerId')
+                  .populate("userId", "username")
+                  .populate("spotId", "name")
+    
+    return res.json(photo)
+  }
+  catch (err) {
+    const error = new Error("Photo was not found");
+    error.statusCode = 404;
+    error.errors = { message: `No Photo was found. ${err}` };
+    return next(error);
+  }
+})
 
 router.post("/", validatePhotoInput, async (req, res, next) => {
   //requireUser

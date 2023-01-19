@@ -19,6 +19,7 @@ router.get('/', async (req, res, next) => {
         if (req.query.type === includedTypes[0]) {
           //queries photo based on genre, description, condition, transportation, bestTimeOfDay, and payment
           // $ "i" case insensitive 
+
           data = await Photo.find({
             $or: [
               {
@@ -36,10 +37,7 @@ router.get('/', async (req, res, next) => {
                 } },
                 { bestTimeOfDay: {
                     $regex: new RegExp(req.query.body, "i"),
-                } },
-                { payment: {
-                    $regex: new RegExp(req.query.body, "i"),
-                } },
+                } }
             ],
           });
         } else if (req.query.type === includedTypes[1]) {
