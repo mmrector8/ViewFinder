@@ -23,18 +23,18 @@ const SpotShowPage = ()=>{
         return null
     }
 
-    const checkClicked = ()=>{
-        if(!clicked && !openWriteComment){
+    const checkClicked = (e)=>{
+        if(!clicked && !openWriteComment && e.target.className==="open-comment-button"){
             setOpenWriteComment(true)
             setClicked(true)
-        }else if(clicked && openWriteComment){
+        } else if (clicked && openWriteComment && e.target.className !== "textarea-for-comments" && e.target.className !== "comment-button"){
             setClicked(false)
             setOpenWriteComment(false)
         }
     }
 
     return(
-        <div className="spot-show-page-container" >
+        <div className="spot-show-page-container" onClick={checkClicked} >
             <div className="spot-show-grid-container">
                 <div className="upvoted-photos">
                     <img src="" alt="most upvoted image" className="most-upvoted-image"></img>
@@ -44,7 +44,7 @@ const SpotShowPage = ()=>{
                 </div>
                 <div className="comments-and-info-container">
                     <div className="comments-box">
-                        {currentUser ? <button onClick={checkClicked} className="open-comment-button">Comment on this spot!</button> : <><p>Please login to write a comment</p><LoginModal /></>} 
+                        {currentUser ? <button className="open-comment-button">Comment on this spot!</button> : <><p>Please login to write a comment</p><LoginModal /></>} 
                         {openWriteComment ? <CommentForm setOpenWriteComment={setOpenWriteComment} setClicked={setClicked}/> : ""} 
                         {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>).reverse()}
                     </div>
