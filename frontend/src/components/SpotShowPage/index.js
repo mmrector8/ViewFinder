@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchSpot } from "../../store/spot"
 import CommentIndexItem from "../CommentIndexItem";
 import CommentForm from "../CommentForm";
+import { openSigninModal } from "../../store/ui";
 import "./spotshow.css"
 import LoginModal from "../SessionForms/LoginModal";
 
@@ -44,7 +45,7 @@ const SpotShowPage = ()=>{
                 </div>
                 <div className="comments-and-info-container">
                     <div className="comments-box">
-                        {currentUser ? <button className="open-comment-button">Comment on this spot!</button> : <><p>Please login to write a comment</p><LoginModal /></>} 
+                        {currentUser ? <button className="open-comment-button">Comment on this spot!</button> : <button className="open-sign-in-button" onClick={()=> dispatch(openSigninModal())}>Please login to write a comment</button>} 
                         {openWriteComment ? <CommentForm setOpenWriteComment={setOpenWriteComment} setClicked={setClicked}/> : ""} 
                         {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>).reverse()}
                     </div>
