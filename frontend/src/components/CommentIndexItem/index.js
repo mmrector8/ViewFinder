@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
+import { useState } from "react";
 import { deleteComment } from "../../store/spot";
 import CommentForm from "../CommentForm";
 import "./commentitem.css"
@@ -6,6 +7,7 @@ import "./commentitem.css"
 const CommentIndexItem = ({comment})=>{
     const currentUser = useSelector((state=> state.session.user))
     const dispatch = useDispatch();
+    const [editCommentOpen, setEditCommentOpen] = useState(false)
 
     if (!comment) {
         return null
@@ -47,9 +49,9 @@ const CommentIndexItem = ({comment})=>{
                 <p className='username-for-comment'>{comment.userId.username}</p>
             </div>
             <p className="comment-date">{convertDate(comment.updatedAt)}</p>
-            <p className="comment-body">{comment.body}</p>
-            { currentUser !== null && comment.userId._id === currentUser._id ? <button onClick={(()=> dispatch(deleteComment(comment._id)))}>Delete Comment</button> : ""}
-            {currentUser !== null && comment.userId._id === currentUser._id ?  <CommentForm comment={comment} /> : ""}
+            <p className="comment-body">{editCommentOpen ? <CommentForm comment={comment} setEditCommentOpen={setEditCommentOpen}/> : comment.body}</p>
+            {currentUser !== null && comment.userId._id === currentUser._id ? <button onClick={(()=> dispatch(deleteComment(comment._id)))}>Delete Comment</button> : ""}
+            {currentUser !== null && comment.userId._id === currentUser._id && !editCommentOpen ? <button onClick={()=> setEditCommentOpen(true)}>Edit post</button>  : ""}
         </div>
     )
 }
