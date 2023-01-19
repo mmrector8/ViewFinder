@@ -2,11 +2,11 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./NavBar.css";
-import { logout } from "../../store/session";
 import SearchBar from "../SearchBar";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import logo from "../../assets/viewfinderlogo.png";
 import {
   openSigninModal,
   openSignupModal,
@@ -75,7 +75,7 @@ const NavBar = () => {
 
   return (
     <div className="navbar">
-      <h1 onClick={() => history.push("/")}>ViewFinder</h1>
+      <h1 className="logo" onClick={() => history.push("/")}><img src={logo} alt="logo" width="200px" /></h1>
       <SearchBar />
       {getLinks()}
     </div>
