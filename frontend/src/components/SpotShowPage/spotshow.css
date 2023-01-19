@@ -43,7 +43,7 @@
 
 .comments-box{
     width: 65%;
-    height: 500px;
+    max-height: 500px;
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
