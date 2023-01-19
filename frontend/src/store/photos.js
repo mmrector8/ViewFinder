@@ -1,6 +1,6 @@
 import jwtFetch from "./jwt";
 
-export const RECEIVE_PHOTO = "photos/RECEIVE_PHOTO"
+export const RECEIVE_PHOTOS_SPLASH = "photos/RECEIVE_PHOTOS_SPLASH"
 export const RECEIVE_PHOTOS = "photos/RECEIVE_PHOTOS"
 export const REMOVE_PHOTO = "photos/REMOVE_PHOTO"
 export const RECEIVE_LIKE = "likes/RECEIVE_LIKE"
@@ -17,15 +17,15 @@ const removeLike = (likeId) => ({
     likeId
 })
 
-export const receivePhoto = (photo) => ({
-    type: RECEIVE_PHOTO,
-    photo
-})
-
-export const receivePhotos = (photos) => ({
-    type: RECEIVE_PHOTOS,
+export const receivePhotosSplash = (photos) => ({
+    type: RECEIVE_PHOTOS_SPLASH,
     photos
 })
+
+// export const receivePhotos = (photos) => ({
+//     type: RECEIVE_PHOTOS,
+//     photos
+// })
 
 export const removePhoto = (photoId) => ({
     type: REMOVE_PHOTO, 
@@ -56,11 +56,11 @@ export const fetchPhoto = (photoId) => async (dispatch) => {
     }
 }
 
-export const fetchPhotos = () => async (dispatch) => {
+export const fetchPhotosSplash = () => async (dispatch) => {
   let res = await jwtFetch("/api/photos");
   if (res.ok) {
     let photos = await res.json();
-    dispatch(receivePhotos(photos));
+    dispatch(receivePhotosSplash(photos));
   }
 };
 
@@ -99,8 +99,8 @@ export const deleteLike = (likeId) => async dispatch => {
 const photosReducer = (state = {}, action) => {
     let newState = {...state};
     switch (action.type){
-        case RECEIVE_PHOTO: 
-            newState[action.photo.id] = action.photo;
+        case RECEIVE_PHOTOS_SPLASH: 
+           return {...newState, ...action.photos};
         case RECEIVE_LIKE: 
             newState.likes.push(action.like)
             return newState;
