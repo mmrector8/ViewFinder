@@ -52,8 +52,8 @@ const CommentIndexItem = ({comment})=>{
             <p className="comment-date">{convertDate(comment.updatedAt)}</p>
             <div className="edit-delete-and-body">
                 {editCommentOpen ? <CommentForm comment={comment} setEditCommentOpen={setEditCommentOpen} /> : <p className="comment-body">{comment.body}</p>}
-                {currentUser !== null && comment.userId._id === currentUser._id ? <button onClick={(() => dispatch(deleteComment(comment._id)))} className="delete-button"><i class="fa-regular fa-square-minus"></i></button> : ""}
                 {currentUser !== null && comment.userId._id === currentUser._id && !editCommentOpen ? <button onClick={() => setEditCommentOpen(true)} className="edit-button"><i className="fa-regular fa-pen-to-square"></i></button>  : ""}
+                {currentUser !== null && comment.userId._id === currentUser._id ? <button onClick={(() => dispatch(deleteComment(comment._id)))} className="delete-button"><i class="fa-regular fa-square-minus"></i></button> : ""}
             </div>
         </div>
     )
