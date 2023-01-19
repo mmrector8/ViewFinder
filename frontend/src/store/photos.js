@@ -1,7 +1,7 @@
 import jwtFetch from "./jwt";
 
 export const RECEIVE_PHOTOS_SPLASH = "photos/RECEIVE_PHOTOS_SPLASH"
-export const RECEIVE_PHOTOS = "photos/RECEIVE_PHOTOS"
+export const RECEIVE_PHOTO = "photos/RECEIVE_PHOTO"
 export const REMOVE_PHOTO = "photos/REMOVE_PHOTO"
 export const RECEIVE_LIKE = "likes/RECEIVE_LIKE"
 export const REMOVE_LIKE = "likes/REMOVE_LIKE"
@@ -22,10 +22,10 @@ export const receivePhotosSplash = (photos) => ({
     photos
 })
 
-// export const receivePhotos = (photos) => ({
-//     type: RECEIVE_PHOTOS,
-//     photos
-// })
+export const receivePhoto = (photo) => ({
+    type: RECEIVE_PHOTO,
+    photo
+})
 
 export const removePhoto = (photoId) => ({
     type: REMOVE_PHOTO, 
@@ -64,11 +64,29 @@ export const fetchPhotosSplash = () => async (dispatch) => {
   }
 };
 
-export const createPhotos = (photo) => async (dispatch) => {
-    let res = await jwtFetch(`/api/photos`, {
-        method: "POST",
-        body: JSON.stringify(photo),
-    }) //CHRISTINE TO COME BACK TO 
+export const createPhoto = (photo) => async (dispatch) => {
+    try {
+        const res = await jwtFetch(`/api/photos/`, {
+            method: 'POST',
+            body: JSON.stringify(photo)
+        });
+        const photo = await res.json();
+        dispatch(receivePhoto(photo));
+    } catch (err) {
+        const resBody = await err.json();
+        if (resBody.statusCode === 400) {
+            return dispatch(receiveErrors(resBody.errors));
+        }
+    }
+}
+
+export const deletePhoto = (photoId) => async dispatch => {
+    const res = await jwtFetch(`/api/photos/${photoId}`, {
+        method: "DELETE"
+    })
+    if (res.ok) {
+        dispatch(removePhoto(photoId))
+    }
 }
 
 export const addLike = data => async dispatch =>{
