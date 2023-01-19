@@ -9,7 +9,7 @@
 .profile-pic{
     height: 100px;
     width: 100px;
-    background-color: grey;
+    /* background-color: grey; */
     border-radius: 50%;
     padding: 30px;
     text-align: center;

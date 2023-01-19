@@ -11,6 +11,7 @@ import UserModal from "./components/UserModal";
 import LocationShowPage from "./components/LocationShowPage";
 import UserShowPage from "./components/UserShowPage";
 import SpotShowPage from "./components/SpotShowPage";
+import PhotoShowModal from "./components/PhotoShowModal";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -25,6 +26,7 @@ const App = () => {
     loaded && (
       <>
         <NavBar />
+        <PhotoShowModal />
         <LoginModal />
         <SignupModal />
         {currentUser && <UserModal />}

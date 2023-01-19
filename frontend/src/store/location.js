@@ -1,4 +1,4 @@
-
+import jwtFetch from "./jwt"
 
 export const RECEIVE_LOCATION = "locations/RECEIVE_LOCATION"
 export const RECEIVE_LOCATIONS = "locations/RECEIVE_LOCATIONS"
@@ -15,9 +15,9 @@ export const receiveLocations = (locations) => ({
 
 export const getLocation = (locationId) => store => {
     if (store.locations) {
-        return store.locations[locationId]
+        return store.locations[locationId];
     } else {
-        return null
+        return null;
     }
 }
 
@@ -30,7 +30,7 @@ export const getLocations = (store) => {
 }
 
 export const fetchLocations = () => async (dispatch) => {
-    let res = await fetch("/api/locations");
+    let res = await jwtFetch("/api/locations");
     if (res.ok) {
         let locations = await res.json();
         dispatch(receiveLocations(locations))
@@ -38,7 +38,7 @@ export const fetchLocations = () => async (dispatch) => {
 }
 
 export const fetchLocation = (locationId) => async (dispatch) => {
-    let res = await fetch(`/api/locations/${locationId}`)
+    let res = await jwtFetch(`/api/locations/${locationId}`);
     if (res.ok) {
         let location = await res.json();
         dispatch(receiveLocation(location))

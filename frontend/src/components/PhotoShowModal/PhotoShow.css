@@ -1,0 +1,43 @@
+.photo-show-image {
+    object-fit: contain;
+}
+
+.show-photo-modal-close-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    font-size: xx-large;
+    top: 5px;
+    right: 15px;
+}
+
+.line {
+    border-bottom: 2px black solid;
+    width: 1000px;
+    padding: 5px;
+    overflow-x: hidden;
+}
+
+.left-side-show-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.show-photo-fav {
+    cursor: pointer;
+}
+
+.photo-show-username {
+    margin-bottom: 10px;
+    
+}
+
+.photo-show-elements {
+    
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    
+}

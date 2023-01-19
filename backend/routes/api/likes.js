@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Like = mongoose.model("Like");
 const { requireUser } = require("../../config/passport");
+const Photo = mongoose.model("Photo");
 
 // GET /api/likes
 router.get("/", async (req, res, next) => {
@@ -15,14 +16,16 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// POST /api/likes
-router.post("/", requireUser,  async (req, res, next) => {
+// POST /api/likes/photos/:photoId
+router.post("/photos/:photoId", requireUser,  async (req, res, next) => {
   try {
     const newLike = new Like({
-      photoId: req.body.photoId,
-      likerId: req.body.likerId,
+      photoId: req.params.photoId,
+      likerId: req.user._id,
     });
     let like = await newLike.save();
+    await Photo.updateOne({ _id: like.photoId },{ $push: { likes: like._id } });
+    
     // like = await like.populate("_id", "_id, likerId, photoId")
     return res.json(like);
   } catch (err) {
@@ -36,8 +39,13 @@ router.delete("/:id", requireUser, async (req, res, next) => {
         let id = req.params.id;
         let like = await Like.findOneAndDelete({_id: id});
         if (like) {
-            return res.json({message: "Like successfully deleted"})
+          await Photo.updateOne(
+            { _id: like.photoId },
+            { $pull: { likes: like._id } }
+          );
+          return res.json({message: "Like successfully deleted"})
         }
+        
   } catch (err) {
         const error = new Error("Delete Like failed");
         error.statusCode = 404;
