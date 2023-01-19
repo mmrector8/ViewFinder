@@ -9,6 +9,7 @@ const validatePhotoInput = require("../../validations/photos");
 const { requireUser } = require("../../config/passport");
 const { Client } = require("@googlemaps/google-maps-services-js");
 const standardizeData = require("../../utils/standardizeData")
+const { singleFileUpload, singleMulterUpload } = require("../../awsS3");
 
 router.get("/", async (req, res, next) => {
   //route needed for the splash page
