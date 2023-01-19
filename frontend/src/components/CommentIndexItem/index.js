@@ -1,7 +1,15 @@
+import { useDispatch, useSelector } from "react-redux"
+import { deleteComment } from "../../store/spot";
+import CommentForm from "../CommentForm";
 import "./commentitem.css"
 
 const CommentIndexItem = ({comment})=>{
+    const currentUser = useSelector((state=> state.session.user))
+    const dispatch = useDispatch();
 
+    if (!comment) {
+        return null
+    }
     const months = {
         1: "January",
         2: "February",
@@ -31,9 +39,6 @@ const CommentIndexItem = ({comment})=>{
         return convertedDate;
     }
 
-    if(!comment){
-        return null
-    }
 
     return (
         <div className="comment-item">
@@ -43,6 +48,8 @@ const CommentIndexItem = ({comment})=>{
             </div>
             <p className="comment-date">{convertDate(comment.updatedAt)}</p>
             <p className="comment-body">{comment.body}</p>
+            { currentUser !== null && comment.userId._id === currentUser._id ? <button onClick={(()=> dispatch(deleteComment(comment._id)))}>Delete Comment</button> : ""}
+            {currentUser !== null && comment.userId._id === currentUser._id ?  <CommentForm comment={comment} /> : ""}
         </div>
     )
 }

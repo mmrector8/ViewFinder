@@ -8,6 +8,7 @@ import "./spotshow.css"
 
 const SpotShowPage = ()=>{
     const spot = useSelector(state=> state.spots)
+    const currentUser = useSelector((state)=> state.session.user)
     const {spotId} = useParams();
     const dispatch = useDispatch();
 
@@ -30,8 +31,8 @@ const SpotShowPage = ()=>{
                 </div>
                 <div className="comments-and-info-container">
                     <div className="comments-box">
-                        <CommentForm />
-                        {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>)}
+                        {currentUser ? <CommentForm /> : ""} 
+                        {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>).reverse()}
                     </div>
                     <div className="spot-info-container">
                         <p className="spot-info-item">{spot.name}</p>

@@ -21,7 +21,7 @@ router.get("/", async(req, res, next)=>{
 
 router.patch('/:id', requireUser, validateCommentInput, async (req, res, next) => {
     try {
-        const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate("userId")
             if(!comment){
                 return res.json({message: "comment not found"});
             }
@@ -39,7 +39,7 @@ router.delete('/:id', requireUser, async (req, res, next) => {
         try {
             let id = req.params.id
             let comment = await Comment.findOneAndDelete({ _id: id })
-            await Spot.updateOne({ _id: comment.spotId }, { $pull: { comments: comment._id } })
+            // await Spot.updateOne({ _id: comment.spotId }, { $pull: { comments: comment._id } })
             return res.json({ message: "Comment deleted!" })
         }
         catch (err) {

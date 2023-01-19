@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const Spot = mongoose.model('Spot')
 const Location = mongoose.model('Location')
+const standardizeData = require("../../utils/standardizeData")
 
 router.get("/", async(req, res, next) => {
     /*  This is router is for testing*/
@@ -35,10 +36,10 @@ router.get("/:id", async (req, res, next) => {
                                 path: "comments",
                                 populate :{
                                     path: "userId",
-                                    select: "_id username"
+                                    select: "_id _id username"
                                 }
                             });
-      return res.json(spot);
+        return res.json(spot);
     }
     catch(err) {
         const error = new Error('Spot not found');

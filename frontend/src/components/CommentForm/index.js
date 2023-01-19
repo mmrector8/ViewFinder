@@ -1,29 +1,44 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
-import { createComment } from "../../store/spot";
+import { useEffect, useState } from "react";
+import { createComment, updateComment } from "../../store/spot";
 
-const CommentForm = ()=>{
+const CommentForm = ({ comment})=>{
     const {spotId} = useParams();
     const dispatch= useDispatch();
     const user = useSelector((state) => state.session.user)
-
     const [body, setBody] = useState("")
-    const [isEdit, setEdit] = useState(false)
+
+
+    useEffect(()=>{
+        if(comment){
+            setBody(comment.body)
+        }
+    }, [dispatch, spotId])
 
     const handleCommentSubmit = async (e)=>{
         e.preventDefault();
-        const data = {
-            userId: user._id,
-            spotId: spotId,
-            body
+        if(!comment){
+            const data = {
+                userId: user._id,
+                spotId: spotId,
+                body
+            }
+            return dispatch(createComment(data))
+                .then(() => setBody(""))
+        }else{
+            const data = {
+                ...comment,
+                body
+            }
+            return dispatch(updateComment(data))
         }
-        return dispatch(createComment(data))
+        
     }
 
     return (
         <form onSubmit={handleCommentSubmit}>
-            <textarea onChange={(e=> setBody(e.target.value))} placeholder="Write a comment"/>
+            <textarea onChange={(e=> setBody(e.target.value))} value={body} placeholder="Write a comment"/>
             <button type="submit">Comment</button>
         </form>
     )
