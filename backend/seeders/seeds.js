@@ -200,6 +200,7 @@ const badWaterBasin = new Spot({
 spots.push(tunnelPoint, coitTower, halfDome, badWaterBasin);
 
 locations[21].spots.push(tunnelPoint);
+locations[21].spots.push(halfDome);
 locations[13].spots.push(badWaterBasin);
 
 //comments
@@ -288,6 +289,24 @@ for (let i = 0; i < 10; i++) {
   users[i % 5].photos.push(photos[i]);
   spots[i % 4].photos.push(photos[i]);
 }
+
+let photo1 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite1.jpg",
+  spotId: spots[2]._id,
+  userId: users[0]._id,
+  latitude: 37.72043089,
+  longitude: -119.6469882,
+  genre: "landscape",
+  condition: ["slippery, rocky"],
+  transportation: ["hike, walk"],
+  bestTimeOfDay: "morning",
+  payment: "$",
+  likes: [],
+});
+
+photos.push(photo1);
+spots[2].photos.push(photo1);
+users[0].photos.push(photo1);
 
 //likes
 const likes = [];

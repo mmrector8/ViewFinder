@@ -21,7 +21,7 @@ const PhotoShow = () => {
           height="400px"
           width="100%"
           className="photo-show-image"
-          src="https://pinnacle-seeds.s3.us-west-1.amazonaws.com/cycling.jpg"
+          src="https://pinnacle-seeds.s3.us-west-1.amazonaws.com/yoga.jpg"
         />
         <div className="line"></div>
         <div className="photo-show-elements">
@@ -29,8 +29,8 @@ const PhotoShow = () => {
             <div className="photo-show-username">Username</div>
             <div>Spot name</div>
           </div>
-          <div>Description</div>
-          <div>
+          <div className="photo-show-description">Description</div>
+          <div className="show-photo-heart">
             <FavoriteBorderIcon
               className="show-photo-fav"
               fontSize="medium"

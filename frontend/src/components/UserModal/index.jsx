@@ -1,8 +1,11 @@
 import { Hidden } from "@mui/material";
+import { useState } from "react";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { logout } from "../../store/session";
 import { closeUserModal } from "../../store/ui";
+import UserShowPage from "../UserShowPage";
 import "./UserModal.css";
 
 const customStyles = {
@@ -18,7 +21,7 @@ const customStyles = {
     justifyContent: "center",
     padding: 0,
     boxShadow:
-      "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px", 
+      "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
   },
 };
 
@@ -28,6 +31,7 @@ const UserModal = () => {
   const userModalOpen = useSelector((store) => store.ui.userModalOpen);
   const currentUser = useSelector((store) => store.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
   return (
     <Modal
       isOpen={userModalOpen}
@@ -47,7 +51,15 @@ const UserModal = () => {
             </li>
           </div>
           <li className="user-dropdown-button-li li-first-item">
-            <button className="user-dropdown-button">Profile</button>
+            <button
+              className="user-dropdown-button"
+              onClick={() => {
+                history.push(`/users/${currentUser._id}`);
+                dispatch(closeUserModal());
+              }}
+            >
+              Profile
+            </button>
           </li>
           <li className="user-dropdown-button-li">
             <button
