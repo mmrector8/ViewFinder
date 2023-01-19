@@ -36,7 +36,7 @@ form .errors {
   border-bottom: 3px solid grey;
   padding: 10px 0;
   transition: border-bottom 0.2s;
-  font-family: "Manrope", sans-serif, var(--font-apple-system);
+  font-family: var(--font-apple-system);
   font-size: 14px;
 }
 
