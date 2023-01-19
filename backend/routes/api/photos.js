@@ -16,8 +16,8 @@ router.get("/", async (req, res, next) => {
     const sortBy = "likes"; //sorting photos by likes
     const photos = await Photo.aggregate()
       .addFields({ length: { $size: `$${sortBy}` } }) //adds a new field called length within counts the size of the likes array
-      .sort({ length: -1 }); //orders the aggregate/array based on ascending order
-
+      .sort({ length: -1 }) //orders the aggregate/array based on ascending order
+      .limit(5);
     //populates the userId
     await Photo.populate(photos, {
       path: "userId",

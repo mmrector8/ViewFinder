@@ -1,5 +1,5 @@
 import jwtFetch from "./jwt";
-
+import { RECEIVE_PHOTO, receivePhoto, createPhoto, REMOVE_PHOTO, removePhoto, deletePhoto  } from "./photos";
 export const RECEIVE_SPOT = "spots/RECEIEVE_SPOT"
 const RECEIVE_NEW_COMMENT = "comments/RECEIVE_NEW_COMMENT";
 const DELETE_COMMENT = "comments/DELETE_COMMENT"
@@ -113,6 +113,16 @@ const spotsReducer = (state = {}, action) => {
             return { ...action.spot }
         case RECEIVE_NEW_COMMENT:
             newState.comments.push(action.comment)
+            return newState;
+        case RECEIVE_PHOTO:
+            newState.photos.push(action.photo)
+            return newState;
+        case REMOVE_PHOTO:
+            newState.photos.map((photo, i) => {
+                if (photo._id === action.photoId) {
+                    newState.photos.splice(i, 1)
+                }
+            })
             return newState;
         case PATCH_COMMENT:
             newState.comments.map((comment, i) => {
