@@ -13,12 +13,13 @@ const PhotoShowModal = () => {
       right: "auto",
       bottom: "auto",
       height: "500px",
-      width: "1000px",
+      width: "900px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       borderRadius: "5px",
       display: "flex",
       justifyContent: "center",
+      overflowX: "hidden"
     },
   };
 
