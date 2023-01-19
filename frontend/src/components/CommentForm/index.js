@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { createComment, updateComment } from "../../store/spot";
+import Tooltip from '@mui/material/Tooltip';
 import "./commentform.css"
 
 const CommentForm = ({ comment, setEditCommentOpen, setOpenWriteComment, setClicked })=>{
@@ -46,7 +47,8 @@ const CommentForm = ({ comment, setEditCommentOpen, setOpenWriteComment, setClic
         <form onSubmit={handleCommentSubmit} className={isEdit ? "" : "for-form-border"}>
             <div className="comment-input-container">
                 <textarea onChange={(e => setBody(e.target.value))} value={body} placeholder="Write a comment" className={isEdit ? "textarea-for-edits" : "textarea-for-comments"} />
-                <button type="submit" className={isEdit ? "edit-button" : "comment-button"}>{isEdit ? <i className="fa-regular fa-pen-to-square"></i> : "Comment"}</button>
+                <Tooltip title={isEdit ? "Edit" : "Delete"} arrow placement="top"><button type="submit" className={isEdit ? "edit-button" : "comment-button"}>{isEdit ?<i className="fa-regular fa-pen-to-square"></i> 
+                    : "Comment"}</button></Tooltip>
             </div>
         </form>
     )
