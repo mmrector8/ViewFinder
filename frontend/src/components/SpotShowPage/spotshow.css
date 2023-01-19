@@ -62,3 +62,17 @@
     padding: 20px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+
+.open-comment-button{
+    cursor: pointer;
+    background-color: aqua;
+    border: none;
+    height: 60px;
+    font-size: 25px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+            monospace;
+}
+
+.open-comment-button:hover{
+    background-color: rgb(0, 200, 255);
+}

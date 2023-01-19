@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { createComment, updateComment } from "../../store/spot";
+import "./commentform.css"
 
 const CommentForm = ({ comment, setEditCommentOpen, setOpenWriteComment })=>{
     const {spotId} = useParams();
@@ -42,8 +43,10 @@ const CommentForm = ({ comment, setEditCommentOpen, setOpenWriteComment })=>{
 
     return (
         <form onSubmit={handleCommentSubmit}>
-            <textarea onChange={(e=> setBody(e.target.value))} value={body} placeholder="Write a comment"/>
-            <button type="submit">{isEdit? "Edit" : "Comment"}</button>
+            <div className="comment-input-container">
+                <textarea onChange={(e => setBody(e.target.value))} value={body} placeholder="Write a comment" className={isEdit ? "textarea-for-edits" : "textarea-for-comments"} />
+                <button type="submit" className={isEdit ? "edit-button" : "comment-button"}>{isEdit ? <i className="fa-regular fa-pen-to-square"></i> : "Comment"}</button>
+            </div>
         </form>
     )
 
