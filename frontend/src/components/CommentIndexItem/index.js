@@ -12,6 +12,7 @@ const CommentIndexItem = ({comment})=>{
     if (!comment) {
         return null
     }
+
     const months = {
         1: "January",
         2: "February",
@@ -49,9 +50,11 @@ const CommentIndexItem = ({comment})=>{
                 <p className='username-for-comment'>{comment.userId.username}</p>
             </div>
             <p className="comment-date">{convertDate(comment.updatedAt)}</p>
-            {editCommentOpen ? <CommentForm comment={comment} setEditCommentOpen={setEditCommentOpen} /> : <p className="comment-body">{comment.body}</p>}
-            {currentUser !== null && comment.userId._id === currentUser._id ? <button onClick={(()=> dispatch(deleteComment(comment._id)))}>Delete Comment</button> : ""}
-            {currentUser !== null && comment.userId._id === currentUser._id && !editCommentOpen ? <button onClick={()=> setEditCommentOpen(true)}>Edit post</button>  : ""}
+            <div className="edit-delete-and-body">
+                {editCommentOpen ? <CommentForm comment={comment} setEditCommentOpen={setEditCommentOpen} /> : <p className="comment-body">{comment.body}</p>}
+                {currentUser !== null && comment.userId._id === currentUser._id ? <button onClick={(() => dispatch(deleteComment(comment._id)))} className="delete-button"><i class="fa-regular fa-square-minus"></i></button> : ""}
+                {currentUser !== null && comment.userId._id === currentUser._id && !editCommentOpen ? <button onClick={() => setEditCommentOpen(true)} className="edit-button"><i className="fa-regular fa-pen-to-square"></i></button>  : ""}
+            </div>
         </div>
     )
 }
