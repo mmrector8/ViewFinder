@@ -2,6 +2,8 @@
 
 export const RECEIVE_LOCATION = "locations/RECEIVE_LOCATION"
 export const RECEIVE_LOCATIONS = "locations/RECEIVE_LOCATIONS"
+export const CLEAR_LOCATIONS = "locations/CLEAR_LOCATIONS"
+
 
 export const receiveLocation = (location) => ({
     type: RECEIVE_LOCATION,
@@ -11,6 +13,10 @@ export const receiveLocation = (location) => ({
 export const receiveLocations = (locations) => ({
     type: RECEIVE_LOCATIONS,
     locations
+})
+
+export const clearLocations = () => ({
+    type: CLEAR_LOCATIONS
 })
 
 export const getLocation = (locationId) => store => {
@@ -49,9 +55,11 @@ const locationReducer = (state = {}, action) => {
     let newState = {...state};
     switch (action.type) {
         case RECEIVE_LOCATION:
-            newState[action.location.id] = action.location;
+            newState[action.location._id] = action.location;
         case RECEIVE_LOCATIONS:
             return {...newState, ...action.locations};
+        case CLEAR_LOCATIONS:
+            return {};
         default: 
             return state;    
     }

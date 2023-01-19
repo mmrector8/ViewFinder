@@ -1,38 +1,45 @@
-import React, { useRef, useEffect, useState } from "react";
-import mapboxgl from "!mapbox-gl";
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_KEY;
+import React from "react";
+import {
+  GoogleMap,
+  useLoadScript,
+  MarkerClustererF,
+} from "@react-google-maps/api";
 import "./MapBox.css";
-import "mapbox-gl/dist/mapbox-gl.css";
+import CustomMarker from "./CustomMarker";
 
-const MapBox = () => {
-  const mapContainer = useRef(null);
-  const map = useRef(null);
-  const [lng, setLng] = useState(-119.5249);
-  const [lat, setLat] = useState(38.1918);
-  const [zoom, setZoom] = useState(5);
-
-  useEffect(() => {
-    if (map.current) return;
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v12",
-      center: [lng, lat],
-      zoom: zoom,
-    });
+const MapBox = ({ locations, spots }) => {
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
+    // mapIds: ["73cef3161f877bcd"],
   });
+  if (!isLoaded) return <h1>loading...</h1>;
 
-  useEffect(() => {
-    if (!map.current) return;
-    map.current.on("move", () => {
-      setLng(map.current.getCenter().lng.toFixed(4));
-      setLat(map.current.getCenter().lat.toFixed(4));
-      setZoom(map.current.getZoom().toFixed(2));
-    });
-  });
+  const options = {
+    // mapId: "73cef3161f877bcd",
+    disableDefaultUI: false,
+    clickableIcons: false,
+  };
 
   return (
     <div className="map-component">
-      <div ref={mapContainer} className="map-container" />
+      <GoogleMap
+        zoom={6}
+        center={{ lat: 37.1918, lng: -119.5249 }}
+        mapContainerClassName="map-container"
+        options={options}
+      >
+        <MarkerClustererF averageCenter enableRetinaIcons gridSize={60}>
+          {(clusterer) =>
+            locations
+              ? Object.values(locations).map((location, idx) => (
+                  <CustomMarker place={location} key={idx} type={"locations"} clusterer={clusterer} />
+                ))
+              : spots?.map((spot, idx) => (
+                  <CustomMarker place={spot} key={idx} type={"spots"} clusterer={clusterer} />
+                ))
+          }
+        </MarkerClustererF>
+      </GoogleMap>
     </div>
   );
 };

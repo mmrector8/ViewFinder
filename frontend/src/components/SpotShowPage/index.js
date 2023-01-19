@@ -28,7 +28,7 @@ const SpotShowPage = ()=>{
                 </div>
                 <div className="comments-and-info-container">
                     <div className="comments-box">
-                        {spot.comments?.map((comment, i)=> <p className="comment-item" key={i}>{comment}</p>)}
+                        {spot.comments?.map((comment, i)=> <p className="comment-item" key={i}>{comment.body}</p>)}
                     </div>
                     <div className="spot-info-container">
                         <p className="spot-info-item">{spot.name}</p>

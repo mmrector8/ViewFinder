@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./NavBar.css";
 import { logout } from "../../store/session";
@@ -16,6 +16,7 @@ import {
 const NavBar = () => {
   const loggedIn = useSelector((state) => !!state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleUpload = (e) => {
     e.preventDefault();
@@ -71,7 +72,7 @@ const NavBar = () => {
 
   return (
     <div className="navbar">
-      <h1>ViewFinder</h1>
+      <h1 onClick={() => history.push("/")}>ViewFinder</h1>
       <SearchBar />
       {getLinks()}
     </div>
