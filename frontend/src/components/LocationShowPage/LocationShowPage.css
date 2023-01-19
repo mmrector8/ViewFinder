@@ -12,8 +12,18 @@
     overflow-x: hidden;
 }
 
-.location-container {
+.location-show-main {
     margin-top: 60px;
+}
+
+.location-header {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.location-container {
     height: 600px;
     display: flex;
     flex-direction: row;

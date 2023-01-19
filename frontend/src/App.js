@@ -11,6 +11,7 @@ import UserModal from "./components/UserModal";
 import LocationShowPage from "./components/LocationShowPage";
 import UserShowPage from "./components/UserShowPage";
 import SpotShowPage from "./components/SpotShowPage";
+import SearchModal from "./components/SearchBar/SearchModal";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -28,6 +29,7 @@ const App = () => {
         <LoginModal />
         <SignupModal />
         {currentUser && <UserModal />}
+        <SearchModal />
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/users/:userId">

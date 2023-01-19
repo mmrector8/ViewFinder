@@ -2,7 +2,7 @@ import React from "react";
 import { MarkerF } from "@react-google-maps/api";
 import { useHistory } from "react-router-dom";
 
-const CustomMarker = ({ place, type, clusterer }) => {
+const CustomMarker = ({ place, type }) => {
   const history = useHistory();
 
   return (
@@ -11,7 +11,7 @@ const CustomMarker = ({ place, type, clusterer }) => {
       animation={2}
       title={type === "locations" ? place.county : place.name}
       onClick={() => history.push(`/${type}/${place._id}`)}
-      clusterer={clusterer}
+      // clusterer={clusterer}
     />
   );
 };
