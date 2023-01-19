@@ -32,3 +32,7 @@
   align-items: center;
   gap: 3%;
 }
+
+a {
+  color: white;
+}
