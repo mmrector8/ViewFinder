@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { createComment, updateComment } from "../../store/spot";
 
-const CommentForm = ({ comment, setEditCommentOpen})=>{
+const CommentForm = ({ comment, setEditCommentOpen, setOpenWriteComment })=>{
     const {spotId} = useParams();
     const dispatch= useDispatch();
     const user = useSelector((state) => state.session.user)
@@ -27,6 +27,7 @@ const CommentForm = ({ comment, setEditCommentOpen})=>{
                 body
             }
             return dispatch(createComment(data))
+                .then(()=> setOpenWriteComment(false))
                 .then(() => setBody(""))
         }else{
             const data = {

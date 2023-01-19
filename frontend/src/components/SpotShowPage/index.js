@@ -11,6 +11,7 @@ const SpotShowPage = ()=>{
     const currentUser = useSelector((state)=> state.session.user)
     const {spotId} = useParams();
     const dispatch = useDispatch();
+    const [openWriteComment, setOpenWriteComment] = useState(false)
 
     useEffect(() => {
         dispatch(fetchSpot(spotId))
@@ -31,7 +32,8 @@ const SpotShowPage = ()=>{
                 </div>
                 <div className="comments-and-info-container">
                     <div className="comments-box">
-                        {currentUser ? <CommentForm /> : ""} 
+                        {currentUser ? <button onClick={()=>setOpenWriteComment(true)}>Comment on this Spot</button> : ""} 
+                        {openWriteComment ? <CommentForm setOpenWriteComment={setOpenWriteComment}/> : ""} 
                         {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>).reverse()}
                     </div>
                     <div className="spot-info-container">
