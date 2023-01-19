@@ -35,6 +35,8 @@ function LoginForm() {
           <div className="errors">{errors?.email}</div>
           <input
             type="text"
+            autoFocus
+            autoComplete="off"
             value={email}
             onChange={update("email")}
             placeholder="Email"
@@ -42,6 +44,7 @@ function LoginForm() {
           <div className="errors">{errors?.password}</div>
           <input
             type="password"
+            autoComplete="off"
             value={password}
             onChange={update("password")}
             placeholder="Password"
