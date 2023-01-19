@@ -8,11 +8,13 @@ const CommentForm = ({ comment})=>{
     const dispatch= useDispatch();
     const user = useSelector((state) => state.session.user)
     const [body, setBody] = useState("")
+    const [isEdit, setIsEdit] = useState(false)
 
 
     useEffect(()=>{
         if(comment){
             setBody(comment.body)
+            setIsEdit(true)
         }
     }, [dispatch, spotId])
 
@@ -39,7 +41,7 @@ const CommentForm = ({ comment})=>{
     return (
         <form onSubmit={handleCommentSubmit}>
             <textarea onChange={(e=> setBody(e.target.value))} value={body} placeholder="Write a comment"/>
-            <button type="submit">Comment</button>
+            <button type="submit">{isEdit? "Edit" : "Comment"}</button>
         </form>
     )
 
