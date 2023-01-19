@@ -29,6 +29,7 @@
 .edit-delete-and-body{
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .comment-date{
@@ -47,4 +48,8 @@
     cursor: pointer;
     margin-left: 10px;
     margin-top: 10px;
+}
+
+.edit-and-delete-buttons-container{
+    margin-right: 50px;
 }
