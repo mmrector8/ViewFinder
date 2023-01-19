@@ -43,9 +43,9 @@
 
 .comments-box{
     width: 65%;
-    /* height: 450px; */
+    height: 500px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     overflow: scroll;
@@ -67,7 +67,7 @@
     cursor: pointer;
     background-color: aqua;
     border: none;
-    height: 60px;
+    padding: 10px;
     font-size: 25px;
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
             monospace;
