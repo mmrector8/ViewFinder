@@ -7,7 +7,7 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const query = { queryString, queryType };
+    const query = { body: queryString, type: queryType };
     // dispatch search request here
     console.log(query);
   };
@@ -25,7 +25,7 @@ const SearchBar = () => {
       <select value={queryType} onChange={(e) => setQueryType(e.target.value)}>
         <option value="">Search Type</option>
         <option value="users">Users</option>
-        <option value="spots">Spots</option>
+        <option value="photos">Photos</option>
         <option value="locations">Locations</option>
       </select>
       <button className="navbar-button">Search</button>
