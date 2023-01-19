@@ -12,6 +12,7 @@ const SpotShowPage = ()=>{
     const {spotId} = useParams();
     const dispatch = useDispatch();
     const [openWriteComment, setOpenWriteComment] = useState(false)
+    const [clicked, setClicked] = useState(false)
 
     useEffect(() => {
         dispatch(fetchSpot(spotId))
@@ -21,8 +22,20 @@ const SpotShowPage = ()=>{
         return null
     }
 
+    const checkClicked = ()=>{
+        if (!clicked && openWriteComment){
+            setClicked(true)
+            setOpenWriteComment(false)
+        }else if(clicked && openWriteComment){
+            setClicked(false)
+            setOpenWriteComment(false)
+        } else if(clicked && !openWriteComment){
+            setClicked(true)
+        }
+    }
+
     return(
-        <div className="spot-show-page-container">
+        <div className="spot-show-page-container" onClick={checkClicked}>
             <div className="spot-show-grid-container">
                 <div className="upvoted-photos">
                     <img src="" alt="most upvoted image" className="most-upvoted-image"></img>
@@ -32,7 +45,7 @@ const SpotShowPage = ()=>{
                 </div>
                 <div className="comments-and-info-container">
                     <div className="comments-box">
-                        {currentUser ? <button onClick={()=>setOpenWriteComment(true)}>Comment on this Spot</button> : ""} 
+                        {currentUser ? <div onClick={()=> setOpenWriteComment(true)}>Comment on this Spot</div> : ""} 
                         {openWriteComment ? <CommentForm setOpenWriteComment={setOpenWriteComment}/> : ""} 
                         {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>).reverse()}
                     </div>
