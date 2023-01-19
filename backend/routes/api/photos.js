@@ -9,7 +9,7 @@ const validatePhotoInput = require("../../validations/photos");
 const { requireUser } = require("../../config/passport");
 const { Client } = require("@googlemaps/google-maps-services-js");
 const standardizeData = require("../../utils/standardizeData")
-const { singleFileUpload, singleMulterUpload } = require("../../awsS3");
+const { multipleMulterUpload, multipleFilesUpload } = require("../../awsS3");
 
 router.get("/", async (req, res, next) => {
   //route needed for the splash page
@@ -52,7 +52,7 @@ router.get("/:id", async (req, res, next) => {
   }
 })
 
-router.post("/", validatePhotoInput, async (req, res, next) => {
+router.post("/", multipleMulterUpload("images"), requireUser, validatePhotoInput, async (req, res, next) => {
   //requireUser
   //!MUST INCLUDE REQUIRE USER
   try {
@@ -101,8 +101,9 @@ router.post("/", validatePhotoInput, async (req, res, next) => {
     // return res.json(spot)
     //ADD SPOT ID to newPhoto instance & likes should be an empty array nice a new post will have zero likes
     //need to convert client sent latitude and longitude into a float since it most likey by a string
+    const imgUrl = await  multipleFilesUpload({ files: req.files, public: true}) //retrive uploaded photo 
     const newPhoto = new Photo({
-      url: req.body.url,
+      url: imgUrl,
       spotId: spot._id, //using the existing or new spot
       userId: req.user._id, //retrived from requireUser
       latitude: req.body.latitude,
