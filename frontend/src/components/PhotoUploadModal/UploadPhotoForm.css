@@ -1,0 +1,73 @@
+.upload-form-div {
+  width: 100%;
+  height: 100%;
+}
+
+.preview-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.preview-image-container img {
+  border-radius: 4px;
+}
+
+.upload-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload-form-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.upload-form-left h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.upload-form-left input {
+  margin-bottom: 10px;
+}
+
+.upload-form-left input[type="text"] {
+  padding: 10px 0;
+  background-color: black;
+  color: white;
+  border: none;
+  border-bottom: 3px solid grey;
+  transition: all 0.4s;
+}
+
+.upload-form-left input[type="text"]:focus {
+  outline: none;
+  border-color: white;
+  transition: all 0.4s;
+}
+
+.upload-form-right {
+  display: flex;
+  align-items: flex-end;
+}
+
+.upload-form-right button {
+  margin-bottom: 25px;
+  padding: 7px 15px;
+  color: white;
+  border: none;
+  background: none;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 4px;
+  font-family: var(--font-apple-system);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.upload-form-right button:hover {
+  background-color: white;
+  color: black;
+}

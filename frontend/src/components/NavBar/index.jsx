@@ -11,7 +11,7 @@ import {
   openSigninModal,
   openSignupModal,
   openUserModal,
-  openPhotoShowModal
+  openUploadModal
 } from "../../store/ui";
 
 
@@ -20,16 +20,15 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleUpload = (e) => {
+  const handleUploadIcon = (e) => {
     e.preventDefault();
-    // open upload photo modal here
-  };
+    dispatch(openUploadModal());
+  }
 
   const handleUserIcon = (e) => {
     e.preventDefault();
     dispatch(openUserModal());
   };
-
 
   const getLinks = () => {
     if (loggedIn) {
@@ -39,9 +38,9 @@ const NavBar = () => {
             color="disabled"
             aria-label="upload picture"
             component="label"
-            onClick={handleUpload}
+            onClick={handleUploadIcon}
           >
-            <PhotoCamera sx={{ color: "black" }} onClick={() => dispatch(openPhotoShowModal())}/>
+            <PhotoCamera sx={{ color: "black" }} />
           </IconButton>
           <IconButton
             color="disabled"
