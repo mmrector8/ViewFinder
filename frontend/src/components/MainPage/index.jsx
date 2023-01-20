@@ -10,7 +10,7 @@ import photosReducer, { getPhotos, fetchPhotosSplash } from "../../store/photos"
 const MainPage = () => {
   const locations = useSelector(getLocations);
   const photos = useSelector(state=> Object.values(state.photos))
-  const [currentImgIdx, setCurrentImgIdx] = useState(0)
+  const [currentImgIdx, setCurrentImgIdx] = useState(1)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const MainPage = () => {
 
   useEffect(() => {
     const backgroundInterval = setInterval(() => {
-      if (currentImgIdx < photos.length-1) { //3 //5, //4 //5, //5, //5
+      if (photos && currentImgIdx < photos.length-1) {
         setCurrentImgIdx(currentImgIdx + 1)
       } else {
         setCurrentImgIdx(0)
