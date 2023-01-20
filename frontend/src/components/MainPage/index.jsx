@@ -11,7 +11,6 @@ const MainPage = () => {
   const locations = useSelector(getLocations);
   const photos = useSelector(state=> Object.values(state.photos))
   const [currentImgIdx, setCurrentImgIdx] = useState(0)
-  // const photos = useSelector(getPhotos)
   const dispatch = useDispatch();
 
   useEffect(() => {
