@@ -5,6 +5,7 @@ import { fetchSpot } from "../../store/spot"
 import CommentIndexItem from "../CommentIndexItem";
 import CommentForm from "../CommentForm";
 import { openSigninModal } from "../../store/ui";
+import { months, convertDate } from "../CommentIndexItem";
 import "./spotshow.css"
 import LoginModal from "../SessionForms/LoginModal";
 
@@ -34,6 +35,20 @@ const SpotShowPage = ()=>{
         }
     }
 
+    const convertDate = (commentDate) => {
+        const date = commentDate.toString();
+        const year = date.slice(0, 4)
+        const month = parseInt(date.slice(5, 7))
+        let day;
+        if (date[8] === '0') {
+            day = date.slice(9, 10)
+        } else {
+            day = date.slice(8, 10)
+        }
+        let convertedDate = `${months[month]} ${day}, ${year}`
+        return convertedDate;
+    }
+
     return(
         <div className="spot-show-page-container" onClick={checkClicked} >
             <div className="spot-show-grid-container">
@@ -42,8 +57,6 @@ const SpotShowPage = ()=>{
                     <div className="top-upvoted-photos">
                         {spot.photos.slice(1).length > 0 ? spot.photos?.slice(1).map((photo, i) => <img src={photo.url} alt="top upvoted photos" key={i} className="top-upvoted-smaller-images"></img>) : 
                              [1, 2, 3, 4].map((num, i) => <img src="" alt="top upvoted photos" key={i} className="top-upvoted-smaller-images"></img>) }
-                        
-                        
                     </div>
                 </div>
                 <div className="comments-and-info-container">
@@ -53,11 +66,26 @@ const SpotShowPage = ()=>{
                         {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>).reverse()}
                     </div>
                     <div className="spot-info-container">
-                        <p className="spot-info-item">Spot Name: {spot.name}</p>
-                        <p className="spot-info-item">Date and Time</p>
-                        <p className="spot-info-item">Best Time of Day: </p>
-                        <p className="spot-info-item">Conditions</p>
-                        <p className="spot-info-item">Transportation</p>
+                        <div className="spot-info-item">
+                            <p >Spot Name: </p>
+                            <p className="spot-info-items">{spot.name}</p>
+                        </div>
+                        <div className="spot-info-item">
+                            <p>Date: </p>
+                            <p className="spot-info-items">{convertDate(spot.photos[0].updatedAt)}</p>
+                        </div>
+                        <div className="spot-info-item">
+                            <p>Best Time of Day: </p>
+                            <p className="spot-info-items">{spot.photos[0].bestTimeOfDay }</p>
+                        </div>
+                        <div className="spot-info-item">
+                            <p>Conditions: </p>
+                            <p className="spot-info-items">{spot.photos[0].condition.map((item, i) => <p key={i}>{item}</p>)}</p>
+                        </div>
+                        <div className="spot-info-item">
+                            <p>Transportation: </p>
+                            <p className="spot-info-items">{spot.photos[0].transportation.map((item, i) => <p key={i}>{item}</p>)}</p>
+                        </div>
                     </div>
                 </div>
             </div>
