@@ -64,14 +64,14 @@ export const fetchPhotosSplash = () => async (dispatch) => {
   }
 };
 
-export const createPhoto = (photo) => async (dispatch) => {
+export const createPhoto = (formData) => async (dispatch) => {
     try {
-        const res = await jwtFetch(`/api/photos/`, {
-            method: 'POST',
-            body: JSON.stringify(photo)
+        const res = await jwtFetch(`/api/photos`, {
+            method: "POST",
+            body: formData
         });
-        const photo = await res.json();
-        dispatch(receivePhoto(photo));
+        const newPhoto = await res.json();
+        dispatch(receivePhoto(newPhoto));
     } catch (err) {
         const resBody = await err.json();
         if (resBody.statusCode === 400) {
