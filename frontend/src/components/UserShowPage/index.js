@@ -25,7 +25,7 @@ const UserShowPage = () => {
         <img alt="" className="profile-pic" src={user.profilePicUrl}></img>
         <h1 className="profile-title">{user.username}'s Profile</h1>
       </div>
-      <div className="user-photo-grid">
+      <div className="user-photo-grid margin-needed-photo">
         {user?.photos?.map((photo, i) => (
           <div width="250px" className="user-photo-container">
             <p

@@ -30,7 +30,7 @@
 }
 
 .user-photo-grid{
-    margin-top: 40px;
+    /* margin-top: 40px; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -52,7 +52,6 @@
     height: 250px;
     width: 250px;
     border-radius: 4px;
-    background-color: rgb(191, 250, 254);
     cursor: pointer;
     transition: filter 0.2s;
 }
@@ -69,6 +68,10 @@
 .user-photo-container:hover img {
     filter: blur(4px);
     transition: filter 0.2s;
+}
+
+.margin-needed-photo{
+    margin-top: 40px;
 }
 
 @media(max-width: 1000px){

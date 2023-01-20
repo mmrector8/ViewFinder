@@ -4,7 +4,6 @@ import MainPage from "./components/MainPage";
 import { getCurrentUser } from "./store/session";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Profile from "./components/Profile";
 import LoginModal from "./components/SessionForms/LoginModal";
 import SignupModal from "./components/SessionForms/SignupModal";
 import UserModal from "./components/UserModal";
@@ -42,7 +41,6 @@ const App = () => {
           <Route exact path="/spots/:spotId">
             <SpotShowPage />
           </Route>
-          <Route exact path="/profile" component={Profile} />
           <Route path="/locations/:locationId">
             <LocationShowPage />
           </Route>

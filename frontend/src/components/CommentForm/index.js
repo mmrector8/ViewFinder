@@ -44,14 +44,33 @@ const CommentForm = ({ comment, setEditCommentOpen, setOpenWriteComment, setClic
     }
 
     return (
-        <form onSubmit={handleCommentSubmit} className={isEdit ? "" : "for-form-border"}>
-            <div className="comment-input-container">
-                <textarea onChange={(e => setBody(e.target.value))} value={body} placeholder="Write a comment" className={isEdit ? "textarea-for-edits" : "textarea-for-comments"} />
-                <button type="submit" className={isEdit ? "edit-button" : "comment-button"}>{isEdit ? <Tooltip title={isEdit ? "Edit" : "Delete"} arrow placement="top"><i className="fa-regular fa-pen-to-square"></i>  </Tooltip>
-                    : "Comment"}</button>
-            </div>
-        </form>
-    )
+      <form
+        onSubmit={handleCommentSubmit}
+        className={isEdit ? "" : "for-form-border"}
+      >
+        <div className="comment-input-container">
+          <textarea
+            onChange={(e) => setBody(e.target.value)}
+            value={body}
+            placeholder="Write a comment"
+            className={isEdit ? "textarea-for-edits" : "textarea-for-comments"}
+          />
+          <button
+            type="submit"
+            className={isEdit ? "edit-button" : "comment-button"}
+            onClick={isEdit ? () => setEditCommentOpen(true) :()=>{}}
+          >
+            {isEdit ? (
+              <Tooltip title="Edit" arrow placement={"top"}>
+                  <i className="fa-regular fa-pen-to-square"></i>
+              </Tooltip>
+            ) : (
+              "Comment"
+            )}
+          </button>
+        </div>
+      </form>
+    );
 
 }
 export default CommentForm;
