@@ -385,40 +385,40 @@ const genres = [
   "astro",
   "aerial",
 ];
-const bestTimeOfDays = ["first light", "sunrise", "afternoon", "sunset", "golden hour", "night"];
+// const bestTimeOfDays = ["first light", "sunrise", "afternoon", "sunset", "golden hour", "night"];
 
-const payments = ["0", "$", "$$", "$$$"];
+// const payments = ["0", "$", "$$", "$$$"];
 
-for (let i = 0; i < 10; i++) {
-  const randomIdx = Math.floor(Math.random() * users.length); // from 0 to 10 exculsive; used for user and spot id
-  const url = faker.word.noun();
-  const userId = users[randomIdx]._id;
-  const spotId = spots[i % 4]._id;
-  const latitude = spots[i % 4].latitude;
-  const longitude = spots[i % 4 ].longitude;
-  const genre = genres[i % 6];
-  const condition = [conditions[i % 9], conditions[i % 4], conditions[i % 2]];
-  const transportation = [transportations[i % 7], transportations[i % 3]];
-  const bestTimeOfDay = bestTimeOfDays[i % 6];
-  const payment = payments[i % 4];
-  photos.push(
-    new Photo({
-      url,
-      spotId,
-      userId,
-      latitude,
-      longitude,
-      genre,
-      condition,
-      transportation,
-      bestTimeOfDay,
-      payment,
-      likes: [],
-    })
-  );
-  users[i % 5].photos.push(photos[i]);
-  spots[i % 4].photos.push(photos[i]);
-}
+// for (let i = 0; i < 10; i++) {
+//   const randomIdx = Math.floor(Math.random() * users.length); // from 0 to 10 exculsive; used for user and spot id
+//   const url = faker.word.noun();
+//   const userId = users[randomIdx]._id;
+//   const spotId = spots[i % 4]._id;
+//   const latitude = spots[i % 4].latitude;
+//   const longitude = spots[i % 4 ].longitude;
+//   const genre = genres[i % 6];
+//   const condition = [conditions[i % 9], conditions[i % 4], conditions[i % 2]];
+//   const transportation = [transportations[i % 7], transportations[i % 3]];
+//   const bestTimeOfDay = bestTimeOfDays[i % 6];
+//   const payment = payments[i % 4];
+//   photos.push(
+//     new Photo({
+//       url,
+//       spotId,
+//       userId,
+//       latitude,
+//       longitude,
+//       genre,
+//       condition,
+//       transportation,
+//       bestTimeOfDay,
+//       payment,
+//       likes: [],
+//     })
+//   );
+//   users[i % 5].photos.push(photos[i]);
+//   spots[i % 4].photos.push(photos[i]);
+// }
 
 let photo1 = new Photo({
   url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite1.jpg",
@@ -883,12 +883,12 @@ for (let i = 0; i < 31; i++) {
   photos[i % 10].likes.push(newLike);
 }
 //extra like
-let extraLike = new Like({
-  photoId: badWaterBasin.photos[0]._id,
-  likerId: users[2],
-});
-likes.push(extraLike);
-badWaterBasin.photos[0].likes.push(extraLike);
+// let extraLike = new Like({
+//   photoId: badWaterBasin.photos[0]._id,
+//   likerId: users[2],
+// });
+// likes.push(extraLike);
+// badWaterBasin.photos[0].likes.push(extraLike);
 
 mongoose
   .connect(db, { useNewUrlParser: true })
