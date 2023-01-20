@@ -420,22 +420,22 @@ const genres = [
 //   spots[i % 4].photos.push(photos[i]);
 // }
 
-let photo1 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite1.jpg",
-  spotId: spot1._id,
-  userId: users[0]._id,
-  latitude: 37.72043089,
-  longitude: -119.6469882,
-  genre: "landscape",
-  condition: ["slippery, rocky"],
-  transportation: ["hike, walk"],
-  bestTimeOfDay: "morning",
-  payment: "$",
-  likes: [],
-});
-photos.push(photo1);
-spots[2].photos.push(photo1);
-users[0].photos.push(photo1);
+// let photo1 = new Photo({
+//   url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite1.jpg",
+//   spotId: spot1._id,
+//   userId: users[0]._id,
+//   latitude: 37.72043089,
+//   longitude: -119.6469882,
+//   genre: "landscape",
+//   condition: ["slippery, rocky"],
+//   transportation: ["hike, walk"],
+//   bestTimeOfDay: "morning",
+//   payment: "$",
+//   likes: [],
+// });
+// photos.push(photo1);
+// spots[2].photos.push(photo1);
+// users[0].photos.push(photo1);
 
 let photo2 = new Photo({
   url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/Yosemite/yosemite1.jpg",

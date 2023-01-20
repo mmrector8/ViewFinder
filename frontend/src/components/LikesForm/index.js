@@ -9,8 +9,6 @@ const LikesForm = ({photo})=>{
     const dispatch = useDispatch();
     const [liked, setLiked] = useState(false)
 
-    console.log(photo)
-
     const sendOrRemoveLike = ()=>{
         if(!liked){
             dispatch(addLike(photo._id))

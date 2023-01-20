@@ -40,6 +40,30 @@
     width: 280px ;
     height: 280px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    cursor: pointer;
+    transition: filter 0.2s;
+    position: relative;
+}
+
+.location-images:hover {
+    filter: blur(4px);
+    transition: filter 0.2s;
+}
+
+.overlay-photo-text {
+    position: absolute;
+    z-index: 5;
+    top: 60%;
+    width: 250px;
+    text-align: right;
+}
+
+#active {
+    display: block;
+}
+
+#hidden {
+    display: none;
 }
 
 @media screen and (max-width: 1024px) {

@@ -23,7 +23,7 @@ const PhotoShowModal = () => {
     },
   };
 
-  const photoShowModalOpen = useSelector (
+  const photoShowModalOpen = useSelector (
     (store) => store.ui.photoShowModalOpen
   );
 
