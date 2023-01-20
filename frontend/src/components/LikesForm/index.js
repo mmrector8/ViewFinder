@@ -43,7 +43,7 @@ const LikesForm = ({photo, user})=>{
     }
 
     return (
-        <div className="likes-form" id={user ? "likes-padding" : undefined}>
+        <div className="likes-form" id={!Object.keys(user).length ? "likes-padding" : undefined}>
                  <p className="likes-length">{likes.length}</p>
                 <button onClick={sendOrRemoveLike} className="like-button">
                 {liked && currentUser ? <FavoriteIcon
