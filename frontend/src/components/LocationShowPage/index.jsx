@@ -43,7 +43,6 @@ const LocationShowPage = () => {
                   src={spot?.photos[0]?.url}
                   alt="spot most liked photo"
                   key={idx}
-                  id={`${photos[0]._id}`}
                   className={`location-images`}
                 onClick={()=> dispatch(openPhotoShowModal(spot?.photos[0]))}/>
               ))}

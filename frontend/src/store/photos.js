@@ -90,19 +90,22 @@ export const deletePhoto = (photoId) => async dispatch => {
 }
 
 export const addLike = photoId => async dispatch =>{
-    try {
+    // try {
         const res = await jwtFetch(`/api/likes/photos/${photoId}`, {
             method: 'POST',
-            body: JSON.stringify(data)
+            body: JSON.stringify(photoId)
         });
-        const like = await res.json();
-        dispatch(receiveLike(like));
-    } catch (err) {
-        const resBody = await err.json();
-        if (resBody.statusCode === 400) {
-            return dispatch(receiveErrors(resBody.errors));
+        if(res.ok){
+            const like = await res.json();
+            dispatch(receiveLike(like));
         }
-    }
+        
+    // } catch (err) {
+    //     const resBody = await err.json();
+    //     if (resBody.statusCode === 400) {
+    //         return dispatch(receiveErrors(resBody.errors));
+    //     }
+    // }
 }
 
 export const deleteLike = (likeId) => async dispatch => {
