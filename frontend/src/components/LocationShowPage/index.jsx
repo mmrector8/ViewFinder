@@ -39,7 +39,7 @@ const LocationShowPage = () => {
             </div>
             <div className="user-photo-grid">
               {location.spots?.map((spot, idx) =>
-                spot.photos.length ? (
+                spot?.photos?.length ? (
                   <div width="280px" className="user-photo-container" key={idx}>
                     <p
                       className="overlay-photo-text-user"
