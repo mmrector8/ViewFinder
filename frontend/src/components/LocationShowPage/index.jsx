@@ -11,19 +11,18 @@ const LocationShowPage = () => {
   const dispatch = useDispatch();
   const location = useSelector(getLocation(locationId));
   const getPhotos = (state) => {
-    const location = Object.values(state.locations)?.at(0)
-    const spots = location?.spots
-    const photosArr = []
-   spots?.map((spot,i)=> photosArr.push(spot.photos))
-    return (photosArr.flat())
+    const location = Object.values(state.locations)?.at(0);
+    const spots = location?.spots;
+    const photosArr = [];
+    spots?.map((spot, i) => photosArr.push(spot.photos));
+    return photosArr.flat();
   };
 
   const [isHovered, setIsHovered] = useState(false);
 
-  const photos = useSelector(getPhotos)
+  const photos = useSelector(getPhotos);
 
   useEffect(() => {
-
     dispatch(fetchLocation(locationId));
   }, [dispatch]);
 
@@ -41,7 +40,7 @@ const LocationShowPage = () => {
             <div className="user-photo-grid">
               {location.spots?.map((spot, idx) =>
                 spot.photos.length ? (
-                  <div width="280px" className="user-photo-container">
+                  <div width="280px" className="user-photo-container" key={idx}>
                     <p
                       className="overlay-photo-text-user"
                       onMouseEnter={(e) => e.stopPropagation()}
@@ -53,7 +52,6 @@ const LocationShowPage = () => {
                     <img
                       src={spot?.photos[0]?.url}
                       alt="spot most liked photo"
-                      key={idx}
                       className="location-images"
                       onMouseEnter={() => setIsHovered(spot?.photos[0]?._id)}
                       onMouseLeave={() => setIsHovered(false)}
