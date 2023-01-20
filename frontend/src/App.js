@@ -13,6 +13,7 @@ import UserShowPage from "./components/UserShowPage";
 import SpotShowPage from "./components/SpotShowPage";
 import PhotoShowModal from "./components/PhotoShowModal";
 import SearchModal from "./components/SearchBar/SearchModal";
+import PhotoUploadModal from "./components/PhotoUploadModal";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -28,6 +29,7 @@ const App = () => {
       <>
         <NavBar />
         <PhotoShowModal />
+        <PhotoUploadModal />
         <LoginModal />
         <SignupModal />
         {currentUser && <UserModal />}

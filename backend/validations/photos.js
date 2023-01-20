@@ -3,13 +3,13 @@ const { check } = require("express-validator");
 const handleValidationErrors = require("./handleValidationErrors");
 
 const validatePhotoInput = [
-  check("url").exists({ checkFalsy: true }).withMessage("Url is missing"),
-  check("spotId") //will be setting the spotId within router
-    .exists({ checkFalsy: true })
-    .withMessage("Missing an associated spot for the photo"),
-  check("userId")
-    .exists({ checkFalsy: true })
-    .withMessage("Missing an associated photographer for the photo"),
+  // check("url").exists({ checkFalsy: true }).withMessage("Url is missing"),
+  // check("spotId") //will be setting the spotId within router
+  //   .exists({ checkFalsy: true })
+  //   .withMessage("Missing an associated spot for the photo"),
+  // check("userId")
+  //   .exists({ checkFalsy: true })
+  //   .withMessage("Missing an associated photographer for the photo"),
   check("latitude")
     .isFloat({ min: 32.55308, max: 42.0126 })
     .withMessage("Selected Latitude is not within the range of California"),
@@ -21,7 +21,7 @@ const validatePhotoInput = [
     .withMessage(
       "Selected genere is not within approved genre list: wildlife, street, landscape, portrait, astro, aerial "
     ),
-  check("description").exists({ checkFalsy: false }),
+  // check("description").exists({ checkFalsy: false }),
   check("condition")
     // .isIn(['rocky', 'slippery', 'slope', 'snowy', 'windy', 'rainy', 'wildlife', 'heat', 'shade'])
     .exists({ checkFalsy: true })
@@ -50,9 +50,9 @@ const validatePhotoInput = [
     .withMessage(
       "Selected price range is not within approved payment amount list: 0, $, $$, $$$"
     ),
-  check("likes")
-    .exists({ checkFalsy: false })
-    .withMessage("no likes are needed"),
+  // check("likes")
+  //   .exists({ checkFalsy: false })
+  //   .withMessage("no likes are needed"),
 
   handleValidationErrors,
 ];

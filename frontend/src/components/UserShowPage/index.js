@@ -8,7 +8,6 @@ const UserShowPage = () =>{
     const user = useSelector((state=> state.users))   
     const {userId} = useParams();
     const dispatch = useDispatch();
-    
 
     useEffect(()=>{
         dispatch(fetchUser(userId))

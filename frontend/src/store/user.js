@@ -1,4 +1,5 @@
 import jwtFetch from "./jwt";
+import { RECEIVE_PHOTO, receivePhoto, createPhoto, REMOVE_PHOTO, removePhoto, deletePhoto } from "./photos";
 
 export const RECEIVE_USER = 'users/RECEIVE_USER'
 
@@ -31,6 +32,16 @@ const usersReducer = (state={}, action)=>{
     switch(action.type){
         case RECEIVE_USER:
             return {...newState, ...action.user}
+        case RECEIVE_PHOTO:
+            newState.photos.push(action.photo)
+            return newState;
+        case REMOVE_PHOTO:
+            newState.photos.map((photo, i) => {
+                if (photo._id === action.photoId) {
+                    newState.photos.splice(i, 1)
+                }
+            })
+            return newState;
         default:
             return state;
     }

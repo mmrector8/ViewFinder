@@ -1,0 +1,116 @@
+.upload-form-div {
+  width: 100%;
+  height: 100%;
+}
+
+.preview-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.preview-image-container img {
+  border-radius: 4px;
+}
+
+.page-1 {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.upload-form-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload-form-buttons {
+  width: 80px;
+  margin-bottom: 25px;
+  padding: 7px 15px;
+  color: white;
+  border: none;
+  background: none;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 4px;
+  font-family: var(--font-apple-system);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.upload-form-buttons:hover {
+  background-color: white;
+  color: black;
+}
+
+.upload-form {
+  width: 100%;
+  height: 100%;
+}
+
+.upload-form-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.upload-form-left h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.upload-form-left input {
+  margin-bottom: 10px;
+}
+
+.upload-form-left input[type="text"], .latlng-input {
+  padding: 10px 0;
+  background-color: black;
+  color: white;
+  border: none;
+  border-bottom: 3px solid grey;
+  transition: all 0.4s;
+}
+
+.upload-form-left input[type="text"]:focus, .latlng-input:focus {
+  outline: none;
+  border-color: white;
+  transition: all 0.4s;
+}
+
+.upload-form-right {
+  display: flex;
+  align-items: flex-end;
+}
+
+.page-2 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 25px;
+}
+
+.genres-container, .conditions-container, .transportation-container, .besttimeofday-container, .payment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.below-label, .latlng {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-label {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.form-bottom-buttons {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}

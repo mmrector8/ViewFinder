@@ -74,6 +74,8 @@ function SignupForm() {
               <label>
                 <input
                   type="text"
+                  autoFocus
+                  autoComplete="off"
                   value={email}
                   onChange={update("email")}
                   placeholder="Email"
@@ -83,6 +85,7 @@ function SignupForm() {
               <label>
                 <input
                   type="text"
+                  autoComplete="off"
                   value={username}
                   onChange={update("username")}
                   placeholder="Username"
@@ -92,6 +95,7 @@ function SignupForm() {
               <label>
                 <input
                   type="password"
+                  autoComplete="off"
                   value={password}
                   onChange={update("password")}
                   placeholder="Password"
@@ -100,6 +104,7 @@ function SignupForm() {
               <label className="confirm">
                 <input
                   type="password"
+                  autoComplete="off"
                   value={password2}
                   onChange={update("password2")}
                   placeholder="Confirm Password"
@@ -140,6 +145,7 @@ function SignupForm() {
                   onChange={(e) => setBio(e.target.value)}
                   placeholder="Enter a bio (optional)"
                   className="bio-input"
+                  autoComplete="off"
                 />
               </label>
               <div className="button-container">

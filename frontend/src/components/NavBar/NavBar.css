@@ -20,6 +20,14 @@
 .navbar h1 {
   font-weight: bold;
   font-size: 36px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.navbar img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .searchbar {
