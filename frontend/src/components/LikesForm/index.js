@@ -16,6 +16,7 @@ const LikesForm = ({photo})=>{
 
         likes?.map((like)=>{
             if(currentUser && currentUser._id == like.likerId){
+               
                 setLiked(true)
                 setLikersLike(like)
             }
@@ -35,7 +36,6 @@ const LikesForm = ({photo})=>{
                 .then(() => setLiked(true))
                 
         }else{
-            console.log(likersLike)
             return dispatch(deleteLike(likersLike._id))
                 .then(()=> setLiked(false))
                 .then(()=> setLikersLike(""))

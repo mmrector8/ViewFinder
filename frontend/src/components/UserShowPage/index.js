@@ -27,7 +27,7 @@ const UserShowPage = () => {
       </div>
       <div className="user-photo-grid margin-needed-photo">
         {user?.photos?.map((photo, i) => (
-          <div width="250px" className="user-photo-container">
+          <div width="250px" className="user-photo-container" key={i}>
             <p
               className="overlay-photo-text-user"
               onMouseEnter={(e) => e.stopPropagation()}

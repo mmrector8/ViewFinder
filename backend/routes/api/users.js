@@ -100,7 +100,8 @@ router.get("/:userId", async (req, res, next) => {
   let user;
   try {
     user = await User.findById(req.params.userId)
-                .populate("photos");
+                .populate({path: "photos", populate: {path: 'likes', select: "likerId photoId"}})
+                .populate({ path: "photos", populate: { path: 'spotId', select: "name" } });;
     return res.json(user)
   } catch (err) {
     const error = new Error("User not found");
