@@ -38,9 +38,12 @@ const SpotShowPage = ()=>{
         <div className="spot-show-page-container" onClick={checkClicked} >
             <div className="spot-show-grid-container">
                 <div className="upvoted-photos">
-                    <img src="" alt="most upvoted image" className="most-upvoted-image"></img>
+                    <img src={spot.photos[0].url} alt="most upvoted image" className="most-upvoted-image"></img>
                     <div className="top-upvoted-photos">
-                        {[1,2,3,4].map((num, i)=> <img src="" alt="top upvoted photos" key={i} className="top-upvoted-smaller-images"></img>)}
+                        {spot.photos.slice(1).length > 0 ? spot.photos?.slice(1).map((photo, i) => <img src={photo.url} alt="top upvoted photos" key={i} className="top-upvoted-smaller-images"></img>) : 
+                             [1, 2, 3, 4].map((num, i) => <img src="" alt="top upvoted photos" key={i} className="top-upvoted-smaller-images"></img>) }
+                        
+                        
                     </div>
                 </div>
                 <div className="comments-and-info-container">
