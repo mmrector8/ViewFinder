@@ -30,7 +30,7 @@ const MainPage = () => {
       } else {
         setCurrentImgIdx(0)
       }
-    }, 3000)
+    }, 4000)
     return () => clearInterval(backgroundInterval)
   }, [currentImgIdx])
 
