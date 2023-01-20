@@ -831,7 +831,7 @@ photos.push(
   photo27
 );
 spot2.photos.push(photo13);
-spot1.photos.push(photo1);
+// spot1.photos.push(photo1);
 spot3.photos.push(photo2, photo3, photo4, photo5, photo6, photo7);
 spot4.photos.push(photo8, photo11);
 spot6.photos.push(photo9);
