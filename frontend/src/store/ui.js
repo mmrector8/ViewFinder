@@ -1,4 +1,6 @@
 // TYPE CONSTANTS
+import { REMOVE_LIKE, removeLike, deleteLike } from "./photos";
+import { RECEIVE_LIKE, receiveLike, addLike } from "./photos";
 export const OPEN_SIGNIN_MODAL = "ui/openSigninModal";
 export const CLOSE_SIGNIN_MODAL = "ui/closeSigninModal";
 export const OPEN_SIGNUP_MODAL = "ui/openSignupModal";
@@ -72,6 +74,7 @@ const initialState = {
 };
 
 const uiReducer = (state = initialState, action) => {
+  const newState = {...state}
   switch (action.type) {
     case OPEN_SIGNIN_MODAL:
       return { ...state, signinModalOpen: true };
@@ -97,6 +100,17 @@ const uiReducer = (state = initialState, action) => {
       return { ...state, uploadModalOpen: true };
     case CLOSE_UPLOAD_MODAL:
       return { ...state, uploadModalOpen: false };
+    case RECEIVE_LIKE:
+      newState.photoShowModalOpen.likes.push(action.like)
+      return newState;
+    case REMOVE_LIKE:
+      newState.photoShowModalOpen.likes.map((like, i) => {
+        if (like._id=== action.likeId) {
+          newState.photoShowModalOpen.likes.splice(i, 1)
+        }
+      })
+      console.log(action.likeId)
+      return newState;
     default:
       return state;
   }

@@ -5,6 +5,35 @@ import CommentForm from "../CommentForm";
 import "./commentitem.css"
 import Tooltip from '@mui/material/Tooltip';
 
+export const months = {
+    1: "January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "November",
+    12: "December"
+}
+
+export const convertDate = (commentDate) => {
+    const date = commentDate.toString();
+    const year = date.slice(0, 4)
+    const month = parseInt(date.slice(5, 7))
+    let day;
+    if (date[8] === '0') {
+        day = date.slice(9, 10)
+    } else {
+        day = date.slice(8, 10)
+    }
+    let convertedDate = `${months[month]} ${day}, ${year}`
+    return convertedDate;
+}
+
 const CommentIndexItem = ({comment})=>{
     const currentUser = useSelector((state=> state.session.user))
     const dispatch = useDispatch();
@@ -12,35 +41,6 @@ const CommentIndexItem = ({comment})=>{
 
     if (!comment) {
         return null
-    }
-
-    const months = {
-        1: "January",
-        2: "February",
-        3: "March",
-        4: "April",
-        5: "May",
-        6: "June",
-        7: "July",
-        8: "August",
-        9: "September",
-        10: "October",
-        11: "November",
-        12: "December"
-    }
-
-    const convertDate = (commentDate) => {
-        const date = commentDate.toString();
-        const year = date.slice(0, 4)
-        const month = parseInt(date.slice(5, 7))
-        let day;
-        if (date[8] === '0') {
-            day = date.slice(9, 10)
-        } else {
-            day = date.slice(8, 10)
-        }
-        let convertedDate = `${months[month]} ${day}, ${year}`
-        return convertedDate;
     }
 
 

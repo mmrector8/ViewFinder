@@ -19,7 +19,6 @@ router.get("/", async (req, res, next) => {
 // POST /api/likes/photos/:photoId
 router.post("/photos/:photoId", requireUser,  async (req, res, next) => {
   try {
-    debugger
     const newLike = new Like({
       photoId: req.params.photoId,
       likerId: req.user._id,

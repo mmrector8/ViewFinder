@@ -1,0 +1,18 @@
+.likes-form{
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    /* justify-content: center; */
+    /* padding: 20px; */
+}
+
+.like-button{
+    background-color: white;
+    border: none;
+}
+
+.likes-length{
+    margin-top: -5px;
+    font-size: 22px;
+    margin-right: 3px;
+}
