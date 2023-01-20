@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPhoto } from "../../store/photos";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import LikesForm from "../LikesForm";
 import "./PhotoShow.css"
+
 
 
 const PhotoShow = () => {
@@ -31,11 +32,7 @@ const PhotoShow = () => {
           </div>
           <div className="photo-show-description">Description</div>
           <div className="show-photo-heart">
-            <FavoriteBorderIcon
-              className="show-photo-fav"
-              fontSize="medium"
-              sx={{ color: "red" }}
-            />
+              <LikesForm photo={photo}/>
           </div>
         </div>
       </div>
