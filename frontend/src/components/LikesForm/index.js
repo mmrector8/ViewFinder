@@ -30,13 +30,15 @@ const LikesForm = ({photo})=>{
     const sendOrRemoveLike = ()=>{
         console.log(likersLike)
         if(!liked){
-           return dispatch(addLike(photo))
+         return dispatch(addLike(photo))
+                .then((newLike)=> setLikersLike(newLike))
                 .then(() => setLiked(true))
-            
+                
         }else{
-            // console.log(likersLike)
+            console.log(likersLike)
             return dispatch(deleteLike(likersLike._id))
                 .then(()=> setLiked(false))
+                .then(()=> setLikersLike(""))
         }
     }
 
