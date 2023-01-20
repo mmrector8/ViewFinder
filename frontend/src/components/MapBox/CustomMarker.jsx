@@ -11,7 +11,7 @@ const CustomMarker = ({ place, type, clusterer }) => {
       animation={2}
       title={type === "locations" ? place.county : place.name}
       onClick={() => history.push(`/${type}/${place._id}`)}
-      clusterer={clusterer}
+      // clusterer={clusterer}
     />
   );
 };

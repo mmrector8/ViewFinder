@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./UploadPhotoForm.css";
 import { useDispatch } from "react-redux";
 import { createPhoto } from "../../store/photos";
+import { closeUploadModal } from "../../store/ui";
 
 const UploadPhotoForm = () => {
   const [description, setDescription] = useState("");
@@ -39,7 +40,8 @@ const UploadPhotoForm = () => {
     formData.append("transportation", transportation);
     formData.append("bestTimeOfDay", bestTimeOfDay);
     formData.append("payment", payment);
-    dispatch(createPhoto(formData)).then(() => dispatch(closeUploadModal()));
+    dispatch(createPhoto(formData)) 
+    dispatch(closeUploadModal());
   };
 
   return (
@@ -113,7 +115,13 @@ const UploadPhotoForm = () => {
                     onChange={(e) => setGenre(e.target.value)}
                   />
                   <label htmlFor="genre">Street</label>
-                  <input type="radio" name="genre" id="genre" value="street" />
+                  <input
+                    type="radio"
+                    name="genre"
+                    id="genre"
+                    value="street"
+                    onChange={(e) => setGenre(e.target.value)}
+                  />
                   <label htmlFor="genre">Landscape</label>
                   <input
                     type="radio"

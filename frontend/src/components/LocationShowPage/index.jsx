@@ -11,18 +11,18 @@ const LocationShowPage = () => {
   const dispatch = useDispatch();
   const location = useSelector(getLocation(locationId));
   const getPhotos = (state) => {
-    const location = Object.values(state.locations)?.at(0)
-    console.log(location)
-    const spots = location?.spots
-    const photosArr = []
-   spots?.map((spot,i)=> photosArr.push(spot.photos))
-  //  console.log(photosArr)
-    return (photosArr.flat())
+    const location = Object.values(state.locations)?.at(0);
+    const spots = location?.spots;
+    const photosArr = [];
+    spots?.map((spot, i) => photosArr.push(spot.photos));
+    //  console.log(photosArr)
+    return photosArr.flat();
   };
 
-  const photos = useSelector(getPhotos)
+  const photos = useSelector(getPhotos);
 
   useEffect(() => {
+
     dispatch(fetchLocation(locationId));
   }, [dispatch]);
 
@@ -38,13 +38,16 @@ const LocationShowPage = () => {
               <MapBox spots={location?.spots} />
             </div>
             <div className="location-photo-grid">
-              {location.spots?.map((spot, idx) => (
+              {photos?.map((photo, idx) => (
                 <img
-                  src={spot?.photos[0]?.url}
+                  src={photo?.url}
                   alt="spot most liked photo"
                   key={idx}
                   className={`location-images`}
-                onClick={()=> dispatch(openPhotoShowModal(spot?.photos[0]))}/>
+                  onClick={() =>
+                    dispatch(openPhotoShowModal(photo))
+                  }
+                />
               ))}
             </div>
           </div>

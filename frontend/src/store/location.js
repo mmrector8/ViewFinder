@@ -1,4 +1,5 @@
 import jwtFetch from "./jwt"
+import { RECEIVE_PHOTO } from "./photos"
 
 export const RECEIVE_LOCATION = "locations/RECEIVE_LOCATION"
 export const RECEIVE_LOCATIONS = "locations/RECEIVE_LOCATIONS"
@@ -54,8 +55,14 @@ export const fetchLocation = (locationId) => async (dispatch) => {
 const locationReducer = (state = {}, action) => {
     let newState = {...state};
     switch (action.type) {
+        // case RECEIVE_PHOTO:
+        //     const locationId = Object.keys(state)[0];
+        //     const spotIdx = newState[locationId].spots.findIndex(e => e._id === action.photo.spotId);
+        //     newState[locationId].spots[spotIdx].photos.push(photo);
+        //     return newState;
         case RECEIVE_LOCATION:
             newState[action.location._id] = action.location;
+            return newState;
         case RECEIVE_LOCATIONS:
             return {...newState, ...action.locations};
         case CLEAR_LOCATIONS:
