@@ -24,7 +24,8 @@
   cursor: pointer;
   width: 100%;
   height: 100%;
-  font-family: var(--font-apple-system);
+  font-family: "Manrope",
+    sans-serif, var(--font-apple-system);
   display: flex;
   align-items: center;
   font-size: 14px;

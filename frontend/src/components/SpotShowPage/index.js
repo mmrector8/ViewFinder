@@ -38,9 +38,12 @@ const SpotShowPage = ()=>{
         <div className="spot-show-page-container" onClick={checkClicked} >
             <div className="spot-show-grid-container">
                 <div className="upvoted-photos">
-                    <img src="" alt="most upvoted image" className="most-upvoted-image"></img>
+                    <img src={spot.photos[0].url} alt="most upvoted image" className="most-upvoted-image"></img>
                     <div className="top-upvoted-photos">
-                        {[1,2,3,4].map((num, i)=> <img src="" alt="top upvoted photos" key={i} className="top-upvoted-smaller-images"></img>)}
+                        {spot.photos.slice(1).length > 0 ? spot.photos?.slice(1).map((photo, i) => <img src={photo.url} alt="top upvoted photos" key={i} className="top-upvoted-smaller-images"></img>) : 
+                             [1, 2, 3, 4].map((num, i) => <img src="" alt="top upvoted photos" key={i} className="top-upvoted-smaller-images"></img>) }
+                        
+                        
                     </div>
                 </div>
                 <div className="comments-and-info-container">
@@ -50,7 +53,7 @@ const SpotShowPage = ()=>{
                         {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>).reverse()}
                     </div>
                     <div className="spot-info-container">
-                        <p className="spot-info-item">{spot.name}</p>
+                        <p className="spot-info-item">Spot Name: {spot.name}</p>
                         <p className="spot-info-item">Date and Time</p>
                         <p className="spot-info-item">Best Time of Day: </p>
                         <p className="spot-info-item">Conditions</p>

@@ -7,6 +7,7 @@ import kaushal from "../../assets/IMG_4043-circle.png";
 import christine from "../../assets/IMG_5171-circle.png"
 import nishant from "../../assets/IMG_8892-circle.png";
 import morgan from "../../assets/IMG_3975-circle.png"
+import { Link } from "@mui/material";
 
 const Footer = () => {
   return (
@@ -18,8 +19,8 @@ const Footer = () => {
         <div className="dev-profile-right">
           <h1 className="dev-name">Christine Luu</h1>
           <div className="dev-links">
-            <GitHubIcon />
-            <LinkedInIcon sx={{ fontSize: "28px" }} />
+            <a href="https://github.com/celuu" target="_blank"> <GitHubIcon /></a>
+            <a href="https://www.linkedin.com/in/christineeluu/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
           </div>
         </div>
       </div>
@@ -30,8 +31,8 @@ const Footer = () => {
         <div className="dev-profile-right">
           <h1 className="dev-name">Kaushal Kumbagowdana</h1>
           <div className="dev-links">
-            <GitHubIcon />
-            <LinkedInIcon sx={{ fontSize: "28px" }} />
+            <a href="https://github.com/kaushaltheeG" target="_blank"> <GitHubIcon /></a>
+            <a href="https://www.linkedin.com/in/kaushalsk/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
           </div>
         </div>
       </div>
@@ -42,8 +43,8 @@ const Footer = () => {
         <div className="dev-profile-right">
           <h1 className="dev-name">Morgan Rector</h1>
           <div className="dev-links">
-            <GitHubIcon />
-            <LinkedInIcon sx={{ fontSize: "28px" }} />
+            <a href="https://github.com/mmrector8?tab=repositories" target="_blank"> <GitHubIcon /></a>
+            <a href="https://www.linkedin.com/in/morgan-marie-rector/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
           </div>
         </div>
       </div>
@@ -54,8 +55,8 @@ const Footer = () => {
         <div className="dev-profile-right">
           <h1 className="dev-name">Nishant Racherla</h1>
           <div className="dev-links">
-            <GitHubIcon />
-            <LinkedInIcon sx={{ fontSize: "28px" }} />
+            <a href="https://github.com/T1LT" target="_blank"> <GitHubIcon /></a>
+            <a href="https://www.linkedin.com/in/nishant-racherla-a51370167/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
           </div>
         </div>
       </div>

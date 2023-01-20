@@ -43,7 +43,7 @@
   border-bottom: 3px solid #D6D6D6;
   padding: 10px 0;
   transition: border-bottom 0.2s;
-  font-family: var(--font-apple-system);
+  font-family: "Manrope", sans-serif, var(--font-apple-system);
   font-size: 14px;
 }
 
@@ -52,29 +52,34 @@
   border-bottom: 3px solid #D6D6D6;
   padding: 9px 0;
   transition: border-bottom 0.2s;
-  font-family: var(--font-apple-system);
+  font-family: "Manrope",
+    sans-serif, var(--font-apple-system);
   font-size: 14px;
 }
 
 .searchbar input:focus, .searchbar select:focus {
   outline: none;
-  border-bottom: 3px solid #4A42EF;
+  border-bottom: 3px solid black;
   transition: border-bottom 0.2s;
 }
 
 .navbar-button {
   border: none;
   color: white;
-  font-family: var(--font-apple-system);
+  font-family: "Manrope", sans-serif, var(--font-apple-system);
   border-radius: 3px;
   padding: 10px;
-  background-color: #4A42EF;
+  background-color: black;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.4s;
   font-weight: bold;
+   border: 1px solid black;
 }
 
 .navbar-button:hover, .navbar-button:active {
-  background-color: #3a34b9;
-  transition: background-color 0.3s;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  transition: all 0.4s;
+  border: 1px solid black;
 }

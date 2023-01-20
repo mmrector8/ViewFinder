@@ -117,8 +117,9 @@ function SignupForm() {
                 <button
                   onClick={(e) => setPageNum(2)}
                   className="next-page-button"
+                  disabled={!email || !username || !password || !password2}
                 >
-                  Next
+                Next
                 </button>
               </div>
             </>

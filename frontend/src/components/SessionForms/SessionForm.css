@@ -1,10 +1,15 @@
 form .errors {
   color: red;
-  font-size: 0.7em;
+  font-size: 14px;
   height: 15px;
   display: flex;
   align-items: center;
   margin-top: 5px;
+}
+
+.inputs-container input {
+  background-color: black;
+  color: white;
 }
 
 /* containers for both modals */
@@ -28,7 +33,7 @@ form .errors {
 .session-form input {
   width: 250px;
   border: none;
-  border-bottom: 3px solid #D6D6D6;
+  border-bottom: 3px solid grey;
   padding: 10px 0;
   transition: border-bottom 0.2s;
   font-family: var(--font-apple-system);
@@ -37,12 +42,11 @@ form .errors {
 
 .session-form input:focus {
   outline: none;
-  border-bottom: 3px solid #4A42EF;
+  border-bottom: 3px solid white;
   transition: border-bottom 0.2s;
 }
 
 .form-header {
-  color: rgb(74, 58, 255);
   font-weight: bold;
   font-size: 34px;
   text-align: center;
@@ -67,23 +71,29 @@ form .errors {
 .button-container>button {
   border: none;
   color: white;
-  background-color: #4A42EF;
+  background-color: black;
   cursor: pointer;
   padding: 10px;
-  font-family: var(--font-apple-system);
+  font-family: "Manrope", sans-serif, var(--font-apple-system);
   font-weight: bold;
   font-size: 16px;
   border-radius: 4px;
+  border: 1px solid ;
+  transition: all 0.4s;
 }
 
-.button-container>button:disabled, .button-container>button:disabled:hover {
-  background-color: #4A42EF;
+.button-container>button:disabled, .button-container>button:disabled:hover, .next-page-button-container > .next-page-button:disabled {
+  background-color: white;
+  color: rgb(158, 157, 157);
   opacity: 0.4;
   cursor: not-allowed;
 }
 
 .button-container>button:hover {
-  background-color: #3a34b9;
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+  transition: all 0.4s;
 }
 
 .signin-button-wrapper {
@@ -93,6 +103,7 @@ form .errors {
 
 .sign-in-button{
   width: 250px;
+  background-color: white;
 }
 .next-page-button-container {
   display: flex;
@@ -104,8 +115,9 @@ form .errors {
 
 .next-page-button {
   cursor: pointer;
-  background-color: rgb(74, 58, 255);
   color: white;
+  background-color: black;
+  /* color: black; */
   font-weight: bold;
   height: 38px;
   width: 80px;
@@ -114,13 +126,18 @@ form .errors {
   border: none;
   text-align: center;
   border-radius: 4px;
+  border: 1px solid white;
   transition: background-color 0.3s;
 }
 
 .next-page-button:hover {
-  background-color: #3a34b9;
+  background-color: white;
+  color: black;
+  border: 1px solid white;
   transition: background-color 0.3s;
 }
+
+
 
 .span-padding{
   padding-top: 20px;
@@ -138,7 +155,8 @@ input[type="file"] {
   resize: none;
   padding: 10px;
   padding-bottom: 0px;
-  font-family: var(--font-apple-system);
+  font-family:"Manrope",
+    sans-serif, var(--font-apple-system);
 }
 
 .bio-input:focus {
@@ -150,7 +168,8 @@ input[type="file"] {
 }
 
 .upload{
-  font-family: var(--font-apple-system);
+  font-family: "Manrope",
+    sans-serif, var(--font-apple-system);
 }
 
 .modal-close-button {
@@ -161,6 +180,7 @@ input[type="file"] {
   font-size: xx-large;
   top: 5px;
   left: 15px;
+  color: white;
 }
 
 .Overlay {

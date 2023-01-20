@@ -89,9 +89,9 @@ export const deletePhoto = (photoId) => async dispatch => {
     }
 }
 
-export const addLike = data => async dispatch =>{
+export const addLike = photoId => async dispatch =>{
     try {
-        const res = await jwtFetch(`/api/likes/photos/${data.photoId}`, {
+        const res = await jwtFetch(`/api/likes/photos/${photoId}`, {
             method: 'POST',
             body: JSON.stringify(data)
         });
