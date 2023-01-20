@@ -6,10 +6,10 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./PhotoShow.css"
 
 
-const PhotoShow = () => {
+const PhotoShow = ({photo}) => {
     const dispatch = useDispatch();
     const {photoId} = useParams();
-    const photo = useSelector(getPhoto)
+
 
     useEffect(() => {
         dispatch(getPhoto(photoId))
@@ -21,15 +21,15 @@ const PhotoShow = () => {
           height="400px"
           width="100%"
           className="photo-show-image"
-          src="https://pinnacle-seeds.s3.us-west-1.amazonaws.com/yoga.jpg"
+          src={photo?.url}
         />
         <div className="line"></div>
         <div className="photo-show-elements">
           <div className="left-side-show-box">
-            <div className="photo-show-username">Username</div>
-            <div>Spot name</div>
+            <div className="photo-show-username">{photo?.userId?.username}</div>
+            <div>{photo?.spotId?.name}</div>
           </div>
-          <div className="photo-show-description">Description</div>
+          <div className="photo-show-description">{photo?.description}</div>
           <div className="show-photo-heart">
             <FavoriteBorderIcon
               className="show-photo-fav"

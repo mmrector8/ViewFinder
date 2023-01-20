@@ -35,8 +35,9 @@ export const closeUserModal = () => ({
   type: CLOSE_USER_MODAL,
 });
 
-export const openPhotoShowModal = () => ({
+export const openPhotoShowModal = (photo) => ({
   type: OPEN_PHOTO_SHOW_MODAL,
+  payload: photo
 })
 
 export const closePhotoShowModal = () => ({
@@ -74,7 +75,7 @@ const uiReducer = (state = initialState, action) => {
     case CLOSE_USER_MODAL:
       return { ...state, userModalOpen: false };
     case OPEN_PHOTO_SHOW_MODAL:
-      return { ...state, photoShowModalOpen: true };
+      return { ...state, photoShowModalOpen: action.payload };
     case CLOSE_PHOTO_SHOW_MODAL:
       return { ...state, photoShowModalOpen: false };
     case OPEN_SEARCH_MODAL:

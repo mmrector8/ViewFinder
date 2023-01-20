@@ -28,10 +28,19 @@ router.get("/:id", async (req, res, next) => {
       select: "_id latitude longitude name",
       populate: {
         path: "photos",
-        select: "_id url latitude longitude userId likes",
+        select: "_id url latitude longitude userId likes description",
         populate: { path: "userId", select: "_id username email" },
       },
-    });
+    })
+    .populate({
+      path: "spots",
+      select: "_id latitude longitude name",
+      populate: {
+        path: "photos",
+        select: "_id url latitude longitude userId likes description",
+        populate: { path: "spotId", select: "name" },
+      },
+    })
                        
                        
     location.spots.forEach((spot) => {

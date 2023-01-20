@@ -30,14 +30,14 @@ const PhotoShowModal = () => {
   Modal.setAppElement("#root");
   return (
     <Modal
-      isOpen={photoShowModalOpen}
+      isOpen={!!photoShowModalOpen}
       onRequestClose={() => dispatch(closePhotoShowModal())}
       style={customStyles}
       contentLabel="Photo Show Modal"
       overlayClassName="Overlay"
       closeTimeoutMS={200}
     >
-      <PhotoShow />
+      <PhotoShow photo={photoShowModalOpen}/>
       <button
         onClick={() => dispatch(closePhotoShowModal())}
         className="show-photo-modal-close-button"
