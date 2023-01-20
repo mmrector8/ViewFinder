@@ -9,10 +9,12 @@
 .profile-pic{
     height: 100px;
     width: 100px;
-    /* background-color: grey; */
+    background-color: #bffafe;
     border-radius: 50%;
     padding: 30px;
     text-align: center;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .profile-title{
@@ -35,12 +37,38 @@
     grid-column-gap: 100px;
     grid-row-gap: 80px;
 }
+.user-photo-container p {
+    display: none;
+}
+.user-photo-container:hover p {
+    display: block;
+}
 
-.user-image-grid-photo{
+.user-photo-container {
+    position: relative;
+}
+
+.user-photo-container img {
     height: 250px;
     width: 250px;
     border-radius: 4px;
     background-color: rgb(191, 250, 254);
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.overlay-photo-text-user {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    width: 250px;
+    text-align: center;
+    color: white;
+}
+
+.user-photo-container:hover img {
+    filter: blur(4px);
+    transition: filter 0.2s;
 }
 
 @media(max-width: 1000px){

@@ -11,15 +11,16 @@ const LocationShowPage = () => {
   const dispatch = useDispatch();
   const location = useSelector(getLocation(locationId));
   const getPhotos = (state) => {
-    const location = Object.values(state.locations)?.at(0);
-    const spots = location?.spots;
-    const photosArr = [];
-    spots?.map((spot, i) => photosArr.push(spot.photos));
-    //  console.log(photosArr)
-    return photosArr.flat();
+    const location = Object.values(state.locations)?.at(0)
+    const spots = location?.spots
+    const photosArr = []
+   spots?.map((spot,i)=> photosArr.push(spot.photos))
+    return (photosArr.flat())
   };
 
-  const photos = useSelector(getPhotos);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const photos = useSelector(getPhotos)
 
   useEffect(() => {
 
@@ -37,18 +38,32 @@ const LocationShowPage = () => {
             <div className="location-show-map-container">
               <MapBox spots={location?.spots} />
             </div>
-            <div className="location-photo-grid">
-              {photos?.map((photo, idx) => (
-                <img
-                  src={photo?.url}
-                  alt="spot most liked photo"
-                  key={idx}
-                  className={`location-images`}
-                  onClick={() =>
-                    dispatch(openPhotoShowModal(photo))
-                  }
-                />
-              ))}
+            <div className="user-photo-grid">
+              {location.spots?.map((spot, idx) =>
+                spot.photos.length ? (
+                  <div width="280px" className="user-photo-container">
+                    <p
+                      className="overlay-photo-text-user"
+                      onMouseEnter={(e) => e.stopPropagation()}
+                      onMouseLeave={(e) => e.stopPropagation()}
+                    >
+                      {spot?.photos[0]?.description} <br /> -
+                      {spot?.photos[0]?.userId?.username}
+                    </p>
+                    <img
+                      src={spot?.photos[0]?.url}
+                      alt="spot most liked photo"
+                      key={idx}
+                      className="location-images"
+                      onMouseEnter={() => setIsHovered(spot?.photos[0]?._id)}
+                      onMouseLeave={() => setIsHovered(false)}
+                      onClick={() =>
+                        dispatch(openPhotoShowModal(spot?.photos[0]))
+                      }
+                    />
+                  </div>
+                ) : null
+              )}
             </div>
           </div>
         </div>
