@@ -16,36 +16,35 @@
 }
 
 .carousel-top {
-  grid-area: 1 / 2 / 4 / span 3;
-  background-image: url(../../assets/background.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  grid-area: 1 / 1 / 4 / span 4;
+  height: 400px;
+  position: relative;
+  overflow: clip;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
-.info-sidebar {
-  grid-area: 1 / 1 / 4 / 2;
-  background-color: darkgrey;
+.image-one, .image-two, .image-three{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+/* .info-sidebar {
+  grid-area: 1 / 1 / 4 / 2;
+  background-color: darkgrey;
+} */
+
 .carousel-bottom-left {
-  background-color: rgb(26, 113, 57);
+  position: relative;
+  height: 200px;
   grid-area: 4 / 1 / 6 / span 2;
-  background-image: url(../../assets/background.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .carousel-bottom-right {
-  background-color: rgb(36, 137, 225);
+  height: 200px;
+  position: relative;
   grid-area: 4 / 3 / 6 / span 2;
-  background-image: url(../../assets/background.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
