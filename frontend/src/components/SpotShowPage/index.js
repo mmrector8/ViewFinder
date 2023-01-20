@@ -53,7 +53,7 @@ const SpotShowPage = ()=>{
                         {spot.comments?.map((comment, i)=> <CommentIndexItem comment={comment} key={i}/>).reverse()}
                     </div>
                     <div className="spot-info-container">
-                        <p className="spot-info-item">{spot.name}</p>
+                        <p className="spot-info-item">Spot Name: {spot.name}</p>
                         <p className="spot-info-item">Date and Time</p>
                         <p className="spot-info-item">Best Time of Day: </p>
                         <p className="spot-info-item">Conditions</p>
