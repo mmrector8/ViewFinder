@@ -28,7 +28,7 @@ router.get("/:id", async (req, res, next) => {
       select: "_id latitude longitude name",
       populate: {
         path: "photos",
-        select: "_id url latitude longitude userId likes description",
+        select: "_id url latitude longitude userId description",
         populate: { path: "userId", select: "_id username email" },
       },
     })
@@ -37,12 +37,20 @@ router.get("/:id", async (req, res, next) => {
       select: "_id latitude longitude name",
       populate: {
         path: "photos",
-        select: "_id url latitude longitude userId likes description",
+        select: "_id url latitude longitude userId description",
         populate: { path: "spotId", select: "name" },
       },
     })
-                       
-                       
+    .populate({
+        path: "spots",
+        select: "_id latitude longitude name",
+        populate: {
+          path: "photos",
+          select: "_id url latitude longitude userId description",
+          populate: { path: "likes", select: "likerId spotId" },
+        },
+      })
+                                         
     location.spots.forEach((spot) => {
       spot.photos.sort((a, b) => b.likes.length - a.likes.length);
     })

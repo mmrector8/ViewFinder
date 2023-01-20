@@ -12,7 +12,6 @@ const LocationShowPage = () => {
   const location = useSelector(getLocation(locationId));
   const getPhotos = (state) => {
     const location = Object.values(state.locations)?.at(0)
-    console.log(location)
     const spots = location?.spots
     const photosArr = []
    spots?.map((spot,i)=> photosArr.push(spot.photos))

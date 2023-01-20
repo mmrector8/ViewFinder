@@ -13,7 +13,7 @@ const receiveLike = (like) => ({
 })
 
 const removeLike = (likeId) => ({
-    type: RECEIVE_LIKE,
+    type: REMOVE_LIKE,
     likeId
 })
 
@@ -89,23 +89,21 @@ export const deletePhoto = (photoId) => async dispatch => {
     }
 }
 
-export const addLike = photoId => async dispatch =>{
-    // try {
-        const res = await jwtFetch(`/api/likes/photos/${photoId}`, {
+export const addLike = photo => async dispatch =>{
+    try {
+        const res = await jwtFetch(`/api/likes/photos/${photo._id}`, {
             method: 'POST',
-            body: JSON.stringify(photoId)
+            body: JSON.stringify(photo)
         });
-        if(res.ok){
-            const like = await res.json();
-            dispatch(receiveLike(like));
+        const newLike = await res.json();
+        dispatch(receiveLike(newLike));
+        return newLike;
+    } catch (err) {
+        const resBody = await err.json();
+        if (resBody.statusCode === 400) {
+            return dispatch(receiveErrors(resBody.errors));
         }
-        
-    // } catch (err) {
-    //     const resBody = await err.json();
-    //     if (resBody.statusCode === 400) {
-    //         return dispatch(receiveErrors(resBody.errors));
-    //     }
-    // }
+    }
 }
 
 export const deleteLike = (likeId) => async dispatch => {
@@ -118,22 +116,12 @@ export const deleteLike = (likeId) => async dispatch => {
 }
 
 const photosReducer = (state = {}, action) => {
-    let newState = {...state};
+    const newState = {...state};
     switch (action.type){
         case RECEIVE_PHOTOS_SPLASH: 
            return {...newState, ...action.photos};
-        case RECEIVE_LIKE: 
-            newState.likes.push(action.like)
-            return newState;
-        case REMOVE_LIKE:
-            newState.likes.map((like, i) => {
-                if (like._id === action.likeId) {
-                    newState.likes.splice(i, 1)
-                }
-            })
-            return newState;
         default:
-            return state;    
+            return state;
     }
 }
 

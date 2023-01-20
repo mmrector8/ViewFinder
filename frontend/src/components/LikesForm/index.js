@@ -3,33 +3,52 @@ import { useDispatch, useSelector } from "react-redux"
 import { addLike, deleteLike } from "../../store/photos";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import "./likesform.css"
 
 const LikesForm = ({photo})=>{
     const currentUser = useSelector(state=> state.session.user)
+    const likes = useSelector(state => state.ui.photoShowModalOpen.likes)
     const dispatch = useDispatch();
     const [liked, setLiked] = useState(false)
+    const [likersLike, setLikersLike] = useState("")
 
-    console.log(photo)
+    useEffect(()=>{
+
+        likes?.map((like)=>{
+            if(currentUser && currentUser._id == like.likerId){
+                setLiked(true)
+                setLikersLike(like)
+            }
+        })
+    }, [dispatch, photo, likes])
+
+
+    if(!likes){
+        return null;
+    }
 
     const sendOrRemoveLike = ()=>{
+        console.log(likersLike)
         if(!liked){
-            dispatch(addLike(photo._id))
+           return dispatch(addLike(photo))
                 .then(() => setLiked(true))
             
         }else{
-            dispatch(deleteLike(photo._id))
-                .then(() => setLiked(false))
-        } 
+            // console.log(likersLike)
+            return dispatch(deleteLike(likersLike._id))
+                .then(()=> setLiked(false))
+        }
     }
 
     return (
         <div className="likes-form">
-                <button onClick={sendOrRemoveLike}>
-                    {liked && currentUser? <FavoriteIcon
+                 <p className="likes-length">{likes.length}</p>
+                <button onClick={sendOrRemoveLike} className="like-button">
+                {liked && currentUser ? <FavoriteIcon
                         className="show-photo-fav"
                         fontSize="medium"
                         sx={{ color: "red" }}
-                    /> : <FavoriteBorderIcon
+                     />: <FavoriteBorderIcon
                     className="show-photo-fav"
                     fontSize="medium"
                     sx={{ color: "red" }}
