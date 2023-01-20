@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchUser } from "../../store/user";
+import { clearUser, fetchUser } from "../../store/user";
 import "./usershow.css";
 import { openPhotoShowModal } from "../../store/ui";
 
@@ -13,6 +13,7 @@ const UserShowPage = () => {
 
   useEffect(() => {
     dispatch(fetchUser(userId));
+    () => dispatch(clearUser());
   }, [dispatch, userId]);
 
   if (!user) {

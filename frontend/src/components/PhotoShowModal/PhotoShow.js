@@ -9,7 +9,7 @@ import "./PhotoShow.css"
 const PhotoShow = ({photo}) => {
     const dispatch = useDispatch();
     const {photoId} = useParams();
-
+    const user = useSelector(store => store.users);
 
     useEffect(() => {
         dispatch(getPhoto(photoId))
@@ -31,7 +31,7 @@ const PhotoShow = ({photo}) => {
           </div>
           <div className="photo-show-description">{photo?.description}</div>
           <div className="show-photo-heart">
-              <LikesForm photo={photo}/>
+              <LikesForm photo={photo} user={user} />
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./likesform.css"
 
-const LikesForm = ({photo})=>{
+const LikesForm = ({photo, user})=>{
     const currentUser = useSelector(state=> state.session.user)
     const likes = useSelector(state => state.ui.photoShowModalOpen.likes)
     const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const LikesForm = ({photo})=>{
     }
 
     return (
-        <div className="likes-form">
+        <div className="likes-form" id={user ? "likes-padding" : undefined}>
                  <p className="likes-length">{likes.length}</p>
                 <button onClick={sendOrRemoveLike} className="like-button">
                 {liked && currentUser ? <FavoriteIcon

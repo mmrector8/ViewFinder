@@ -2,11 +2,16 @@ import jwtFetch from "./jwt";
 import { RECEIVE_PHOTO, receivePhoto, createPhoto, REMOVE_PHOTO, removePhoto, deletePhoto } from "./photos";
 
 export const RECEIVE_USER = 'users/RECEIVE_USER'
+export const CLEAR_USER = 'users/CLEAR_USER'
 
 export const receiveUser = user =>({
     type: RECEIVE_USER,
     user
 }) 
+
+export const clearUser = user => ({
+    type: CLEAR_USER,
+});
 
 export const getUser = (userId)=>(state)=>{
     if(state.users){
@@ -32,6 +37,8 @@ const usersReducer = (state={}, action)=>{
     switch(action.type){
         case RECEIVE_USER:
             return {...newState, ...action.user}
+        case CLEAR_USER:
+            return {};
         case RECEIVE_PHOTO:
             newState.photos.push(action.photo)
             return newState;
