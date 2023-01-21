@@ -37,9 +37,13 @@ const MainPage = () => {
     <>
       <div className="map-and-carousel-container">
         <div className="carousel">
-            <div className="carousel-top"><img src={photos[currentImgIdx]?.url} className="image-one"></img></div>
-           <div className="carousel-bottom-left"><img src={photos[(currentImgIdx +1)%photos.length]?.url} className="image-two"></img></div>
-          <div className="carousel-bottom-right"><img src={photos[(currentImgIdx +2)%photos.length]?.url} className="image-three"></img></div>
+            <div className="carousel-top">
+              <img src={photos[currentImgIdx]?.url} className="image-one"></img>
+              </div>
+           <div className="carousel-bottom">
+              <img src={photos[(currentImgIdx +1)%photos.length]?.url} className="image-two"></img>
+              <img src={photos[(currentImgIdx + 2) % photos.length]?.url} className="image-three"></img>
+            </div>
         </div>
         <div className="mainpage-mapbox">
           <MapBox locations={locations} />
