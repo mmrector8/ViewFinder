@@ -460,7 +460,7 @@ let photo3 = new Photo({
   genre: "landscape",
   description: "El Capitan looking beautiful",
   condition: ["rocky"],
-  transportation: ["hike, walk"],
+  transportation: ["hike", "walk"],
   bestTimeOfDay: "night",
   payment: "$$",
   likes: [],

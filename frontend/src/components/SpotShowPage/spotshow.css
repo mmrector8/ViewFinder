@@ -26,8 +26,6 @@
 }
 
 .most-upvoted-image{
-    /* height: 400px;
-    width: 600px; */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -38,12 +36,9 @@
 }
 
 .top-upvoted-smaller-images{
-    /* height: 190px;
-    width: 305px; */
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-color: rgb(143, 250, 245);
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
@@ -84,6 +79,11 @@
     margin-top: 5px;
     font-size: 30px;
 }
+
+.transportation-info-items, .conditions-info-items{
+    font-size: 28px;
+}
+
 .open-comment-button, .open-sign-in-button{
     cursor: pointer;
     background-color: black;
