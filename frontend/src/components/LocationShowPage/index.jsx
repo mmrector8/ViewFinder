@@ -28,7 +28,7 @@ const LocationShowPage = () => {
 
   return (
     <>
-      {location && (
+      {location &&  (
         <div className="location-show-main">
           <div className="location-header">
             <h1>{location?.county}</h1>
