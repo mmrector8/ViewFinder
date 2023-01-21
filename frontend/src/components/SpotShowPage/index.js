@@ -39,16 +39,18 @@ const SpotShowPage = ()=>{
       <div className="spot-show-page-container" onClick={checkClicked}>
         <div className="spot-show-grid-container">
           <div className="upvoted-photos">
+            <div className="most-upvoted-photo-container">
             <img
               src={spot.photos[0]?.url}
               alt="most upvoted image"
               className="most-upvoted-image"
               onClick={() => dispatch(openPhotoShowModal(spot.photos[0]))}
             ></img>
+            </div>
             <div className="top-upvoted-photos">
               {spot.photos.slice(1).length > 0
                 ? spot.photos
-                    ?.slice(1)
+                    ?.slice(1, 5)
                     .map((photo, i) => (
                       <img
                         src={photo.url}
