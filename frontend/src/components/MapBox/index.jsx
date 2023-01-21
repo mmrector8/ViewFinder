@@ -29,7 +29,7 @@ const MapBox = ({ locations, spots }) => {
         mapContainerClassName="map-container"
         options={options}
       >
-        <MarkerClustererF averageCenter enableRetinaIcons gridSize={60}>
+        {/* <MarkerClustererF averageCenter enableRetinaIcons gridSize={60}>
           {
             locations
               ? Object.values(locations).map((location, idx) => (
@@ -49,7 +49,7 @@ const MapBox = ({ locations, spots }) => {
                   />
                 ))
           }
-        </MarkerClustererF>
+        </MarkerClustererF> */}
       </GoogleMap>
     </div>
   );

@@ -27,6 +27,13 @@ function LoginForm() {
     dispatch(login({ email, password }));
   };
 
+  const handleSubmitDemo = (e) => {
+    e.preventDefault();
+    dispatch(login({email: "demo-user@gmail.com", password: "starwars"}))
+  }
+
+ 
+
   return (
     <div className="login-container">
       <form className="session-form" onSubmit={handleSubmit}>
@@ -61,9 +68,27 @@ function LoginForm() {
             </button>
           </div>
         </div>
+        <div className="or-hr-container">
+          <hr className="hr-styles" />
+          <span>OR</span>
+          <hr className="hr-styles" />
+        </div>
+
+         <div className="signin-button-wrapper">
+          <div className="demo-button-container">
+            <button
+              onClick={handleSubmitDemo}
+              className="sign-in-button"
+            >
+              Sign In as Guest
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
 }
 
 export default LoginForm;
+
+

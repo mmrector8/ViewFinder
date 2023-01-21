@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./SessionForm.css";
-import { signup, clearSessionErrors } from "../../store/session";
+import { login, signup, clearSessionErrors } from "../../store/session";
 import "./SessionForm.css";
 import { closeSignupModal } from "../../store/ui";
+
+
 
 function SignupForm() {
   const [email, setEmail] = useState("");
@@ -62,6 +64,11 @@ function SignupForm() {
     setPageNum(1);
   };
 
+  const handleSubmitDemo = (e) => {
+    e.preventDefault();
+    dispatch(login({email: "demo-user@gmail.com", password: "starwars"}))
+  }
+
   return (
     <div className="sign-up-container">
       <form className="session-form" onSubmit={handleSubmit}>
@@ -114,6 +121,10 @@ function SignupForm() {
                 {password !== password2 && "Confirm Password field must match"}
               </div>
               <div className="next-page-button-container">
+                <button 
+                onClick={handleSubmitDemo}
+                className="next-page-button"
+                >Guest?</button>
                 <button
                   onClick={(e) => setPageNum(2)}
                   className="next-page-button"

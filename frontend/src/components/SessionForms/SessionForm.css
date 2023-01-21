@@ -68,7 +68,7 @@ form .errors {
   width: 250px;
 }
 
-.button-container>button {
+.button-container>button, .demo-button-container>button {
   border: none;
   color: white;
   background-color: black;
@@ -89,11 +89,15 @@ form .errors {
   cursor: not-allowed;
 }
 
-.button-container>button:hover {
+.button-container>button:hover, .demo-button-container>button:hover {
   border: 1px solid black;
   color: black;
   background-color: white;
   transition: all 0.4s;
+}
+
+.demo-button-container{
+  /* width: 250px; */
 }
 
 .signin-button-wrapper {
@@ -108,7 +112,7 @@ form .errors {
 .next-page-button-container {
   display: flex;
   align-items: right;
-  justify-content: right;
+  justify-content: space-between;
   width: 250px;
   margin-top: 15px;
 }
@@ -181,6 +185,21 @@ input[type="file"] {
   top: 5px;
   left: 15px;
   color: white;
+}
+
+.or-hr-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.or-hr-container>span {
+  margin: 0 5px;
+}
+
+.hr-styles{
+  width: 35%;
+  
 }
 
 .Overlay {
