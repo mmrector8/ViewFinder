@@ -51,21 +51,21 @@ const CommentIndexItem = ({comment})=>{
             src="https://viewfinder-seeds.s3.us-west-2.amazonaws.com/def-user-pfp.png"
             className="comment-prof-pic"
           ></img>
-          <p className="username-for-comment">{comment.userId.username}</p>
+          <p className="username-for-comment">{comment?.userId?.username}</p>
         </div>
-        <p className="comment-date">{convertDate(comment.updatedAt)}</p>
+        <p className="comment-date">{convertDate(comment?.updatedAt)}</p>
         <div className="edit-delete-and-body">
-          {editCommentOpen ? (
+          {currentUser && editCommentOpen ? (
             <CommentForm
               comment={comment}
               setEditCommentOpen={setEditCommentOpen}
             />
           ) : (
-            <p className="comment-body">{comment.body}</p>
+            <p className="comment-body">{comment?.body}</p>
           )}
           <div className="edit-and-delete-buttons-container">
-            {currentUser !== null &&
-            comment.userId._id === currentUser._id &&
+            {(!!currentUser &&
+            comment?.userId?._id === currentUser?._id) &&
             !editCommentOpen ? (
               <Tooltip title="Edit" arrow placement={"top"}>
                 <button
@@ -78,7 +78,7 @@ const CommentIndexItem = ({comment})=>{
             ) : (
               ""
             )}
-            {currentUser !== null && comment.userId._id === currentUser._id ? (
+            {currentUser !== null && comment?.userId?._id === currentUser?._id ? (
               <Tooltip title="Delete" arrow placement={"top"}>
                 <button
                   onClick={() => dispatch(deleteComment(comment._id))}
