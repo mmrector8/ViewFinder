@@ -29,15 +29,15 @@ const MapBox = ({ locations, spots }) => {
         mapContainerClassName="map-container"
         options={options}
       >
-        <MarkerClustererF averageCenter enableRetinaIcons gridSize={60}>
-          {(clusterer) =>
+        {/* <MarkerClustererF averageCenter enableRetinaIcons gridSize={60}> */}
+          {
             locations
               ? Object.values(locations).map((location, idx) => (
                   <CustomMarker
                     place={location}
                     key={idx}
                     type={"locations"}
-                    clusterer={clusterer}
+                    // clusterer={clusterer}
                   />
                 ))
               : spots?.map((spot, idx) => (
@@ -45,11 +45,11 @@ const MapBox = ({ locations, spots }) => {
                     place={spot}
                     key={idx}
                     type={"spots"}
-                    clusterer={clusterer}
+                    // clusterer={clusterer}
                   />
                 ))
           }
-        </MarkerClustererF>
+        {/* </MarkerClustererF> */}
       </GoogleMap>
     </div>
   );
