@@ -35,7 +35,7 @@ const LocationShowPage = () => {
           </div>
           <div className="location-container">
             <div className="location-show-map-container">
-              <MapBox spots={location?.spots} />
+              <MapBox spots={location?.spots} center={{ lat: location?.latitude, lng: location?.longitude }} zoom={9} />
             </div>
             <div className="user-photo-grid">
               {location.spots?.map((spot, idx) =>
