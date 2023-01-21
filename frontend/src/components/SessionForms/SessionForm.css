@@ -96,9 +96,7 @@ form .errors {
   transition: all 0.4s;
 }
 
-.demo-button-container{
-  /* width: 250px; */
-}
+
 
 .signin-button-wrapper {
   display: flex;
