@@ -35,20 +35,6 @@ const SpotShowPage = ()=>{
         }
     }
 
-    // const convertDate = (commentDate) => {
-    //     const date = commentDate.toString();
-    //     const year = date.slice(0, 4)
-    //     const month = parseInt(date.slice(5, 7))
-    //     let day;
-    //     if (date[8] === '0') {
-    //         day = date.slice(9, 10)
-    //     } else {
-    //         day = date.slice(8, 10)
-    //     }
-    //     let convertedDate = `${months[month]} ${day}, ${year}`
-    //     return convertedDate;
-    // }
-
     return (
       <div className="spot-show-page-container" onClick={checkClicked}>
         <div className="spot-show-grid-container">
@@ -129,19 +115,19 @@ const SpotShowPage = ()=>{
               </div>
               <div className="spot-info-item">
                 <p>Conditions: </p>
-                <p className="spot-info-items">
+                <div className="spot-info-items">
                   {spot.photos[0]?.condition.map((item, i) => (
                     <p key={i}>{item}</p>
                   ))}
-                </p>
+                </div>
               </div>
               <div className="spot-info-item">
                 <p>Transportation: </p>
-                <p className="spot-info-items">
+                <div className="spot-info-items">
                   {spot.photos[0]?.transportation.map((item, i) => (
                     <p key={i}>{item}</p>
                   ))}
-                </p>
+                </div>
               </div>
             </div>
           </div>
