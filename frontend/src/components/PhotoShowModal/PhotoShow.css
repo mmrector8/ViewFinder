@@ -42,6 +42,10 @@
     justify-content: center;
 }
 
+.login-favorite{
+    cursor: pointer;
+}
+
 .show-photo-heart {
     width: 300px;
     display: flex;

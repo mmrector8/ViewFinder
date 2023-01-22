@@ -6,63 +6,70 @@ import { useParams } from "react-router-dom";
 import MapBox from "../MapBox";
 import { openPhotoShowModal } from "../../store/ui";
 
+const PhotoGridView = (spots) => {
+  const spotsArray = Object.values(spots)[0];
+  const [isHovered, setIsHovered] = useState(false);
+  let photosToShow = spotsArray?.map(spot => {
+    if (spot?.photos && spot?.photos?.length) {
+      return spot?.photos[0];
+    }
+    return null;
+  }).filter((photo) => photo != null);
+
+  if (!photosToShow.length) {
+    return (
+      <h1 className="no-photos-container">
+        No images under this spot! Be the first to add one!
+      </h1>
+    );
+  }
+  return (
+    <div className="user-photo-grid">
+      {photosToShow.map((photo, idx) => (
+        <div key={idx}>
+          <div width="280px" className="user-photo-container">
+            <p
+              className="overlay-photo-text-user"
+              onMouseEnter={(e) => e.stopPropagation()}
+              onMouseLeave={(e) => e.stopPropagation()}
+            >
+              {photo.description} <br /> -{photo.userId?.username}
+            </p>
+            <img
+              src={photo.url}
+              alt="spot most liked photo"
+              className="location-images"
+              onMouseEnter={() => setIsHovered(photo._id)}
+              onMouseLeave={() => setIsHovered(false)}
+              onClick={() => dispatch(openPhotoShowModal(photo))}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const LocationShowPage = () => {
   const { locationId } = useParams();
   const dispatch = useDispatch();
   const location = useSelector(getLocation(locationId));
-  const getPhotos = (state) => {
-    const location = Object.values(state.locations)?.at(0);
-    const spots = location?.spots;
-    const photosArr = [];
-    spots?.map((spot, i) => photosArr.push(spot.photos));
-    return photosArr.flat();
-  };
-
-  const [isHovered, setIsHovered] = useState(false);
-
-  const photos = useSelector(getPhotos);
 
   useEffect(() => {
     dispatch(fetchLocation(locationId));
   }, [dispatch]);
-
   return (
     <>
-      {location &&  (
+      {location && (
         <div className="location-show-main">
           <div className="location-header">
-            <h1>{location?.county}</h1>
+            <h1>{location.county}</h1>
           </div>
           <div className="location-container">
             <div className="location-show-map-container">
-              <MapBox spots={location?.spots} />
+              <MapBox spots={location.spots} />
             </div>
-            <div className="user-photo-grid">
-              {location.spots?.map((spot, idx) =>
-                spot?.photos?.length ? (
-                  <div width="280px" className="user-photo-container" key={idx}>
-                    <p
-                      className="overlay-photo-text-user"
-                      onMouseEnter={(e) => e.stopPropagation()}
-                      onMouseLeave={(e) => e.stopPropagation()}
-                    >
-                      {spot?.photos[0]?.description} <br /> -
-                      {spot?.photos[0]?.userId?.username}
-                    </p>
-                    <img
-                      src={spot?.photos[0]?.url}
-                      alt="spot most liked photo"
-                      className="location-images"
-                      onMouseEnter={() => setIsHovered(spot?.photos[0]?._id)}
-                      onMouseLeave={() => setIsHovered(false)}
-                      onClick={() =>
-                        dispatch(openPhotoShowModal(spot?.photos[0]))
-                      }
-                    />
-                  </div>
-                ) : null
-              )}
-            </div>
+            <PhotoGridView spots={location.spots} />
           </div>
         </div>
       )}

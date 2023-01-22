@@ -30,18 +30,20 @@
 }
 
 .user-photo-grid{
-    /* margin-top: 40px; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-column-gap: 100px;
+    grid-column-gap: 80px;
     grid-row-gap: 80px;
+    margin-left: 50px;
 }
 .user-photo-container p {
     display: none;
+    transition: all 1s;
 }
 .user-photo-container:hover p {
     display: block;
+    transition: all 1s;
 }
 
 .user-photo-container {
@@ -63,6 +65,7 @@
     width: 250px;
     text-align: center;
     color: white;
+    transition: all 0.2s;
 }
 
 .user-photo-container:hover img {

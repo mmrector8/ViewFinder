@@ -50,12 +50,21 @@
     transition: filter 0.2s;
 }
 
-.overlay-photo-text {
+/* .overlay-photo-text {
     position: absolute;
     z-index: 5;
     top: 60%;
     width: 250px;
     text-align: right;
+    transition: all 0.2s;
+} */
+
+.no-photos-container {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 #active {
