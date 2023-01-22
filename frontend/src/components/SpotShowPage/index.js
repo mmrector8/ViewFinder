@@ -43,17 +43,14 @@ const SpotShowPage = ()=>{
       <div className="spot-show-page-container" onClick={checkClicked}>
         <div className="spot-show-grid-container">
           <div className="upvoted-photos">
-            <div className="most-upvoted-photo-container">
-            <img
-              src={spot.photos[0]?.url}
-              alt="most upvoted image"
-              className="most-upvoted-image"
-              onClick={() => dispatch(openPhotoShowModal(spot.photos[0]))}
-            ></img>
+            <div className={spot.photos[0] ? "most-upvoted-photo-container" : "no-photos-yet-container"}>
+              {spot.photos[0] ?
+            <img src={spot.photos[0]?.url} alt="most upvoted image" className="most-upvoted-image" onClick={() => dispatch(openPhotoShowModal(spot.photos[0]))}></img>
+                : <p className="no-photos-yet">{currentUser ? "No photos yet! Click the camera button in the top right corner to add one!" : "No photos yet! Please login and click the camera button in the top right corner to add one!"}</p>}
             </div>
             <div className="top-upvoted-photos">
-              {spot.photos.slice(1).length > 0
-                ? spot.photos
+              {spot?.photos?.slice(1).length > 0
+                ? spot?.photos
                     ?.slice(1, 5)
                     .map((photo, i) => (
                       <img
@@ -64,14 +61,8 @@ const SpotShowPage = ()=>{
                         onClick={() => dispatch(openPhotoShowModal(photo))}
                       ></img>
                     ))
-                : [1, 2, 3, 4].map((num, i) => (
-                    <img
-                      src=""
-                      alt="top upvoted photos"
-                      key={i}
-                      className="top-upvoted-smaller-images"
-                    ></img>
-                  ))}
+                : ""
+                }
             </div>
           </div>
           <div className="comments-and-info-container">

@@ -104,3 +104,16 @@
     color: black;
     transition: all 0.2s;
 }
+
+.no-photos-yet-container{
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-photos-yet{
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+}
