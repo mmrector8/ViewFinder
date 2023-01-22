@@ -105,11 +105,16 @@
     transition: all 0.2s;
 }
 
+.no-display-photos{
+    height: 400px;
+}
+
 .no-photos-yet-container{
-    margin-left: 50px;
+    padding: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid black;
 }
 
 .no-photos-yet{

@@ -48,7 +48,7 @@ const SpotShowPage = ()=>{
             <img src={spot.photos[0]?.url} alt="most upvoted image" className="most-upvoted-image" onClick={() => dispatch(openPhotoShowModal(spot.photos[0]))}></img>
                 : <p className="no-photos-yet">{currentUser ? "No photos yet! Click the camera button in the top right corner to add one!" : "No photos yet! Please login and click the camera button in the top right corner to add one!"}</p>}
             </div>
-            <div className="top-upvoted-photos">
+            <div className={spot.photos[0] ? "top-upvoted-photos" : "no-display-photos"}>
               {spot?.photos?.slice(1).length > 0
                 ? spot?.photos
                     ?.slice(1, 5)
