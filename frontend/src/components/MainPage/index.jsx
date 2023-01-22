@@ -1,16 +1,21 @@
 import React from "react";
-import { clearLocations, fetchLocations, getLocations } from "../../store/location";
+import {
+  clearLocations,
+  fetchLocations,
+  getLocations,
+} from "../../store/location";
 import Footer from "../Footer";
 import MapBox from "../MapBox";
 import "./MainPage.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import photosReducer, { getPhotos, fetchPhotosSplash } from "../../store/photos";
+import { clearPhotos, fetchPhotosSplash } from "../../store/photos";
+import LoadingSpinner from "../LoadingSpinner";
 
 const MainPage = () => {
   const locations = useSelector(getLocations);
-  const photos = useSelector(state=> Object.values(state.photos))
-  const [currentImgIdx, setCurrentImgIdx] = useState(1)
+  const photos = useSelector((state) => Object.values(state.photos));
+  const [currentImgIdx, setCurrentImgIdx] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,38 +23,57 @@ const MainPage = () => {
     return () => dispatch(clearLocations());
   }, [dispatch]);
 
-  useEffect(()=>{
-    dispatch(fetchPhotosSplash())
-  }, [dispatch])
+  useEffect(() => {
+    dispatch(fetchPhotosSplash());
+  }, [dispatch]);
 
   useEffect(() => {
     const backgroundInterval = setInterval(() => {
-      if (photos && currentImgIdx < photos.length-1) {
-        setCurrentImgIdx(currentImgIdx + 1)
+      if (photos && currentImgIdx < photos.length - 1) {
+        setCurrentImgIdx(currentImgIdx + 1);
       } else {
-        setCurrentImgIdx(0)
+        setCurrentImgIdx(0);
       }
-    }, 3500)
-    return () => clearInterval(backgroundInterval)
-  }, [currentImgIdx])
+    }, 3500);
+    return () => clearInterval(backgroundInterval);
+  }, [currentImgIdx]);
+
+  useEffect(() => {
+    return () => dispatch(clearPhotos());
+  }, []);
 
   return (
     <>
-      <div className="map-and-carousel-container">
-        <div className="carousel">
-            <div className="carousel-top">
-              <img src={photos[currentImgIdx]?.url} className="image-one"></img>
+      {locations.length ? (
+        <>
+          <div className="map-and-carousel-container">
+            <div className="carousel">
+              <div className="carousel-top">
+                <img
+                  src={photos[currentImgIdx]?.url}
+                  className="image-one"
+                ></img>
               </div>
-           <div className="carousel-bottom">
-              <img src={photos[(currentImgIdx +1)%photos.length]?.url} className="image-two"></img>
-              <img src={photos[(currentImgIdx + 2) % photos.length]?.url} className="image-three"></img>
+              <div className="carousel-bottom">
+                <img
+                  src={photos[(currentImgIdx + 1) % photos.length]?.url}
+                  className="image-two"
+                ></img>
+                <img
+                  src={photos[(currentImgIdx + 2) % photos.length]?.url}
+                  className="image-three"
+                ></img>
+              </div>
             </div>
-        </div>
-        <div className="mainpage-mapbox">
-          <MapBox locations={locations} />
-        </div>
-      </div>
-      <Footer />
+            <div className="mainpage-mapbox">
+              <MapBox locations={locations} />
+            </div>
+          </div>
+          <Footer />
+        </>
+      ) : (
+        <LoadingSpinner />
+      )}
     </>
   );
 };

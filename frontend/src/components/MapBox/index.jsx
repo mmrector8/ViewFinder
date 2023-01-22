@@ -6,8 +6,9 @@ import {
 } from "@react-google-maps/api";
 import "./MapBox.css";
 import CustomMarker from "./CustomMarker";
+import LoadingSpinner from "../LoadingSpinner";
 
-const MapBox = ({ locations, spots }) => {
+const MapBox = ({ locations, spots, center, zoom }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
     // mapIds: ["73cef3161f877bcd"],
@@ -18,14 +19,19 @@ const MapBox = ({ locations, spots }) => {
     disableDefaultUI: false,
     clickableIcons: false,
   };
-  const center = useMemo(() => ({ lat: 37.1918, lng: -119.5249 }), []);
+  let innerCenter;
+  if (center) {
+    innerCenter = useMemo(() => (center), []);
+  } else {
+    innerCenter = useMemo(() => ({ lat: 37.1918, lng: -119.5249 }), []);
+  }
 
-  if (!isLoaded) return <h1>loading...</h1>;
+  if (!isLoaded) return <LoadingSpinner />;
   return (
     <div className="map-component">
       <GoogleMap
-        zoom={6}
-        center={center}
+        zoom={zoom ? zoom : 6}
+        center={innerCenter}
         mapContainerClassName="map-container"
         options={options}
       >

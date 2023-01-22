@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch } from "react-redux";
 import { openSearchModal } from "../../store/ui";
 import { fetchResults } from "../../store/search";
+import { useLocation } from "react-router-dom";
 
 const SearchBar = () => {
   const [queryString, setQueryString] = useState("");
   const [queryType, setQueryType] = useState("");
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +17,11 @@ const SearchBar = () => {
     dispatch(fetchResults(query));
     dispatch(openSearchModal());
   };
+
+  useEffect(() => {
+    setQueryString("");
+    setQueryType("");
+  }, [location.pathname]);
 
   return (
     <form className="searchbar" onSubmit={handleSubmit}>

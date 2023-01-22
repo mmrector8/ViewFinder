@@ -5,10 +5,14 @@ import "./LocationShowPage.css";
 import { useParams } from "react-router-dom";
 import MapBox from "../MapBox";
 import { openPhotoShowModal } from "../../store/ui";
+import LoadingSpinner from "../LoadingSpinner";
+import { fetchLocationSpots } from "../../store/spot";
 
 const PhotoGridView = (spots) => {
   const spotsArray = Object.values(spots)[0];
   const [isHovered, setIsHovered] = useState(false);
+  const dispatch = useDispatch();
+
   let photosToShow = spotsArray?.map(spot => {
     if (spot?.photos && spot?.photos?.length) {
       return spot?.photos[0];
@@ -57,22 +61,23 @@ const LocationShowPage = () => {
 
   useEffect(() => {
     dispatch(fetchLocation(locationId));
+    dispatch(fetchLocationSpots(locationId));
   }, [dispatch]);
   return (
     <>
-      {location && (
+      {location ? (
         <div className="location-show-main">
           <div className="location-header">
             <h1>{location.county}</h1>
           </div>
           <div className="location-container">
             <div className="location-show-map-container">
-              <MapBox spots={location.spots} />
+              <MapBox spots={location?.spots} center={{ lat: location?.latitude, lng: location?.longitude }} zoom={9} />
             </div>
             <PhotoGridView spots={location.spots} />
           </div>
         </div>
-      )}
+      ) : (<LoadingSpinner />)}
     </>
   );
 };
