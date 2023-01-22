@@ -30,7 +30,7 @@ const MapBox = ({ locations, spots }) => {
         options={options}
       >
         <MarkerClustererF averageCenter enableRetinaIcons gridSize={60}>
-          {
+          { clusterer =>
             locations
               ? Object.values(locations).map((location, idx) => (
                   <CustomMarker
