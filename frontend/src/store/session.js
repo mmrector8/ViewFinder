@@ -1,4 +1,5 @@
 import jwtFetch from "./jwt";
+import { RECEIVE_PHOTO } from "./photos";
 import { closeSigninModal, closeSignupModal } from "./ui";
 
 const RECEIVE_CURRENT_USER = "session/RECEIVE_CURRENT_USER";
@@ -77,6 +78,10 @@ const sessionReducer = (state = initialState, action) => {
       return { user: action.currentUser };
     case RECEIVE_USER_LOGOUT:
       return initialState;
+    case RECEIVE_PHOTO:
+      const newState = { ...state }
+      newState.user.photos.push(action.photo._id);
+      return newState;
     default:
       return state;
   }

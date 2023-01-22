@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { clearUser, fetchUser } from "../../store/user";
 import "./usershow.css";
 import { openPhotoShowModal } from "../../store/ui";
+import LoadingSpinner from "../LoadingSpinner";
 
 const UserShowPage = () => {
   const user = useSelector((state) => state.users);
@@ -17,7 +18,7 @@ const UserShowPage = () => {
   }, [dispatch, userId]);
 
   if (!user) {
-    return null;
+    return <LoadingSpinner />;
   }
 
   return (

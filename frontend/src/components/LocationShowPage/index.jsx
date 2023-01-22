@@ -5,11 +5,15 @@ import "./LocationShowPage.css";
 import { useParams } from "react-router-dom";
 import MapBox from "../MapBox";
 import { openPhotoShowModal } from "../../store/ui";
+import LoadingSpinner from "../LoadingSpinner";
+import { fetchLocationSpots } from "../../store/spot";
 
 const LocationShowPage = () => {
   const { locationId } = useParams();
   const dispatch = useDispatch();
   const location = useSelector(getLocation(locationId));
+  const spots = useSelector(store => store.spots);
+
   const getPhotos = (state) => {
     const location = Object.values(state.locations)?.at(0);
     const spots = location?.spots;
@@ -24,11 +28,12 @@ const LocationShowPage = () => {
 
   useEffect(() => {
     dispatch(fetchLocation(locationId));
+    dispatch(fetchLocationSpots(locationId));
   }, [dispatch]);
 
   return (
     <>
-      {location &&  (
+      {location ? (
         <div className="location-show-main">
           <div className="location-header">
             <h1>{location?.county}</h1>
@@ -65,7 +70,7 @@ const LocationShowPage = () => {
             </div>
           </div>
         </div>
-      )}
+      ) : (<LoadingSpinner />)}
     </>
   );
 };

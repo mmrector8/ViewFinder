@@ -6,6 +6,7 @@ import {
 } from "@react-google-maps/api";
 import "./MapBox.css";
 import CustomMarker from "./CustomMarker";
+import LoadingSpinner from "../LoadingSpinner";
 
 const MapBox = ({ locations, spots, center, zoom }) => {
   const { isLoaded } = useLoadScript({
@@ -25,7 +26,7 @@ const MapBox = ({ locations, spots, center, zoom }) => {
     innerCenter = useMemo(() => ({ lat: 37.1918, lng: -119.5249 }), []);
   }
 
-  if (!isLoaded) return <h1>loading...</h1>;
+  if (!isLoaded) return <LoadingSpinner />;
   return (
     <div className="map-component">
       <GoogleMap

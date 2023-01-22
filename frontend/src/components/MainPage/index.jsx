@@ -5,7 +5,8 @@ import MapBox from "../MapBox";
 import "./MainPage.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import photosReducer, { getPhotos, fetchPhotosSplash } from "../../store/photos";
+import { clearPhotos, fetchPhotosSplash } from "../../store/photos";
+import LoadingSpinner from "../LoadingSpinner";
 
 const MainPage = () => {
   const locations = useSelector(getLocations);
@@ -33,19 +34,44 @@ const MainPage = () => {
     return () => clearInterval(backgroundInterval)
   }, [currentImgIdx])
 
+  useEffect(() => {
+    return () => dispatch(clearPhotos());
+  }, []);
+
   return (
     <>
-      <div className="map-and-carousel-container">
-        <div className="carousel">
-            <div className="carousel-top"><img src={photos[currentImgIdx]?.url} className="image-one"></img></div>
-           <div className="carousel-bottom-left"><img src={photos[(currentImgIdx +1)%photos.length]?.url} className="image-two"></img></div>
-          <div className="carousel-bottom-right"><img src={photos[(currentImgIdx +2)%photos.length]?.url} className="image-three"></img></div>
-        </div>
-        <div className="mainpage-mapbox">
-          <MapBox locations={locations} />
-        </div>
-      </div>
-      <Footer />
+      {locations.length ? (
+        <>
+          <div className="map-and-carousel-container">
+            <div className="carousel">
+              <div className="carousel-top">
+                <img
+                  src={photos[currentImgIdx]?.url}
+                  className="image-one"
+                ></img>
+              </div>
+              <div className="carousel-bottom-left">
+                <img
+                  src={photos[(currentImgIdx + 1) % photos.length]?.url}
+                  className="image-two"
+                ></img>
+              </div>
+              <div className="carousel-bottom-right">
+                <img
+                  src={photos[(currentImgIdx + 2) % photos.length]?.url}
+                  className="image-three"
+                ></img>
+              </div>
+            </div>
+            <div className="mainpage-mapbox">
+              <MapBox locations={locations} />
+            </div>
+          </div>
+          <Footer />
+        </>
+      ) : (
+        <LoadingSpinner />
+      )}
     </>
   );
 };

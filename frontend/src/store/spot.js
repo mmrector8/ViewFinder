@@ -1,6 +1,7 @@
 import jwtFetch from "./jwt";
 import { RECEIVE_PHOTO, receivePhoto, createPhoto, REMOVE_PHOTO, removePhoto, deletePhoto  } from "./photos";
 export const RECEIVE_SPOT = "spots/RECEIEVE_SPOT"
+export const RECEIVE_SPOTS = "spots/RECEIEVE_SPOTS"
 const RECEIVE_NEW_COMMENT = "comments/RECEIVE_NEW_COMMENT";
 const DELETE_COMMENT = "comments/DELETE_COMMENT"
 const RECEIVE_COMMENT_ERRORS = "comments/RECEIVE_COMMENT_ERRORS";
@@ -12,6 +13,11 @@ export const receiveSpot = spot => ({
     type: RECEIVE_SPOT,
     spot
 })
+
+export const receiveSpots = spots => ({
+    type: RECEIVE_SPOTS,
+    spots
+});
 
 export const clearSpots = ()=>{
     return {
@@ -55,6 +61,19 @@ export const fetchSpot = (spotId) => async dispatch => {
         const res = await jwtFetch(`/api/spots/${spotId}`)
         const spot = await res.json()
         dispatch(receiveSpot(spot))
+    } catch (err) {
+        const res = await err.json();
+        if (res.statusCode === 400) {
+            return dispatch(receiveErrors(res.errors));
+        }
+    }
+}
+
+export const fetchLocationSpots = (locationId) => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/spots/locations/${locationId}`);
+        const spots = await res.json();
+        dispatch(receiveSpots(spots));
     } catch (err) {
         const res = await err.json();
         if (res.statusCode === 400) {
@@ -110,12 +129,14 @@ const spotsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_SPOT:
             return { ...action.spot }
+        case RECEIVE_SPOTS:
+            return { ...action.spots };
         case RECEIVE_NEW_COMMENT:
             newState.comments.push(action.comment)
             return newState;
-        case RECEIVE_PHOTO:
-            newState.photos.push(action.photo)
-            return newState;
+        // case RECEIVE_PHOTO:
+        //     newState.photos.push(action.photo)
+        //     return newState;
         case REMOVE_PHOTO:
             newState.photos.map((photo, i) => {
                 if (photo._id === action.photoId) {
