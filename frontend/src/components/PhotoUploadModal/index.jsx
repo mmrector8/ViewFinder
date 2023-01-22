@@ -41,7 +41,7 @@ const PhotoUploadModal = () => {
       <UploadPhotoForm />
       <button
         onClick={() => dispatch(closeUploadModal())}
-        className="show-photo-modal-close-button"
+        className="upload-photo-modal-close-button"
       >
         &times;
       </button>

@@ -114,3 +114,14 @@
   align-items: flex-end;
   justify-content: space-between;
 }
+
+.upload-photo-modal-close-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  font-size: xx-large;
+  top: 5px;
+  right: 15px;
+  color: white;
+}

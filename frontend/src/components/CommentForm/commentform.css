@@ -20,16 +20,21 @@
 .comment-button{
     cursor: pointer;
     margin-left: 5px;
-    padding: 16px;
+    padding: 14px;
     font-size: 18px;
+    font-family: "Manrope", sans-serif, var(--font-apple-system);
     border: none;
     background-color: black;
+    border: 1px solid black;
     color: white;
     border-radius: 4px;
 }
 
 .comment-button:hover{
-    background-color: rgb(30, 30, 30);
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    transition: all 0.4s;
 }
 
 .for-form-border{

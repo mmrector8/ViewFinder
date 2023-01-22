@@ -20,7 +20,7 @@ const MapBox = ({ locations, spots, center, zoom }) => {
   };
   let innerCenter;
   if (center) {
-    innerCenter = center;
+    innerCenter = useMemo(() => (center), []);
   } else {
     innerCenter = useMemo(() => ({ lat: 37.1918, lng: -119.5249 }), []);
   }
@@ -34,27 +34,26 @@ const MapBox = ({ locations, spots, center, zoom }) => {
         mapContainerClassName="map-container"
         options={options}
       >
-        <MarkerClustererF averageCenter enableRetinaIcons gridSize={60}>
-          {clusterer =>
-            locations
-              ? Object.values(locations).map((location, idx) => (
-                  <CustomMarker
-                    place={location}
-                    key={idx}
-                    type={"locations"}
-                    clusterer={clusterer}
-                  />
-                ))
-              : spots?.map((spot, idx) => (
-                  <CustomMarker
-                    place={spot}
-                    key={idx}
-                    type={"spots"}
-                    clusterer={clusterer}
-                  />
-                ))
-          }
-        </MarkerClustererF>
+        {/* <MarkerClustererF averageCenter enableRetinaIcons gridSize={60}> */}
+        {/* {clusterer => */}
+        {locations
+          ? Object.values(locations).map((location, idx) => (
+              <CustomMarker
+                place={location}
+                key={idx}
+                type={"locations"}
+                // clusterer={clusterer}
+              />
+            ))
+          : spots?.map((spot, idx) => (
+              <CustomMarker
+                place={spot}
+                key={idx}
+                type={"spots"}
+                // clusterer={clusterer}
+              />
+            ))}
+        {/* </MarkerClustererF> */}
       </GoogleMap>
     </div>
   );
