@@ -11,17 +11,24 @@
     display: flex;
 }
 
+.most-upvoted-photo-container{
+    height: 460px;
+    width: 580px;
+    margin-right: 20px;
+}
+
 .top-upvoted-photos{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: 220px 220px;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
 }
 
 .most-upvoted-image{
-    height: 400px;
-    width: 600px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     background-color: black;
     color: white;
     margin-right: 20px;
@@ -29,9 +36,9 @@
 }
 
 .top-upvoted-smaller-images{
-    height: 190px;
-    width: 305px;
-    background-color: rgb(143, 250, 245);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
@@ -72,6 +79,11 @@
     margin-top: 5px;
     font-size: 30px;
 }
+
+.transportation-info-items, .conditions-info-items{
+    font-size: 28px;
+}
+
 .open-comment-button, .open-sign-in-button{
     cursor: pointer;
     background-color: black;
@@ -91,4 +103,22 @@
     border: 2px solid black;
     color: black;
     transition: all 0.2s;
+}
+
+.no-display-photos{
+    height: 400px;
+}
+
+.no-photos-yet-container{
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.no-photos-yet{
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
 }
