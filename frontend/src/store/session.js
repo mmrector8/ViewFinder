@@ -30,10 +30,18 @@ export const login = (user) => startSession(user, "/api/users/login");
 
 const startSession = (userInfo, route) => async (dispatch) => {
   try {
-    const res = await jwtFetch(route, {
-      method: "POST",
-      body: userInfo,
-    });
+    let res;
+    if (route === "/api/users/register") {
+      res = await jwtFetch(route, {
+        method: "POST",
+        body: userInfo
+      })
+    } else {
+      res = await jwtFetch(route, {
+        method: "POST",
+        body: JSON.stringify(userInfo),
+      });
+    }
     const { user, token } = await res.json();
     localStorage.setItem("jwtToken", token);
     dispatch(closeSigninModal());

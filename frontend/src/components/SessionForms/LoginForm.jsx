@@ -24,18 +24,13 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-    dispatch(login(formData));
+    dispatch(login({ email, password }))
   };
 
   const handleSubmitDemo = (e) => {
     e.preventDefault();
     dispatch(login({email: "demo-user@gmail.com", password: "starwars"}))
   }
-
- 
 
   return (
     <div className="login-container">
