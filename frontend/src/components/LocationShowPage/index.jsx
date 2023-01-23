@@ -25,7 +25,7 @@ const PhotoGridView = (spots) => {
   if (!photosToShow.length) {
     return (
       <h1 className="no-photos-container">
-        No images under this spot! Be the first to add one!
+        No images for this spot! Be the first to add one!
       </h1>
     );
   }

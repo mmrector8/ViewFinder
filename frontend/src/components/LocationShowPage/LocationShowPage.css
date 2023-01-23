@@ -4,7 +4,7 @@
     height: 609px;
     grid-template-columns: 280px 280px;
     grid-template-rows: 280px 280px;
-    grid-column-gap: 20px;
+    grid-column-gap: 70px;
     grid-row-gap: 40px;
     place-items: center;
     margin-left: 30px;
@@ -66,6 +66,14 @@
 
 #hidden {
     display: none;
+}
+
+@media screen and (min-width: 1400px) {
+    .location-photo-grid {
+        grid-template-columns: 280px 280px 280px;
+        grid-template-rows: 280px 280px;
+        place-items: center;
+    }
 }
 
 @media screen and (max-width: 1024px) {
