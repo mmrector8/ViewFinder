@@ -310,9 +310,98 @@ const spot16 = new Spot({
   comments: [],
   photos: [],
 });
+const spot17 = new Spot({
+  latitude: 37.92356,
+  longitude: -122.593979,
+  name: "Marin",
+  comments: [],
+  photos: [],
+});
+const spot18 = new Spot({
+  latitude: 37.879823,
+  longitude: -121.912935,
+  name: "Mt Diablo",
+  comments: [],
+  photos: [],
+});
+const spot19 = new Spot({
+  latitude: 33.675619,
+  longitude: -117.867755,
+  name: "John Wanye Airport",
+  comments: [],
+  photos: [],
+});
+const spot20 = new Spot({
+  latitude: 36.729225,
+  longitude: -118.642518,
+  name: "Deer",
+  comments: [],
+  photos: [],
+});
+const spot21 = new Spot({
+  latitude: 41.234583,
+  longitude: -123.991183,
+  name: "Elk",
+  comments: [],
+  photos: [],
+});
+const spot22 = new Spot({
+  latitude: 38.03252,
+  longitude: -119.058622,
+  name: "Mono Lake",
+  comments: [],
+  photos: [],
+});
+const spot23 = new Spot({
+  latitude: 41.011802,
+  longitude: -121.651384,
+  name: "Burney Falls",
+  comments: [],
+  photos: [],
+});
+const spot24 = new Spot({
+  latitude: 40.801672,
+  longitude: -124.200076,
+  name: "West Coast without sun",
+  comments: [],
+  photos: [],
+});
+const spot25 = new Spot({
+  latitude: 37.923444,
+  longitude: -122.597089,
+  name: "Beautiful Site",
+  comments: [],
+  photos: [],
+});
 
 spots.push(tunnelPoint, coitTower, halfDome, badWaterBasin);
-spots.push(spot1 , spot2 , spot3 , spot4 , spot5 , spot6 , spot7 , spot8 , spot9 , spot10 , spot11 , spot12 , spot13 , spot14 , spot15 , spot16)
+spots.push(
+  spot1,
+  spot2,
+  spot3,
+  spot4,
+  spot5,
+  spot6,
+  spot7,
+  spot8,
+  spot9,
+  spot10,
+  spot11,
+  spot12,
+  spot13,
+  spot14,
+  spot15,
+  spot16,
+  spot17,
+  spot18,
+  spot19,
+  spot20,
+  spot21,
+  spot22,
+  spot23,
+  spot24,
+  spot25
+);
 
 locations[21].spots.push(tunnelPoint);
 locations[21].spots.push(halfDome);
@@ -333,6 +422,15 @@ locations[42].spots.push(spot13);
 locations[25].spots.push(spot14);
 locations[27].spots.push(spot15);
 locations[36].spots.push(spot16);
+locations[20].spots.push(spot17);
+locations[6].spots.push(spot18);
+locations[29].spots.push(spot19);
+locations[53].spots.push(spot20);
+locations[11].spots.push(spot21);
+locations[25].spots.push(spot22);
+locations[44].spots.push(spot23);
+locations[11].spots.push(spot24);
+locations[20].spots.push(spot25);
 //comments
 const comments = [];
 
@@ -802,6 +900,161 @@ let photo27 = new Photo({
   likes: [],
 });
 
+let photo28 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/peir39.jpg",
+  spotId: spot2._id,
+  userId: users[0]._id,
+  latitude: 37.811266,
+  longitude: -122.410558,
+  genre: "wildlife",
+  description: "I love the peir seals",
+  condition: ["windy"],
+  transportation: ["walk,car"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo29 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/downtown-la.jpg",
+  spotId: spot4._id,
+  userId: users[0]._id,
+  latitude: 34.067952,
+  longitude: -118.274435,
+  genre: "aerial",
+  description: "la heights",
+  condition: ["windy"],
+  transportation: ["car"],
+  bestTimeOfDay: "golden hour",
+  payment: "0",
+  likes: [],
+});
+let photo30 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/windy-tamalpais.jpg",
+  spotId: spot17._id,
+  userId: users[0]._id,
+  latitude: 37.92356,
+  longitude: -122.593979,
+  genre: "landscape",
+  description: "new background",
+  condition: ["windy"],
+  transportation: ["car", "hike"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo31 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mt-diablo-hills.jpg",
+  spotId: spot18._id,
+  userId: users[0]._id,
+  latitude: 37.879823,
+  longitude: -121.912935,
+  genre: "landscape",
+  description: "windy diablo hills",
+  condition: ["windy"],
+  transportation: ["hike"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo32 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/john-wayne-plane.jpg",
+  spotId: spot19._id,
+  userId: users[0]._id,
+  latitude: 33.675619,
+  longitude: -117.867755,
+  genre: "landscape",
+  description: "John Wanye Airport",
+  condition: ["heat"],
+  transportation: ["car"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo33 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/deer-kings.jpg",
+  spotId: spot20._id,
+  userId: users[0]._id,
+  latitude: 36.729225,
+  longitude: -118.642518,
+  genre: "wildlife",
+  description: "Bambi",
+  condition: ["windy"],
+  transportation: ["car", "hike"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo34 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwood-elk.jpg",
+  spotId: spot21._id,
+  userId: users[0]._id,
+  latitude: 41.234583,
+  longitude: -123.991183,
+  genre: "wildlife",
+  description: "Elk",
+  condition: ["windy"],
+  transportation: ["car", "hike"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo35 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mono-lake.jpg",
+  spotId: spot22._id,
+  userId: users[0]._id,
+  latitude: 38.03252,
+  longitude: -119.058622,
+  genre: "landscape",
+  description: "Pretty lake",
+  condition: ["heat"],
+  transportation: ["car"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo36 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/burney-falls.jpg",
+  spotId: spot23._id,
+  userId: users[0]._id,
+  latitude: 41.011802,
+  longitude: -121.651384,
+  genre: "landscape",
+  description: "Burney Falls",
+  condition: ["windy"],
+  transportation: ["car", "hike"],
+  bestTimeOfDay: "afternoon",
+  payment: "0",
+  likes: [],
+});
+let photo37 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/samoa-beach.jpg",
+  spotId: spot24._id,
+  userId: users[0]._id,
+  latitude: 40.801672,
+  longitude: -124.200076,
+  genre: "landscape",
+  description: "West Coast without sun",
+  condition: ["windy"],
+  transportation: ["car", "hike"],
+  bestTimeOfDay: "sunset",
+  payment: "0",
+  likes: [],
+});
+let photo38 = new Photo({
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mt-tamalpais.jpg",
+  spotId: spot25._id,
+  userId: users[0]._id,
+  latitude: 37.923444,
+  longitude: -122.597089,
+  genre: "landscape",
+  description: "Beautiful Site",
+  condition: ["windy"],
+  transportation: ["car", "hike"],
+  bestTimeOfDay: "sunrise",
+  payment: "0",
+  likes: [],
+});
+
 photos.push(
   photo2,
   photo3,
@@ -828,7 +1081,18 @@ photos.push(
   photo24,
   photo25,
   photo26,
-  photo27
+  photo27,
+  photo28,
+  photo29,
+  photo30,
+  photo31,
+  photo32,
+  photo33,
+  photo34,
+  photo35,
+  photo36,
+  photo37,
+  photo38
 );
 spot2.photos.push(photo13);
 // spot1.photos.push(photo1);
@@ -844,6 +1108,16 @@ spot13.photos.push(photo17);
 spot14.photos.push(photo18);
 spot15.photos.push(photo23, photo24);
 spot16.photos.push(photo25, photo26, photo27);
+spot22.photos.push(photo35);
+spot25.photos.push(photo38);
+spot17.photos.push(photo30);
+spot18.photos.push(photo31);
+spot20.photos.push(photo33);
+spot21.photos.push(photo34);
+spot24.photos.push(photo37);
+spot23.photos.push(photo36);
+spot19.photos.push(photo32);
+
 
 users[0].photos.push(photo2);
 users[0].photos.push(photo3);
@@ -871,6 +1145,17 @@ users[4].photos.push(photo24);
 users[4].photos.push(photo25);
 users[4].photos.push(photo26);
 users[4].photos.push(photo27);
+users[4].photos.push(photo28);
+users[2].photos.push(photo29);
+users[0].photos.push(photo30);
+users[1].photos.push(photo31);
+users[3].photos.push(photo32);
+users[4].photos.push(photo33);
+users[2].photos.push(photo34);
+users[1].photos.push(photo35);
+users[3].photos.push(photo36);
+users[4].photos.push(photo37);
+users[2].photos.push(photo38);
 
 
 
