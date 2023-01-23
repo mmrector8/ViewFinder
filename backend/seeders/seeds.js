@@ -26,6 +26,7 @@ users.push(
     username: "Kaushal",
     email: "k@gmail.com",
     hashedPassword: bcrypt.hashSync("password", 10),
+    profilePicUrl: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/kaushal.png"
   })
 );
 
@@ -34,6 +35,8 @@ users.push(
     username: "Nishant",
     email: "nishant@gmail.com",
     hashedPassword: bcrypt.hashSync("password", 10),
+    profilePicUrl:
+      "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/nishant.png",
   })
 );
 users.push(
@@ -41,6 +44,7 @@ users.push(
     username: "Christine",
     email: "gymrat@gmail.com",
     hashedPassword: bcrypt.hashSync("password", 10),
+    profilePicUrl: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/christine.png"
   })
 );
 
@@ -49,6 +53,8 @@ users.push(
     username: "Morgan",
     email: "morgan@gmail.com",
     hashedPassword: bcrypt.hashSync("password", 10),
+    profilePicUrl:
+      "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/morgan.png",
   })
 );
 
