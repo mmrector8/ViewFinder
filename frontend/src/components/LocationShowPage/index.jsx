@@ -30,7 +30,7 @@ const PhotoGridView = (spots) => {
     );
   }
   return (
-    <div className="user-photo-grid">
+    <div className="location-photo-grid">
       {photosToShow.map((photo, idx) => (
         <div
           key={idx}
@@ -77,13 +77,13 @@ const LocationShowPage = () => {
             <h1>{location.county}</h1>
           </div>
           <div className="location-container">
-            <div className="location-show-map-container">
-              <MapBox
-                spots={spots}
-                center={{ lat: location?.latitude, lng: location?.longitude }}
-                zoom={9}
-              />
-            </div>
+              <div className="location-show-map-container">
+                <MapBox
+                  spots={spots}
+                  center={{ lat: location?.latitude, lng: location?.longitude }}
+                  zoom={9}
+                />
+              </div>
             <PhotoGridView spots={spots} />
           </div>
         </div>

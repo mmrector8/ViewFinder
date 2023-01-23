@@ -2,11 +2,12 @@
     width: 100%;
     display: grid;
     height: 609px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column-gap: 0px;
+    grid-template-columns: 280px 280px;
+    grid-template-rows: 280px 280px;
+    grid-column-gap: 20px;
     grid-row-gap: 40px;
     place-items: center;
+    margin-left: 30px;
     margin-right: 10px;
     overflow: scroll;
     overflow-x: hidden;
@@ -69,24 +70,32 @@
 
 @media screen and (max-width: 1024px) {
     .location-photo-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
+        grid-template-columns: 280px;
+        grid-template-rows: 280px;
+        place-items: center;
     }
 }
 
 @media screen and (max-width: 640px) {
+
+    .location-container{
+        display: flex;
+        flex-direction: column;
+    }
     .location-photo-grid {
         margin-top: 40px;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 250px;
+            grid-template-rows: 250px;
     }
 
-    .location-container {
+    /* .location-container {
+        grid-template-columns: 320px;
+        grid-template-rows: 320px;
         margin-top: 60px;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-    }
+    } */
 
     .map-container {
         width: 100%;
