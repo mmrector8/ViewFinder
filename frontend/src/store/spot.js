@@ -134,9 +134,16 @@ const spotsReducer = (state = {}, action) => {
         case RECEIVE_NEW_COMMENT:
             newState.comments.push(action.comment)
             return newState;
-        // case RECEIVE_PHOTO:
-        //     newState.photos.push(action.photo)
-        //     return newState;
+        case RECEIVE_PHOTO:
+            const spotId = action.photo.spotId._id;
+            if (Object.keys(state).includes(spotId)) {
+                newState[spotId].photos.push(action.photo);
+                return newState;
+            } else {
+                action.photo.spotId.photos.push(action.photo);
+                newState[spotId] = action.photo.spotId;
+                return newState;
+            }
         case REMOVE_PHOTO:
             newState.photos.map((photo, i) => {
                 if (photo._id === action.photoId) {

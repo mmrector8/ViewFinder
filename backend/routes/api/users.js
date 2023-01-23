@@ -43,7 +43,7 @@ router.post(
       username: req.body.username,
       email: req.body.email,
       bio: req.body.bio,
-      profilePicUrl: req.body.profilePicUrl,
+      profilePicUrl: profilePicUrl,
       photos: req.body.photos,
     });
 

@@ -32,7 +32,7 @@ const startSession = (userInfo, route) => async (dispatch) => {
   try {
     const res = await jwtFetch(route, {
       method: "POST",
-      body: JSON.stringify(userInfo),
+      body: userInfo,
     });
     const { user, token } = await res.json();
     localStorage.setItem("jwtToken", token);

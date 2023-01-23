@@ -44,6 +44,7 @@
 
 .login-favorite{
     cursor: pointer;
+    text-decoration: underline;
 }
 
 .show-photo-heart {

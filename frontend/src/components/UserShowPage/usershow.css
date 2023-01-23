@@ -31,12 +31,15 @@
 
 .user-photo-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-column-gap: 80px;
-    grid-row-gap: 80px;
+    grid-template-columns: repeat(3, 282.5px);
+    grid-template-rows: repeat(3, 285px);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
     margin-left: 50px;
+    margin-right: 50px;
+    /* place-items: center; */
 }
+
 .user-photo-container p {
     display: none;
     transition: all 1s;
@@ -48,21 +51,23 @@
 
 .user-photo-container {
     position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .user-photo-container img {
-    height: 250px;
-    width: 250px;
     border-radius: 4px;
     cursor: pointer;
     transition: filter 0.2s;
 }
 
 .overlay-photo-text-user {
+    cursor: pointer;
     position: absolute;
     z-index: 5;
     top: 50%;
-    width: 250px;
+    width: 100%;
     text-align: center;
     color: white;
     transition: all 0.2s;
@@ -75,6 +80,9 @@
 
 .margin-needed-photo{
     margin-top: 40px;
+    margin-bottom: 40px;
+    grid-column-gap: 80px !important;
+    grid-row-gap: 80px !important;
 }
 
 @media(max-width: 1000px){

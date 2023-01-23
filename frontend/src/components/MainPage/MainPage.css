@@ -34,13 +34,13 @@
 
 .image-two, .image-three{
   width: 50%;
-  box-shadow: 30px 30px 40px rgba(0, 0, 0, .4)
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .carousel-bottom {
   display: flex;
   height: 40%;
-  overflow: clip;
+  /* overflow: clip; */
 }
 
 .mainpage-mapbox {

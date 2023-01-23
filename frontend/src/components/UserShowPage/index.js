@@ -24,12 +24,12 @@ const UserShowPage = () => {
   return (
     <div className="user-show-page-container">
       <div className="top-field">
-        <img alt="" className="profile-pic" src={user.profilePicUrl}></img>
+        <img className="profile-pic" src={user.profilePicUrl}></img>
         <h1 className="profile-title">{user.username}'s Profile</h1>
       </div>
       <div className="user-photo-grid margin-needed-photo">
         {user?.photos?.map((photo, i) => (
-          <div width="250px" className="user-photo-container" key={i}>
+          <div className="user-photo-container" key={i}>
             <p
               className="overlay-photo-text-user"
               onMouseEnter={(e) => e.stopPropagation()}
@@ -41,6 +41,7 @@ const UserShowPage = () => {
               src={photo.url}
               alt="img grid"
               key={i}
+              className="location-images"
               onMouseEnter={() => setIsHovered(photo._id)}
               onMouseLeave={() => setIsHovered(false)}
               onClick={() => dispatch(openPhotoShowModal(photo))}

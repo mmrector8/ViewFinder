@@ -24,7 +24,10 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ email, password }));
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    dispatch(login(formData));
   };
 
   const handleSubmitDemo = (e) => {

@@ -13,7 +13,8 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [bio, setBio] = useState("");
-  const [profilePicUrl, setProfilePicUrl] = useState("");
+  const [picture, setPicture] = useState(null);
+  const [pictureUrl, setPictureUrl] = useState(null);
   const [pageNum, setPageNum] = useState(1);
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
@@ -42,8 +43,6 @@ function SignupForm() {
         break;
       case "bio":
         setState = setBio;
-      case "profilepicurl":
-        setState = setProfilePicUrl;
       default:
         throw Error("Unknown field in Signup Form");
     }
@@ -51,16 +50,25 @@ function SignupForm() {
     return (e) => setState(e.currentTarget.value);
   };
 
+  const handleFile = async (e) => {
+    const file = e.target.files[0];
+    setPicture(file);
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      setPictureUrl(fileReader.result);
+    };
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = {
-      email,
-      username,
-      password,
-      bio,
-      profilePicUrl,
-    };
-    dispatch(signup(user));
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("username", username);
+    formData.append("password", password);
+    formData.append("bio", bio);
+    formData.append("image", picture);
+    dispatch(signup(formData));
     setPageNum(1);
   };
 
@@ -146,8 +154,8 @@ function SignupForm() {
                 </div>
                 <input
                   type="file"
-                  value={profilePicUrl}
-                  onChange={(e) => setProfilePicUrl(e.target.value)}
+                  accept=".jpg, .jpeg, .png"
+                  onChange={handleFile}
                 />
               </label>
               <div className="errors">{errors?.bio}</div>

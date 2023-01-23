@@ -13,12 +13,14 @@ const PhotoGridView = (spots) => {
   const [isHovered, setIsHovered] = useState(false);
   const dispatch = useDispatch();
 
-  let photosToShow = spotsArray?.map(spot => {
-    if (spot?.photos && spot?.photos?.length) {
-      return spot?.photos[0];
-    }
-    return null;
-  }).filter((photo) => photo != null);
+  let photosToShow = spotsArray
+    ?.map((spot) => {
+      if (spot?.photos && spot?.photos?.length) {
+        return spot?.photos[0];
+      }
+      return null;
+    })
+    .filter((photo) => photo != null);
 
   if (!photosToShow.length) {
     return (
@@ -30,24 +32,26 @@ const PhotoGridView = (spots) => {
   return (
     <div className="user-photo-grid">
       {photosToShow.map((photo, idx) => (
-        <div key={idx}>
-          <div width="280px" className="user-photo-container">
-            <p
-              className="overlay-photo-text-user"
-              onMouseEnter={(e) => e.stopPropagation()}
-              onMouseLeave={(e) => e.stopPropagation()}
-            >
-              {photo.description} <br /> -{photo.userId?.username}
-            </p>
-            <img
-              src={photo.url}
-              alt="spot most liked photo"
-              className="location-images"
-              onMouseEnter={() => setIsHovered(photo._id)}
-              onMouseLeave={() => setIsHovered(false)}
-              onClick={() => dispatch(openPhotoShowModal(photo))}
-            />
-          </div>
+        <div
+          key={idx}
+          width="280px"
+          className="user-photo-container"
+          onClick={() => dispatch(openPhotoShowModal(photo))}
+        >
+          <p
+            className="overlay-photo-text-user"
+            onMouseEnter={(e) => e.stopPropagation()}
+            onMouseLeave={(e) => e.stopPropagation()}
+          >
+            {photo.description} <br /> -{photo.userId?.username}
+          </p>
+          <img
+            src={photo.url}
+            alt="spot most liked photo"
+            className="location-images"
+            onMouseEnter={() => setIsHovered(photo._id)}
+            onMouseLeave={() => setIsHovered(false)}
+          />
         </div>
       ))}
     </div>
@@ -58,11 +62,13 @@ const LocationShowPage = () => {
   const { locationId } = useParams();
   const dispatch = useDispatch();
   const location = useSelector(getLocation(locationId));
+  const spots = useSelector((store) => Object.values(store.spots));
 
   useEffect(() => {
     dispatch(fetchLocation(locationId));
     dispatch(fetchLocationSpots(locationId));
   }, [dispatch]);
+
   return (
     <>
       {location ? (
@@ -72,12 +78,18 @@ const LocationShowPage = () => {
           </div>
           <div className="location-container">
             <div className="location-show-map-container">
-              <MapBox spots={location?.spots} center={{ lat: location?.latitude, lng: location?.longitude }} zoom={9} />
+              <MapBox
+                spots={spots}
+                center={{ lat: location?.latitude, lng: location?.longitude }}
+                zoom={9}
+              />
             </div>
-            <PhotoGridView spots={location.spots} />
+            <PhotoGridView spots={spots} />
           </div>
         </div>
-      ) : (<LoadingSpinner />)}
+      ) : (
+        <LoadingSpinner />
+      )}
     </>
   );
 };

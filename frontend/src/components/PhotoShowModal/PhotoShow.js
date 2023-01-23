@@ -38,7 +38,7 @@ const PhotoShow = ({photo}) => {
             {currentUser ? (
               <LikesForm photo={photo} user={user} />
             ) : (
-              <p className="login-favorite" onClick={() => dispatch(openSigninModal())}>To favorite, login here!</p>
+              <p className="login-favorite" onClick={() => dispatch(openSigninModal())}>To like, login here!</p>
             )}
           </div>
         </div>
