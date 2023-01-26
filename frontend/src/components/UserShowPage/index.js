@@ -27,28 +27,37 @@ const UserShowPage = () => {
         <img className="profile-pic" src={user.profilePicUrl}></img>
         <h1 className="profile-title">{user.username}'s Profile</h1>
       </div>
-      <div className="user-photo-grid margin-needed-photo">
-        {user?.photos?.map((photo, i) => (
-          <div className="user-photo-container" key={i}>
-            <p
-              className="overlay-photo-text-user"
-              onMouseEnter={(e) => e.stopPropagation()}
-              onMouseLeave={(e) => e.stopPropagation()}
-            >
-              {photo.description}
-            </p>
-            <img
-              src={photo.url}
-              alt="img grid"
-              key={i}
-              className="location-images"
-              onMouseEnter={() => setIsHovered(photo._id)}
-              onMouseLeave={() => setIsHovered(false)}
-              onClick={() => dispatch(openPhotoShowModal(photo))}
-            ></img>
-          </div>
-        ))}
-      </div>
+      {!user?.photos?.length ? (
+        <div className="user-has-no-pics">
+          <span className="no-pics-msg">No pictures?</span>
+          <span className="no-pics-msg">
+            Click the photo icon at the top right to post your first picture!
+          </span>
+        </div>
+      ) : (
+        <div className="user-photo-grid margin-needed-photo">
+          {user?.photos?.map((photo, i) => (
+            <div className="user-photo-container" key={i}>
+              <p
+                className="overlay-photo-text-user"
+                onMouseEnter={(e) => e.stopPropagation()}
+                onMouseLeave={(e) => e.stopPropagation()}
+              >
+                {photo.description}
+              </p>
+              <img
+                src={photo.url}
+                alt="img grid"
+                key={i}
+                className="location-images"
+                onMouseEnter={() => setIsHovered(photo._id)}
+                onMouseLeave={() => setIsHovered(false)}
+                onClick={() => dispatch(openPhotoShowModal(photo))}
+              ></img>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
