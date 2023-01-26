@@ -43,12 +43,11 @@ const CommentIndexItem = ({comment})=>{
         return null
     }
 
-
     return (
       <div className="comment-item">
         <div className="name-and-profile-comment">
           <img
-            src="https://viewfinder-seeds.s3.us-west-2.amazonaws.com/def-user-pfp.png"
+            src={comment.userId.profilePicUrl}
             className="comment-prof-pic"
           ></img>
           <p className="username-for-comment">{comment?.userId?.username}</p>
