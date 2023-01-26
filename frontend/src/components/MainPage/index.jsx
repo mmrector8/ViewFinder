@@ -46,7 +46,7 @@ const MainPage = () => {
     <>
       <div className="descriptions">
         <h1 className="app-title">The app for photographers to share and search for the best photography spots in California </h1>
-        <p className="click-on-map">Click on any region of the map to explore the best photography locations in that region!</p>
+        <p className="click-on-map">Click on any marker on the map to explore the best photography locations in that region!</p>
       </div>
       {locations.length ? (
         <>
