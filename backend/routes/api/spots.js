@@ -34,7 +34,7 @@ router.get("/:id", async (req, res, next) => {
         path: "comments",
         populate: {
           path: "userId",
-          select: "_id _id username",
+          select: "_id _id username profilePicUrl",
         },
       })
       .populate({

@@ -18,6 +18,8 @@ users.push(
     username: "demo-user",
     email: "demo-user@gmail.com",
     hashedPassword: bcrypt.hashSync("starwars", 10),
+    profilePicUrl:
+      "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/def-user-pfp.png",
   })
 );
 
@@ -66,6 +68,8 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
       username: faker.internet.userName(firstName, lastName),
       email: faker.internet.email(firstName, lastName),
       hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
+      profilePicUrl:
+        "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/def-user-pfp.png",
     })
   );
 }
