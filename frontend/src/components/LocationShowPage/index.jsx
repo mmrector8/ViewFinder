@@ -25,11 +25,12 @@ const PhotoGridView = (spots) => {
   if (!photosToShow.length) {
     return (
       <h1 className="no-photos-container">
-        No images for this spot! Be the first to add one!
+        No images for this location! You can be the first to add one!<br></br> To add, login and click the camera icon!
       </h1>
     );
   }
   return (
+    <>
     <div className="location-photo-grid">
       {photosToShow.map((photo, idx) => (
         <div
@@ -55,6 +56,7 @@ const PhotoGridView = (spots) => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 
@@ -75,6 +77,9 @@ const LocationShowPage = () => {
         <div className="location-show-main">
           <div className="location-header">
             <h1>{location.county}</h1>
+            <div className="location-directions">
+              <p>Each marker represents a spot created by photographers.<br></br> Click on a marker to explore photos taken in that spot!</p>
+            </div>
           </div>
           <div className="location-container">
               <div className="location-show-map-container">
