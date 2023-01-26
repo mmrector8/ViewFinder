@@ -56,11 +56,11 @@
     width: 300px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .photo-show-elements {
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    
 }

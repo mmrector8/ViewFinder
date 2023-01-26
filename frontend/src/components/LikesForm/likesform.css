@@ -1,7 +1,7 @@
 .likes-form{
     display: flex;
     align-items: center;
-    margin-top: -20px;
+    /* margin-top: -20px; */
     /* justify-content: center; */
     /* padding: 20px; */
 }
