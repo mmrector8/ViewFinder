@@ -85,6 +85,22 @@
     grid-row-gap: 80px !important;
 }
 
+.user-has-no-pics {
+    margin-top: 15px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.no-pics-msg{
+    font-size: 28px; 
+    padding: 10px 0;
+}
+
+
 @media(max-width: 1000px){
         .user-photo-grid {
             grid-column-gap: 40px;
