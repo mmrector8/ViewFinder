@@ -47,6 +47,11 @@
     text-decoration: underline;
 }
 
+.photo-show-spot {
+    cursor: pointer;
+    color: black;
+}
+
 .show-photo-heart {
     width: 300px;
     display: flex;
