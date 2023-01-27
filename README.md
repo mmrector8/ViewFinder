@@ -7,7 +7,7 @@ ViewFinder is a web application that allows photographers to find specific spots
 ## List of technologies used
 
 ViewFinder uses a MERN stack (Mongo, Express, React, and Node). 
-* Backend: Node, Express, MongoDB, mongoose, [Google Map Server Side Service](https://github.com/googlemaps/google-maps-services-js)
+* Backend: Node, Express, MongoDB, Mongoose, [Google Map Server Side Service](https://github.com/googlemaps/google-maps-services-js)
 * Frontend: React and Redux, [Google Maps API](https://developers.google.com/maps), [MaterialUI](https://mui.com/) for icons
 * Services: AWS 
 

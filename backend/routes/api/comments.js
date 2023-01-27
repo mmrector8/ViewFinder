@@ -60,7 +60,7 @@ router.post('/spots/:spotId', requireUser, validateCommentInput, async (req, res
 
             let comment = await newComment.save();
             await Spot.updateOne({ _id: comment.spotId }, { $push: { comments: comment } })
-            comment = await comment.populate('userId', '_id username');
+            comment = await comment.populate('userId', '_id username profilePicUrl');
             return res.json(comment);
         }
     catch (err) {

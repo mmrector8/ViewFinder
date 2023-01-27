@@ -554,7 +554,7 @@ let photo2 = new Photo({
   genre: "landscape",
   description: "Yosemite down by the river",
   condition: ["slippery, rocky"],
-  transportation: ["hike, walk"],
+  transportation: ["hike", "walk"],
   bestTimeOfDay: "morning",
   payment: "$",
   likes: [],
