@@ -4,6 +4,10 @@
 
 ViewFinder is a web application that allows photographers to find specific spots in California that would be a great place to take a picture perfect photo. The photographers can share photos with others by posting their photo and tagging the conditions in which they took it. It allows users to view the page of a specific photographer and like the photos that they love the most.
 
+![homepage](https://user-images.githubusercontent.com/65653163/215369166-cea0c239-0934-4871-afcd-1a72251a64b3.gif)
+
+![clustering](https://user-images.githubusercontent.com/65653163/215369209-0bd2b775-916c-4fb5-8204-61416848c736.gif)
+
 ## List of technologies used
 
 ViewFinder uses a MERN stack (Mongo, Express, React, and Node). 
@@ -15,7 +19,9 @@ ViewFinder uses a MERN stack (Mongo, Express, React, and Node).
 
 ### Searchbar Logic
 
-The search feature is made possible through this simple router. The route accepts a type and body as query keys, in which the type must match the one of the type within the included types array. A second check is done to ensure that the body key value is not empty. After passing the the two checks, The if else block is hit in which it will enter a specific condition based on the type. After entering a condition, the it will utilize regex to search through the different fields of the collection. If any data matched the regex pattern, that document is pulled and added to the the query array. The queried data is then normalized using the standizeData and sent back to the client. 
+The search feature is made possible through this simple router. The route accepts a type and body as query keys, in which the type must match the one of the type within the included types array. A second check is done to ensure that the body key value is not empty. After passing the the two checks, The if else block is hit in which it will enter a specific condition based on the type. After entering a condition, the it will utilize regex to search through the different fields of the collection. If any data matched the regex pattern, that document is pulled and added to the the query array. The queried data is then normalized using the standizeData and sent back to the client.
+
+![Screen Shot 2023-01-29 at 5 21 08 PM](https://user-images.githubusercontent.com/65653163/215369271-3f1768bf-b903-4429-bbac-0d5229278abb.png)
 
 ```javascript
 router.get('/', async (req, res, next) => {
@@ -161,7 +167,19 @@ router.post(
 
 ```
 
+## Screenshots
 
+### Modal for inspecting a photo
+
+![Screen Shot 2023-01-29 at 5 21 55 PM](https://user-images.githubusercontent.com/65653163/215369353-2d589520-e1ea-4adb-89a2-5c0c06afa808.png)
+
+### Spot Show Page
+
+![Screen Shot 2023-01-29 at 5 18 17 PM](https://user-images.githubusercontent.com/65653163/215369407-78217b61-10a6-4675-92f8-c7bff1c10397.png)
+
+### User Profile Page
+
+![Screen Shot 2023-01-29 at 5 20 18 PM](https://user-images.githubusercontent.com/65653163/215369421-184c6023-094d-40c9-bd3d-c5808eb5d586.png)
 
 ## Technical implementation details
 
