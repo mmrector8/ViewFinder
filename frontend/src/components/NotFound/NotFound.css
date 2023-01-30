@@ -1,0 +1,11 @@
+.not-found-container {
+  height: calc(100% - 150px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-container h1 {
+  font-size: 48px;
+}

@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import MainPage from "./components/MainPage";
 import { getCurrentUser } from "./store/session";
@@ -13,6 +13,7 @@ import SpotShowPage from "./components/SpotShowPage";
 import PhotoShowModal from "./components/PhotoShowModal";
 import SearchModal from "./components/SearchBar/SearchModal";
 import PhotoUploadModal from "./components/PhotoUploadModal";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +45,8 @@ const App = () => {
           <Route path="/locations/:locationId">
             <LocationShowPage />
           </Route>
+          <Route exact path="/error" component={NotFound} />
+          <Redirect to="/error" />
         </Switch>
       </>
     )
