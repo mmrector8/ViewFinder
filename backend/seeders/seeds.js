@@ -2114,7 +2114,7 @@ let photo43 = new Photo({
   likes: [],
 });
 let photo44 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/shutter_texture.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/shutter-texture.jpeg",
   spotId: spot34._id,
   userId: users[3]._id,
   latitude: 39.024912,
@@ -3279,7 +3279,7 @@ let photo126 = new Photo({
   likes: [],
 });
 let photo127 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/foggy-scenes.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/foggy-scene.jpeg",
   spotId: spot37._id,
   userId: users[4]._id,
   latitude: 40.713375,
@@ -3466,10 +3466,10 @@ let photo139 = new Photo({
   likes: [],
 });
 
-let photo140 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches1.jpeg" , spotId: spot44._id ,userId: users[1]._id , latitude: 32.711074 ,longitude: -117.24223 ,genre: "landscape" , description : "Love it here" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
+let photo140 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches1.jpg" , spotId: spot44._id ,userId: users[1]._id , latitude: 32.711074 ,longitude: -117.24223 ,genre: "landscape" , description : "Love it here" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
 
 let photo141 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches2.jpg",
   spotId: spot44._id,
   userId: users[3]._id,
   latitude: 32.711074,
@@ -3483,12 +3483,12 @@ let photo141 = new Photo({
   likes: [],
 });
 
-let photo142 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches3.jpeg" , spotId: spot44._id ,userId: users[4]._id , latitude: 32.711074 ,longitude: -117.24223 ,genre: "landscape" , description : "Sf!!" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
+let photo142 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches3.jpg" , spotId: spot44._id ,userId: users[4]._id , latitude: 32.711074 ,longitude: -117.24223 ,genre: "landscape" , description : "Sf!!" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
 
 
-let photo143 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches4.jpeg" , spotId: spot44._id ,userId: users[2]._id , latitude: 32.711074 ,longitude: -117.24223 ,genre: "aerial" , description : "Love it here" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
+let photo143 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches4.jpg" , spotId: spot44._id ,userId: users[2]._id , latitude: 32.711074 ,longitude: -117.24223 ,genre: "aerial" , description : "Love it here" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
 let photo144 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches5.jp3g",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sd-beaches5.jpg",
   spotId: spot44._id,
   userId: users[1]._id,
   latitude: 32.711074,
@@ -4675,7 +4675,7 @@ let photo227 = new Photo({
 });
 
 let photo228 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/livermore-mountain.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/livermore-mountain.jpg",
   spotId: spot63._id,
   userId: users[1]._id,
   latitude: 37.689194,
@@ -4689,10 +4689,10 @@ let photo228 = new Photo({
   likes: [],
 });
 
-let photo229 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/livermore-sunset.jpeg" , spotId: spot63._id ,userId: users[1]._id , latitude: 37.689194 ,longitude: -121.786609 ,genre: "landscape" , description : "Great Game" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
+let photo229 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/livermore-sunset.jpg" , spotId: spot63._id ,userId: users[1]._id , latitude: 37.689194 ,longitude: -121.786609 ,genre: "landscape" , description : "Great Game" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
 
 let photo230 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/livermore-trail.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/livermore-trail.jpg",
   spotId: spot63._id,
   userId: users[2]._id,
   latitude: 37.689194,
@@ -4705,7 +4705,7 @@ let photo230 = new Photo({
   payment: payments.sample(),
   likes: [],
 });
-let photo231 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/livermore-tree.jpeg" , spotId: spot63._id ,userId: users[2]._id , latitude: 37.689194 ,longitude: -121.786609 ,genre: "landscape" , description : "Must visit" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});	let photo232 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/santa-clara1.jpg" , spotId: spot58._id ,userId: users[0]._id , latitude: 37.387841 ,longitude: -121.974078 ,genre: "wildlife" , description : "Silly Dog" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
+let photo231 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/livermore-tree.jpg" , spotId: spot63._id ,userId: users[2]._id , latitude: 37.689194 ,longitude: -121.786609 ,genre: "landscape" , description : "Must visit" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});	let photo232 = new Photo ({ url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/santa-clara1.jpg" , spotId: spot58._id ,userId: users[0]._id , latitude: 37.387841 ,longitude: -121.974078 ,genre: "wildlife" , description : "Silly Dog" , condition: conditions.sampleTwo() , transportation: transportations.sampleTwo() , bestTimeOfDay: bestTimesOfDay.sample() , payment: payments.sample() , likes : []});
 
 let photo233 = new Photo({
   url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/santa-clara2.jpg",
@@ -4834,7 +4834,7 @@ let photo241 = new Photo({
   likes: [],
 });
 let photo242 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-bay-bridge.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-bay-bridge.jpg",
   spotId: spot64._id,
   userId: users[0]._id,
   latitude: 37.803701,
@@ -4849,7 +4849,7 @@ let photo242 = new Photo({
 });
 
 let photo243 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-boat.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-boat.jpg",
   spotId: spot64._id,
   userId: users[2]._id,
   latitude: 37.803701,
@@ -4863,7 +4863,7 @@ let photo243 = new Photo({
   likes: [],
 });
 let photo244 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-lake-merrit.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-lake-merrit.jpg",
   spotId: spot64._id,
   userId: users[1]._id,
   latitude: 37.803701,
@@ -4877,7 +4877,7 @@ let photo244 = new Photo({
   likes: [],
 });
 let photo245 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-skyline.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-skyline.jpg",
   spotId: spot64._id,
   userId: users[0]._id,
   latitude: 37.803701,
@@ -4891,7 +4891,7 @@ let photo245 = new Photo({
   likes: [],
 });
 let photo246 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-sunset.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oakland-sunset.jpg",
   spotId: spot64._id,
   userId: users[0]._id,
   latitude: 37.803701,
@@ -4905,7 +4905,7 @@ let photo246 = new Photo({
   likes: [],
 });
 let photo247 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-1.jpg",
   spotId: spot69._id,
   userId: users[0]._id,
   latitude: 38.710719,
@@ -4919,7 +4919,7 @@ let photo247 = new Photo({
   likes: [],
 });
 let photo248 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-2.jpg",
   spotId: spot69._id,
   userId: users[0]._id,
   latitude: 38.710719,
@@ -4933,7 +4933,7 @@ let photo248 = new Photo({
   likes: [],
 });
 let photo249 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-3.jpg",
   spotId: spot69._id,
   userId: users[0]._id,
   latitude: 38.710719,
@@ -4947,7 +4947,7 @@ let photo249 = new Photo({
   likes: [],
 });
 let photo250 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-4.jpg",
   spotId: spot69._id,
   userId: users[0]._id,
   latitude: 38.710719,
@@ -4961,7 +4961,7 @@ let photo250 = new Photo({
   likes: [],
 });
 let photo251 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/alpine-5.jpg",
   spotId: spot69._id,
   userId: users[0]._id,
   latitude: 38.710719,
@@ -4975,7 +4975,7 @@ let photo251 = new Photo({
   likes: [],
 });
 let photo254 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-1.jpg",
   spotId: spot70._id,
   userId: users[1]._id,
   latitude: 38.47673,
@@ -4989,7 +4989,7 @@ let photo254 = new Photo({
   likes: [],
 });
 let photo255 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-2.jpg",
   spotId: spot70._id,
   userId: users[1]._id,
   latitude: 38.47673,
@@ -5003,7 +5003,7 @@ let photo255 = new Photo({
   likes: [],
 });
 let photo256 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-3.jpg",
   spotId: spot70._id,
   userId: users[0]._id,
   latitude: 38.47673,
@@ -5017,7 +5017,7 @@ let photo256 = new Photo({
   likes: [],
 });
 let photo257 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-4.jpg",
   spotId: spot70._id,
   userId: users[2]._id,
   latitude: 38.47673,
@@ -5031,7 +5031,7 @@ let photo257 = new Photo({
   likes: [],
 });
 let photo258 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/bear-valley-5.jpg",
   spotId: spot70._id,
   userId: users[3]._id,
   latitude: 38.47673,
@@ -5045,7 +5045,7 @@ let photo258 = new Photo({
   likes: [],
 });
 let photo259 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-1.jpg",
   spotId: spot73._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5059,7 +5059,7 @@ let photo259 = new Photo({
   likes: [],
 });
 let photo260 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-2.jpg",
   spotId: spot73._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5073,7 +5073,7 @@ let photo260 = new Photo({
   likes: [],
 });
 let photo261 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-3.jpg",
   spotId: spot73._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5087,7 +5087,7 @@ let photo261 = new Photo({
   likes: [],
 });
 let photo262 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-4.jpg",
   spotId: spot73._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5101,7 +5101,7 @@ let photo262 = new Photo({
   likes: [],
 });
 let photo263 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/kirkwood-5.jpg",
   spotId: spot73._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5116,7 +5116,7 @@ let photo263 = new Photo({
 });
 
 let photo264 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-1.jpg",
   spotId: spot74._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5130,7 +5130,7 @@ let photo264 = new Photo({
   likes: [],
 });
 let photo265 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-2.jpg",
   spotId: spot74._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5144,7 +5144,7 @@ let photo265 = new Photo({
   likes: [],
 });
 let photo266 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-2.jpg",
   spotId: spot74._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5158,7 +5158,7 @@ let photo266 = new Photo({
   likes: [],
 });
 let photo267 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-3.jpg",
   spotId: spot74._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5172,7 +5172,7 @@ let photo267 = new Photo({
   likes: [],
 });
 let photo268 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-4.jpg",
   spotId: spot74._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5186,7 +5186,7 @@ let photo268 = new Photo({
   likes: [],
 });
 let photo269 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/pine-grove-5.jpg",
   spotId: spot74._id,
   userId: users[3]._id,
   latitude: 38.688584,
@@ -5805,7 +5805,7 @@ let photo317 = new Photo({
   likes: [],
 });
 let photo318 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lake4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lake-4.jpeg",
   spotId: spot76._id,
   userId: users[3]._id,
   latitude: 39.23665,
@@ -5973,7 +5973,7 @@ let photo329 = new Photo({
   likes: [],
 });
 let photo330 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-1.jpg",
   spotId: spot79._id,
   userId: users[2]._id,
   latitude: 39.532079,
@@ -5987,7 +5987,7 @@ let photo330 = new Photo({
   likes: [],
 });
 let photo331 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-2.jpg",
   spotId: spot79._id,
   userId: users[0]._id,
   latitude: 39.532079,
@@ -6001,7 +6001,7 @@ let photo331 = new Photo({
   likes: [],
 });
 let photo332 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-3.jpg",
   spotId: spot79._id,
   userId: users[1]._id,
   latitude: 39.532079,
@@ -6015,7 +6015,7 @@ let photo332 = new Photo({
   likes: [],
 });
 let photo333 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-4.jpg",
   spotId: spot79._id,
   userId: users[3]._id,
   latitude: 39.532079,
@@ -6029,7 +6029,7 @@ let photo333 = new Photo({
   likes: [],
 });
 let photo334 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/butte-5.jpg",
   spotId: spot79._id,
   userId: users[4]._id,
   latitude: 39.532079,
@@ -6043,7 +6043,7 @@ let photo334 = new Photo({
   likes: [],
 });
 let photo335 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-1.jpg",
   spotId: spot80._id,
   userId: users[2]._id,
   latitude: 39.507696,
@@ -6058,7 +6058,7 @@ let photo335 = new Photo({
 });
 
 let photo336 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-2.jpg",
   spotId: spot80._id,
   userId: users[1]._id,
   latitude: 39.507696,
@@ -6072,7 +6072,7 @@ let photo336 = new Photo({
   likes: [],
 });
 let photo337 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-3.jpg",
   spotId: spot80._id,
   userId: users[1]._id,
   latitude: 39.507696,
@@ -6086,7 +6086,7 @@ let photo337 = new Photo({
   likes: [],
 });
 let photo338 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-4.jpg",
   spotId: spot80._id,
   userId: users[1]._id,
   latitude: 39.507696,
@@ -6100,7 +6100,7 @@ let photo338 = new Photo({
   likes: [],
 });
 let photo339 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/oroville-5.jpg",
   spotId: spot80._id,
   userId: users[1]._id,
   latitude: 39.507696,
@@ -6395,7 +6395,7 @@ let photo359 = new Photo({
   likes: [],
 });
 let photo360 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-1.jpg",
   spotId: spot112._id,
   userId: users[0]._id,
   latitude: 38.256113,
@@ -6409,7 +6409,7 @@ let photo360 = new Photo({
   likes: [],
 });
 let photo361 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-2.jpg",
   spotId: spot112._id,
   userId: users[1]._id,
   latitude: 38.256113,
@@ -6423,7 +6423,7 @@ let photo361 = new Photo({
   likes: [],
 });
 let photo362 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-3.jpg",
   spotId: spot112._id,
   userId: users[1]._id,
   latitude: 38.256113,
@@ -6437,7 +6437,7 @@ let photo362 = new Photo({
   likes: [],
 });
 let photo363 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-4.jpg",
   spotId: spot112._id,
   userId: users[1]._id,
   latitude: 38.256113,
@@ -6451,7 +6451,7 @@ let photo363 = new Photo({
   likes: [],
 });
 let photo364 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/arnold-5.jpg",
   spotId: spot112._id,
   userId: users[1]._id,
   latitude: 38.256113,
@@ -6465,7 +6465,7 @@ let photo364 = new Photo({
   likes: [],
 });
 let photo365 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-1.jpg",
   spotId: spot113._id,
   userId: users[2]._id,
   latitude: 38.153867,
@@ -6479,7 +6479,7 @@ let photo365 = new Photo({
   likes: [],
 });
 let photo366 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-2.jpg",
   spotId: spot113._id,
   userId: users[0]._id,
   latitude: 38.153867,
@@ -6493,7 +6493,7 @@ let photo366 = new Photo({
   likes: [],
 });
 let photo367 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-3.jpg",
   spotId: spot113._id,
   userId: users[1]._id,
   latitude: 38.153867,
@@ -6507,7 +6507,7 @@ let photo367 = new Photo({
   likes: [],
 });
 let photo368 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-4.jpg",
   spotId: spot113._id,
   userId: users[2]._id,
   latitude: 38.153867,
@@ -6521,7 +6521,7 @@ let photo368 = new Photo({
   likes: [],
 });
 let photo369 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/murphys-5.jpg",
   spotId: spot113._id,
   userId: users[2]._id,
   latitude: 38.153867,
@@ -6535,7 +6535,7 @@ let photo369 = new Photo({
   likes: [],
 });
 let photo370 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-1.jpg",
   spotId: spot114._id,
   userId: users[2]._id,
   latitude: 39.308641,
@@ -6549,7 +6549,7 @@ let photo370 = new Photo({
   likes: [],
 });
 let photo371 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-2.jpg",
   spotId: spot114._id,
   userId: users[2]._id,
   latitude: 39.308641,
@@ -6563,7 +6563,7 @@ let photo371 = new Photo({
   likes: [],
 });
 let photo372 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-3.jpg",
   spotId: spot114._id,
   userId: users[2]._id,
   latitude: 39.308641,
@@ -6577,7 +6577,7 @@ let photo372 = new Photo({
   likes: [],
 });
 let photo373 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-4.jpg",
   spotId: spot114._id,
   userId: users[2]._id,
   latitude: 39.308641,
@@ -6591,7 +6591,7 @@ let photo373 = new Photo({
   likes: [],
 });
 let photo374 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sites-5.jpg",
   spotId: spot114._id,
   userId: users[2]._id,
   latitude: 39.308641,
@@ -6605,7 +6605,7 @@ let photo374 = new Photo({
   likes: [],
 });
 let photo375 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-1.jpg",
   spotId: spot115._id,
   userId: users[3]._id,
   latitude: 39.300832,
@@ -6619,7 +6619,7 @@ let photo375 = new Photo({
   likes: [],
 });
 let photo376 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-2.jpg",
   spotId: spot115._id,
   userId: users[3]._id,
   latitude: 39.300832,
@@ -6633,7 +6633,7 @@ let photo376 = new Photo({
   likes: [],
 });
 let photo377 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-5.jpg",
   spotId: spot115._id,
   userId: users[3]._id,
   latitude: 39.300832,
@@ -6647,7 +6647,7 @@ let photo377 = new Photo({
   likes: [],
 });
 let photo378 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-4.jpg",
   spotId: spot115._id,
   userId: users[3]._id,
   latitude: 39.300832,
@@ -6661,7 +6661,7 @@ let photo378 = new Photo({
   likes: [],
 });
 let photo379 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/lodoga-5.jpg",
   spotId: spot115._id,
   userId: users[3]._id,
   latitude: 39.300832,
@@ -6675,7 +6675,7 @@ let photo379 = new Photo({
   likes: [],
 });
 let photo380 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mtdiablo-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mtdiablo-1.jpg",
   spotId: spot116._id,
   userId: users[0],
   latitude: 37.881251,
@@ -6689,7 +6689,7 @@ let photo380 = new Photo({
   likes: [],
 });
 let photo381 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mtdiablo-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mtdiablo-2.jpg",
   spotId: spot116._id,
   userId: users[1],
   latitude: 37.881251,
@@ -6703,7 +6703,7 @@ let photo381 = new Photo({
   likes: [],
 });
 let photo382 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mtdiablo-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mtdiablo-3.jpg",
   spotId: spot116._id,
   userId: users[2],
   latitude: 37.881251,
@@ -6717,7 +6717,7 @@ let photo382 = new Photo({
   likes: [],
 });
 let photo383 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mtdiablo-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/mtdiablo-4.jpg",
   spotId: spot116._id,
   userId: users[3],
   latitude: 37.881251,
@@ -6731,7 +6731,7 @@ let photo383 = new Photo({
   likes: [],
 });
 let photo384 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-1.jpg",
   spotId: spot116._id,
   userId: users[0],
   latitude: 37.881251,
@@ -6745,7 +6745,7 @@ let photo384 = new Photo({
   likes: [],
 });
 let photo385 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-1.jpg",
   spotId: spot117._id,
   userId: users[0],
   latitude: 37.93483,
@@ -6759,7 +6759,7 @@ let photo385 = new Photo({
   likes: [],
 });
 let photo386 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-2.jpg",
   spotId: spot117._id,
   userId: users[2],
   latitude: 37.93483,
@@ -6773,7 +6773,7 @@ let photo386 = new Photo({
   likes: [],
 });
 let photo387 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-3.jpg",
   spotId: spot117._id,
   userId: users[1],
   latitude: 37.93483,
@@ -6787,7 +6787,7 @@ let photo387 = new Photo({
   likes: [],
 });
 let photo388 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-4.jpg",
   spotId: spot117._id,
   userId: users[0],
   latitude: 37.93483,
@@ -6801,7 +6801,7 @@ let photo388 = new Photo({
   likes: [],
 });
 let photo389 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/wc-5.jpg",
   spotId: spot117._id,
   userId: users[2],
   latitude: 37.93483,
@@ -6815,7 +6815,7 @@ let photo389 = new Photo({
   likes: [],
 });
 let photo390 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-1.jpg",
   spotId: spot118._id,
   userId: users[1],
   latitude: 41.671081,
@@ -6829,7 +6829,7 @@ let photo390 = new Photo({
   likes: [],
 });
 let photo391 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-2.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-2.jpg",
   spotId: spot118._id,
   userId: users[0],
   latitude: 41.671081,
@@ -6843,7 +6843,7 @@ let photo391 = new Photo({
   likes: [],
 });
 let photo392 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-3.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-3.jpg",
   spotId: spot118._id,
   userId: users[2],
   latitude: 41.671081,
@@ -6857,7 +6857,7 @@ let photo392 = new Photo({
   likes: [],
 });
 let photo393 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-4.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-4.jpg",
   spotId: spot118._id,
   userId: users[3],
   latitude: 41.671081,
@@ -6871,7 +6871,7 @@ let photo393 = new Photo({
   likes: [],
 });
 let photo394 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-5.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/delnorte-5.jpg",
   spotId: spot118._id,
   userId: users[2],
   latitude: 41.671081,
@@ -6885,7 +6885,7 @@ let photo394 = new Photo({
   likes: [],
 });
 let photo395 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-2.jpg",
   spotId: spot119._id,
   userId: users[2],
   latitude: 41.890231,
@@ -6899,7 +6899,7 @@ let photo395 = new Photo({
   likes: [],
 });
 let photo396 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-3.jpg",
   spotId: spot119._id,
   userId: users[0],
   latitude: 41.890231,
@@ -6913,7 +6913,7 @@ let photo396 = new Photo({
   likes: [],
 });
 let photo397 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-4.jpg",
   spotId: spot119._id,
   userId: users[3],
   latitude: 41.890231,
@@ -6927,7 +6927,7 @@ let photo397 = new Photo({
   likes: [],
 });
 let photo398 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-5.jpg",
   spotId: spot119._id,
   userId: users[2],
   latitude: 41.890231,
@@ -6941,7 +6941,7 @@ let photo398 = new Photo({
   likes: [],
 });
 let photo399 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-1.jpeg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/redwoods-1.jpg",
   spotId: spot119._id,
   userId: users[1],
   latitude: 41.890231,
@@ -7305,7 +7305,7 @@ let photo424 = new Photo({
   likes: [],
 });
 let photo425 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/siskiyou5.jpg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/siskyou5.jpg",
   spotId: spot88._id,
   userId: users[0]._id,
   latitude: 41.764315,
@@ -7319,7 +7319,7 @@ let photo425 = new Photo({
   likes: [],
 });
 let photo426 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/siskiyou6.jpg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/siskyou6.jpg",
   spotId: spot89._id,
   userId: users[1]._id,
   latitude: 41.823698,
@@ -7333,7 +7333,7 @@ let photo426 = new Photo({
   likes: [],
 });
 let photo427 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/siskiyou7.jpg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/siskyou7.jpg",
   spotId: spot89._id,
   userId: users[3]._id,
   latitude: 41.823698,
@@ -7361,7 +7361,7 @@ let photo428 = new Photo({
   likes: [],
 });
 let photo429 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sierrra1.jpg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/sierra1.jpg",
   spotId: spot89._id,
   userId: users[2]._id,
   latitude: 41.823698,
@@ -8845,7 +8845,7 @@ let photo534 = new Photo({
   likes: [],
 });
 let photo535 = new Photo({
-  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/yuba6.jpg",
+  url: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/viewFinderSeeds+2/yuba1.jpg",
   spotId: spot111._id,
   userId: users[1]._id,
   latitude: 39.45905,
