@@ -9,6 +9,19 @@ const Like = require("../models/Like");
 const bcrypt = require("bcryptjs");
 const { faker } = require("@faker-js/faker");
 
+Array.prototype.sample = function () {
+  return this[Math.floor(Math.random() * this.length)];
+};
+
+Array.prototype.sampleTwo = function () {
+  let res = [];
+  res.push(this.sample());
+  let temp = this.sample();
+  while (res[0] === temp) temp = this.sample();
+  res.push(temp);
+  return res;
+};
+
 const NUM_SEED_USERS = 10;
 
 const users = [];
@@ -28,7 +41,8 @@ users.push(
     username: "Kaushal",
     email: "k@gmail.com",
     hashedPassword: bcrypt.hashSync("password", 10),
-    profilePicUrl: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/kaushal.png"
+    profilePicUrl:
+      "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/kaushal.png",
   })
 );
 
@@ -46,7 +60,8 @@ users.push(
     username: "Christine",
     email: "gymrat@gmail.com",
     hashedPassword: bcrypt.hashSync("password", 10),
-    profilePicUrl: "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/christine.png"
+    profilePicUrl:
+      "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/christine.png",
   })
 );
 
@@ -462,18 +477,17 @@ for (let i = 0; i < 10; i++) {
 
 const photos = [];
 
-const conditions = 
-  [
-    "rocky",
-    "slippery",
-    "slope",
-    "snowy",
-    "windy",
-    "rainy",
-    "wildlife",
-    "heat",
-    "shade",
-  ];
+const conditions = [
+  "rocky",
+  "slippery",
+  "slope",
+  "snowy",
+  "windy",
+  "rainy",
+  "wildlife",
+  "heat",
+  "shade",
+];
 
 const transportations = [
   "walk",
@@ -493,9 +507,17 @@ const genres = [
   "astro",
   "aerial",
 ];
-// const bestTimeOfDays = ["first light", "sunrise", "afternoon", "sunset", "golden hour", "night"];
 
-// const payments = ["0", "$", "$$", "$$$"];
+const bestTimeOfDays = [
+  "first light",
+  "sunrise",
+  "afternoon",
+  "sunset",
+  "golden hour",
+  "night",
+];
+
+const payments = ["0", "$", "$$", "$$$"];
 
 // for (let i = 0; i < 10; i++) {
 //   const randomIdx = Math.floor(Math.random() * users.length); // from 0 to 10 exculsive; used for user and spot id
@@ -1128,7 +1150,6 @@ spot24.photos.push(photo37);
 spot23.photos.push(photo36);
 spot19.photos.push(photo32);
 
-
 users[0].photos.push(photo2);
 users[0].photos.push(photo3);
 users[1].photos.push(photo4);
@@ -1166,8 +1187,6 @@ users[1].photos.push(photo35);
 users[3].photos.push(photo36);
 users[4].photos.push(photo37);
 users[2].photos.push(photo38);
-
-
 
 //likes
 const likes = [];
