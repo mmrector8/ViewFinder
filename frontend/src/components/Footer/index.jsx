@@ -56,7 +56,7 @@ const Footer = () => {
           <h1 className="dev-name">Nishant Racherla</h1>
           <div className="dev-links">
             <a href="https://github.com/T1LT" target="_blank"> <GitHubIcon /></a>
-            <a href="https://www.linkedin.com/in/nishant-racherla-a51370167/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
+            <a href="https://www.linkedin.com/in/nishantracherla/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
           </div>
         </div>
       </div>
