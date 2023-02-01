@@ -25,6 +25,12 @@
     grid-row-gap: 20px;
 }
 
+.top-upvoted-smaller-images:hover, .most-upvoted-image:hover{
+    cursor: pointer;
+    height: 101%;
+    width: 101%;
+}
+
 .most-upvoted-image{
     width: 100%;
     height: 100%;
