@@ -47,7 +47,7 @@ const PhotoShow = ({ photo }) => {
             onClick={() => dispatch(closePhotoShowModal())}
           >
             {" "}
-            {photo?.spotId?.name}
+            Spot: {photo?.spotId?.name}
           </Link>
         </div>
         <div className="photo-show-description">{photo?.description}</div>
