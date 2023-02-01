@@ -32,7 +32,15 @@ const PhotoShow = ({ photo }) => {
       <div className="line"></div>
       <div className="photo-show-elements">
         <div className="left-side-show-box">
-          <div className="photo-show-username">{photo?.userId?.username}</div>
+          <div className="photo-show-username">
+            <Link 
+              to={`/users/${photo?.userId?._id}`}
+              className="photo-show-username"
+              onClick={() => dispatch(closePhotoShowModal())}
+            >
+              {photo?.userId?.username}
+            </Link>
+            </div>
           <Link
             to={`/spots/${photo?.spotId?._id}`}
             className="photo-show-spot"
