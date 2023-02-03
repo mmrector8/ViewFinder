@@ -1,5 +1,5 @@
-import React, {useMemo} from 'react';
-import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import React, {useMemo, useState} from 'react';
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import LoadingSpinner from '../LoadingSpinner';
 import * as mapcss from "./mapinput.css"
 
@@ -21,6 +21,7 @@ const SmallMapWrapper = ({setLatitude, setLongitude, lat, lng}) => {
 export default SmallMapWrapper;
 
 export const SmallMap = ({ setLatitude, setLongitude, lat, lng }) => {
+    const [clicked, setClicked] = useState(false)
 
     const options = {
         disableDefaultUI: true,
@@ -29,10 +30,9 @@ export const SmallMap = ({ setLatitude, setLongitude, lat, lng }) => {
         rotateControl: true
     }
     const getCoordinates =(e)=>{
-        // console.log(e.latLng.lat())
-        // console.log(e.ltLng.lng())
         setLatitude(e.latLng.lat())
         setLongitude(e.latLng.lng())
+        setClicked(true);
     }
 
     const center = ({ lat: 37.1918, lng: -119.5249 })
@@ -45,6 +45,16 @@ export const SmallMap = ({ setLatitude, setLongitude, lat, lng }) => {
             mapContainerClassName={'small-map-container'} 
             options={options}
         >
+        {clicked ? 
+            <Marker 
+                position={{lat: lat, lng: lng}}
+            /> 
+            : 
+        ""}
+        {/* <Marker
+                    position={{ lat: -34.397, lng: 150.644 }}
+                    onClick={props.onMarkerClick}
+                /> */}
         </GoogleMap>
         </>
     )
