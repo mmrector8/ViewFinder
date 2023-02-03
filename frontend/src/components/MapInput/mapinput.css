@@ -1,0 +1,9 @@
+.small-map-component {
+    width: 300px;
+    height: 300px;
+}
+
+.small-map-container {
+    height: 100%;
+    width: 100%;
+}

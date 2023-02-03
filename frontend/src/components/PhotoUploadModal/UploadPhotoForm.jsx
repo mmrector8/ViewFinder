@@ -3,6 +3,7 @@ import "./UploadPhotoForm.css";
 import { useDispatch } from "react-redux";
 import { createPhoto } from "../../store/photos";
 import { closeUploadModal } from "../../store/ui";
+import SmallMapWrapper from "../MapInput";
 
 const UploadPhotoForm = () => {
   const [description, setDescription] = useState("");
@@ -82,27 +83,29 @@ const UploadPhotoForm = () => {
         ) : (
           <>
             <div className="page-2">
-              <div className="latlng">
-                <input
-                  type="text"
-                  name="latitude"
-                  placeholder="Latitude"
-                  className="latlng-input"
-                  autoComplete="off"
-                  value={latitude}
-                  onChange={(e) => setLatitude(e.target.value)}
-                />
-                <input
-                  type="text"
-                  name="longitude"
-                  placeholder="Longitude"
-                  className="latlng-input"
-                  autoComplete="off"
-                  value={longitude}
-                  onChange={(e) => setLongitude(e.target.value)}
-                />
-              </div>
-
+              <div className="latlong-and-map">
+                <div className="latlng">
+                  <input
+                    type="text"
+                    name="latitude"
+                    placeholder="Latitude"
+                    className="latlng-input"
+                    autoComplete="off"
+                    value={latitude}
+                    onChange={(e) => setLatitude(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    name="longitude"
+                    placeholder="Longitude"
+                    className="latlng-input"
+                    autoComplete="off"
+                    value={longitude}
+                    onChange={(e) => setLongitude(e.target.value)}
+                  />
+                </div>
+                <SmallMapWrapper />
+            </div>
               <div className="genres-container">
                 <h1 className="radio-label">Genre: </h1>
                 <div className="below-label">

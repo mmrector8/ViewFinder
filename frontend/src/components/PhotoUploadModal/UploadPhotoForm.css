@@ -125,3 +125,8 @@
   right: 15px;
   color: white;
 }
+
+.latlong-and-map{
+  display: flex;
+  justify-content: space-between;
+}
