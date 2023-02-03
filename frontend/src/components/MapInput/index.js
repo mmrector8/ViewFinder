@@ -13,7 +13,6 @@ const SmallMapWrapper = () => {
     return (
         <>
             <div className="small-map-component">
-                Map Component
                 <SmallMap />
             </div>
         </>
