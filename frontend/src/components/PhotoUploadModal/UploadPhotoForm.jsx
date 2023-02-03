@@ -105,7 +105,7 @@ const UploadPhotoForm = () => {
                   />
                   <p className="lat-long-directions">Click the map to get latitude and longitude.</p>
                 </div>
-                  <SmallMapWrapper />
+                  <SmallMapWrapper setLatitude={setLatitude} setLongitude={setLongitude} lat={latitude} lng={longitude}/>
             </div>
               <div className="genres-container">
                 <h1 className="radio-label">Genre: </h1>
