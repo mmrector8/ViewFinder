@@ -101,24 +101,32 @@ router.get("/:userId", async (req, res, next) => {
   try {
     user = await User.findById(req.params.userId)
       .populate({
-        path: "photos",
-        populate: { path: "likes", select: "likerId photoId" },
-      })
+          path: "photos",
+          populate: { path: "likes", select: "likerId photoId" },
+        })
       .populate({
-        path: "photos",
-        populate: { path: "spotId", select: "name" },
-      })
+          path: "photos",
+          populate: { path: "spotId", select: "name" },
+        })
       .populate({
-        path: "photos",
-        populate: { path: "userId", select: "_id username" },
-      });
+          path: "photos",
+         
+          populate: { path: "userId", select: "_id username" },
+        })
+
+
+      //sort user's photos based on most recent createdAt time stamp 
+      user.photos.sort((a,b) => b.createdAt - a.createdAt);
+      //get only the first 9 
+      user.photos = user.photos.slice(0, 9)
+
 
 
     return res.json(user)
   } catch (err) {
     const error = new Error("User not found");
     error.statusCode = 404;
-    error.errors = { message: "No user found with that id" };
+    error.errors = { message: `No user found with that id ${err}` };
     return next(error);
   }
 });
