@@ -11223,7 +11223,7 @@ users[1].photos.push(photo610);
 const likes = [];
 
 for (let i = 0; i < 31; i++) {
-  let newLike = new Like({ photoId: photos[i % 10], likerId: users[i % 5] });
+  let newLike = new Like({ photoId: photos[i % 20], likerId: users[i % 5] });
   likes.push(newLike);
   photos[i % 10].likes.push(newLike);
 }
