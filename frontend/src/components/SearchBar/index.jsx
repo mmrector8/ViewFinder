@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch } from "react-redux";
-import { openSearchModal } from "../../store/ui";
-import { fetchResults } from "../../store/search";
+import { clearResults, fetchResults } from "../../store/search";
 import { useLocation } from "react-router-dom";
+import useDebounce from "../../hooks/useDebounce";
+import SearchResults from "./SearchResults";
+// import SearchIcon from "@mui/icons-material/Search";
 
 const SearchBar = () => {
   const [queryString, setQueryString] = useState("");
@@ -13,39 +14,49 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const query = { body: queryString, type: queryType };
-    dispatch(fetchResults(query));
-    dispatch(openSearchModal());
   };
+
+  const capitalize = (string) => string[0].toUpperCase() + string.substring(1);
+  const debounced = useDebounce(queryString, 500);
+
+  useEffect(() => {
+    if (debounced !== "") {
+      const query = { body: queryString, type: queryType };
+      dispatch(fetchResults(query));
+    } else {
+      dispatch(clearResults());
+    }
+  }, [debounced]);
 
   useEffect(() => {
     setQueryString("");
     setQueryType("");
   }, [location.pathname]);
 
-  const capitalize = (string) => string[0].toUpperCase() + string.substring(1)
-
   return (
     <form className="searchbar" onSubmit={handleSubmit}>
-      <SearchIcon />
       <select value={queryType} onChange={(e) => setQueryType(e.target.value)}>
         <option value="">Search Type</option>
         <option value="users">Users</option>
         <option value="photos">Photos</option>
         <option value="locations">Locations</option>
       </select>
-        <input
-          type="text"
-          name="queryString"
-          placeholder={queryType === "" ? "Select a Search Type" : `Search ${capitalize(queryType)}`}
-          autoComplete="off"
-          disabled = {queryType === ""}
-          value={queryString}
-          onChange={(e) => setQueryString(e.target.value)}
-        />
-      
-
-      <button className="navbar-button">Search</button>
+      <input
+        type="text"
+        name="queryString"
+        placeholder={
+          queryType === ""
+            ? "Select a Search Type"
+            : `Search ${capitalize(queryType)}`
+        }
+        autoComplete="off"
+        disabled={queryType === ""}
+        value={queryString}
+        onChange={(e) => setQueryString(e.target.value)}
+      />
+      {queryString !== "" && <SearchResults />}
+      {/* <SearchIcon /> */}
+      {/* <button className="navbar-button">Search</button> */}
     </form>
   );
 };

@@ -9,8 +9,6 @@ export const OPEN_USER_MODAL = "ui/openUserModal";
 export const CLOSE_USER_MODAL = "ui/closeUserModal";
 export const OPEN_PHOTO_SHOW_MODAL = "ui/openPhotoShowModal";
 export const CLOSE_PHOTO_SHOW_MODAL = "ui/closePhotoShowModal";
-export const OPEN_SEARCH_MODAL = "ui/openSearchModal";
-export const CLOSE_SEARCH_MODAL = "ui/closeSearchModal";
 export const OPEN_UPLOAD_MODAL = "ui/openUploadModal";
 export const CLOSE_UPLOAD_MODAL = "ui/closeUploadModal";
 
@@ -46,13 +44,6 @@ export const openPhotoShowModal = (photo) => ({
 
 export const closePhotoShowModal = () => ({
   type: CLOSE_PHOTO_SHOW_MODAL,
-});
-export const openSearchModal = () => ({
-  type: OPEN_SEARCH_MODAL,
-});
-
-export const closeSearchModal = () => ({
-  type: CLOSE_SEARCH_MODAL,
 });
 
 export const openUploadModal = () => ({
@@ -92,10 +83,6 @@ const uiReducer = (state = initialState, action) => {
       return { ...state, photoShowModalOpen: action.payload };
     case CLOSE_PHOTO_SHOW_MODAL:
       return { ...state, photoShowModalOpen: false };
-    case OPEN_SEARCH_MODAL:
-      return { ...state, searchModalOpen: true };
-    case CLOSE_SEARCH_MODAL:
-      return { ...state, searchModalOpen: false };
     case OPEN_UPLOAD_MODAL:
       return { ...state, uploadModalOpen: true };
     case CLOSE_UPLOAD_MODAL:
@@ -105,7 +92,7 @@ const uiReducer = (state = initialState, action) => {
       return newState;
     case REMOVE_LIKE:
       newState.photoShowModalOpen.likes.map((like, i) => {
-        if (like._id=== action.likeId) {
+        if (like._id === action.likeId) {
           newState.photoShowModalOpen.likes.splice(i, 1)
         }
       })
