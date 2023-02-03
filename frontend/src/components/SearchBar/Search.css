@@ -39,3 +39,8 @@
   cursor: not-allowed;
   background: none;
 }
+
+.result-item {
+  display: flex;
+  align-items: center;
+}
