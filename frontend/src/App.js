@@ -13,6 +13,7 @@ import SpotShowPage from "./components/SpotShowPage";
 import PhotoShowModal from "./components/PhotoShowModal";
 import PhotoUploadModal from "./components/PhotoUploadModal";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +47,7 @@ const App = () => {
           <Route exact path="/error" component={NotFound} />
           <Redirect to="/error" />
         </Switch>
+        <Footer />
       </>
     )
   );

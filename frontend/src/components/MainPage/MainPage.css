@@ -1,9 +1,10 @@
 .map-and-carousel-container {
-  height: calc(100% - 75px) !important;
+  height: calc(100% - 150px) !important;
   width: 100% !important;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: -30px;
 }
 
 .carousel {
@@ -49,7 +50,7 @@
 }
 
 .descriptions{
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -57,10 +58,10 @@
 }
 
 .app-title{
-  font-size: 26px;
+  font-size: 24px;
 }
 
 .click-on-map{
-  font-size: 18px;
+  font-size: 17px;
   margin-top: 14px;
 }

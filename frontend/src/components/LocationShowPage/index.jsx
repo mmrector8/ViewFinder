@@ -16,7 +16,11 @@ const PhotoGridView = (spots) => {
   let photosToShow = spotsArray
     ?.map((spot) => {
       if (spot?.photos && spot?.photos?.length) {
-        return spot?.photos[0];
+        return {
+          ...spot?.photos[0],
+          spotId: {_id: spot?._id, name: spot?.name},
+
+        }
       }
       return null;
     })
@@ -37,7 +41,7 @@ const PhotoGridView = (spots) => {
           key={idx}
           width="280px"
           className="user-photo-container"
-          onClick={() => dispatch(openPhotoShowModal(photo))}
+          onClick={() => dispatch(openPhotoShowModal( photo ))}
         >
           <p
             className="overlay-photo-text-user"
