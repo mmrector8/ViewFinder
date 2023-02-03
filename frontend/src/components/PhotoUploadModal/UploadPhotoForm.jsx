@@ -104,13 +104,16 @@ const UploadPhotoForm = () => {
               </div>
 
               <div className="genres-container">
-                <h1 className="radio-label">Genre: </h1>
+                <h1 className="radio-label">
+                  Genre: 
+                </h1>
                 <div className="below-label">
                   <label htmlFor="genre">Wildlife</label>
                   <input
                     type="radio"
                     name="genre"
                     id="genre"
+                    required
                     value="wildlife"
                     onChange={(e) => setGenre(e.target.value)}
                   />
@@ -125,7 +128,7 @@ const UploadPhotoForm = () => {
                   <label htmlFor="genre">Landscape</label>
                   <input
                     type="radio"
-                    name="genre"
+                    name="genre"         
                     id="genre"
                     value="landscape"
                     onChange={(e) => setGenre(e.target.value)}
@@ -134,14 +137,14 @@ const UploadPhotoForm = () => {
                   <input
                     type="radio"
                     name="genre"
-                    id="genre"
+                    id="genre"                   
                     value="portrait"
                     onChange={(e) => setGenre(e.target.value)}
                   />
                   <label htmlFor="genre">Astro</label>
                   <input
                     type="radio"
-                    name="genre"
+                    name="genre"               
                     id="genre"
                     value="astro"
                     onChange={(e) => setGenre(e.target.value)}
@@ -149,7 +152,7 @@ const UploadPhotoForm = () => {
                   <label htmlFor="genre">Aerial</label>
                   <input
                     type="radio"
-                    name="genre"
+                    name="genre"         
                     id="genre"
                     value="aerial"
                     onChange={(e) => setGenre(e.target.value)}
@@ -158,12 +161,15 @@ const UploadPhotoForm = () => {
               </div>
 
               <div className="conditions-container">
-                <h1 className="radio-label">Conditions: </h1>
+                <h1 className="radio-label">
+                  Conditions:
+                </h1>
                 <div className="below-label">
                   <label htmlFor="condition">Rocky</label>
                   <input
                     type="radio"
                     name="condition"
+                    required
                     id="condition"
                     value="rocky"
                     onChange={(e) => setCondition(e.target.value)}
@@ -236,12 +242,15 @@ const UploadPhotoForm = () => {
               </div>
 
               <div className="transportation-container">
-                <h1 className="radio-label">Transportation: </h1>
+                <h1 className="radio-label">
+                  Transportation:
+                </h1>
                 <div className="below-label">
                   <label htmlFor="transportation">Walk</label>
                   <input
                     type="radio"
                     name="transportation"
+                    required
                     id="transportation"
                     value="walk"
                     onChange={(e) => setTransportation(e.target.value)}
@@ -298,12 +307,15 @@ const UploadPhotoForm = () => {
               </div>
 
               <div className="besttimeofday-container">
-                <h1 className="radio-label">Best Time of Day: </h1>
+                <h1 className="radio-label">
+                  Best Time of Day:
+                </h1>
                 <div className="below-label">
                   <label htmlFor="bestTimeOfDay">First Light</label>
                   <input
                     type="radio"
                     name="bestTimeOfDay"
+                    required
                     id="bestTimeOfDay"
                     value="first light"
                     onChange={(e) => setBestTimeOfDay(e.target.value)}
@@ -352,12 +364,15 @@ const UploadPhotoForm = () => {
               </div>
 
               <div className="payment-container">
-                <h1 className="radio-label">Payment: </h1>
+                <h1 className="radio-label">
+                  Payment:
+                </h1>
                 <div className="below-label">
                   <label htmlFor="Payment">0</label>
                   <input
                     type="radio"
                     name="payment"
+                    required
                     id="payment"
                     value="0"
                     onChange={(e) => setPayment(e.target.value)}
