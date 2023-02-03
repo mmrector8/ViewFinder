@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="dev-links">
             <a href="https://github.com/mmrector8?tab=repositories" target="_blank"> <GitHubIcon /></a>
             <a href="https://www.linkedin.com/in/morgan-marie-rector/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
-            <a href="" target="_blank"><AccountBoxIcon /></a>
+            <a href="https://mmrector8.github.io/mmrector8/" target="_blank"><AccountBoxIcon /></a>
           </div>
         </div>
       </div>
