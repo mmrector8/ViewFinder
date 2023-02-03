@@ -29,7 +29,6 @@ const LikesForm = ({photo, user})=>{
     }
 
     const sendOrRemoveLike = ()=>{
-        console.log(likersLike)
         if(!liked){
          return dispatch(addLike(photo))
                 .then((newLike)=> setLikersLike(newLike))

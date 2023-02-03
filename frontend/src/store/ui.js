@@ -96,7 +96,6 @@ const uiReducer = (state = initialState, action) => {
           newState.photoShowModalOpen.likes.splice(i, 1)
         }
       })
-      console.log(action.likeId)
       return newState;
     default:
       return state;
