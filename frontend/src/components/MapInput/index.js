@@ -22,26 +22,30 @@ export default SmallMapWrapper;
 
 export const SmallMap = ({ setLatitude, setLongitude, lat, lng }) => {
     const [clicked, setClicked] = useState(false)
-
+    const [center, setCenter] = useState({ lat: 37.1918, lng: -119.5249 })
     const options = {
         disableDefaultUI: true,
         mapTypeId: "terrain",
         zoomControl: true,
-        rotateControl: true
+        rotateControl: true,
+        draggable: true
     }
     const getCoordinates =(e)=>{
         setLatitude(e.latLng.lat())
         setLongitude(e.latLng.lng())
         setClicked(true);
+        console.log(lat, lng)
+        setCenter({lat: e.latLng.lat(), lng: e.latLng.lng()})
     }
 
-    const center = ({ lat: 37.1918, lng: -119.5249 })
+    // const center = ({ lat: 37.1918, lng: -119.5249 })
+
     return (
         <>
         <GoogleMap 
             onClick={getCoordinates}
-            zoom={4} 
-            center={{ lat: 36.7783, lng: - 119.4179 }} 
+            zoom={clicked ? 10 : 5} 
+            center={center} 
             mapContainerClassName={'small-map-container'} 
             options={options}
         >
@@ -51,10 +55,6 @@ export const SmallMap = ({ setLatitude, setLongitude, lat, lng }) => {
             /> 
             : 
         ""}
-        {/* <Marker
-                    position={{ lat: -34.397, lng: 150.644 }}
-                    onClick={props.onMarkerClick}
-                /> */}
         </GoogleMap>
         </>
     )

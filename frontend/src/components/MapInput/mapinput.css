@@ -2,13 +2,14 @@
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 50px;
-    margin-top: 20px;
-    width: 300px;
-    height: 180px;
+    margin-right: 40px;
+    margin-top: 50px;
+    width: 320px;
+    height: 420px;
 }
 
 .small-map-container {
     height: 100%;
     width: 100%;
+    border-radius: 6px;
 }

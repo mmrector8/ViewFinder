@@ -180,14 +180,14 @@ const UploadPhotoForm = () => {
                     value="slippery"
                     onChange={(e) => setCondition(e.target.value)}
                   />
-                  <label htmlFor="condition">Slope</label>
+                  {/* <label htmlFor="condition">Slope</label>
                   <input
                     type="radio"
                     name="condition"
                     id="condition"
                     value="slope"
                     onChange={(e) => setCondition(e.target.value)}
-                  />
+                  /> */}
                   <label htmlFor="condition">Snowy</label>
                   <input
                     type="radio"
@@ -212,22 +212,22 @@ const UploadPhotoForm = () => {
                     value="rainy"
                     onChange={(e) => setCondition(e.target.value)}
                   />
-                  <label htmlFor="condition">Wildlife</label>
+                  {/* <label htmlFor="condition">Wildlife</label>
                   <input
                     type="radio"
                     name="condition"
                     id="condition"
                     value="wildlife"
                     onChange={(e) => setCondition(e.target.value)}
-                  />
-                  <label htmlFor="condition">Heat</label>
+                  /> */}
+                  {/* <label htmlFor="condition">Heat</label>
                   <input
                     type="radio"
                     name="condition"
                     id="condition"
                     value="heat"
                     onChange={(e) => setCondition(e.target.value)}
-                  />
+                  /> */}
                   <label htmlFor="condition">Shade</label>
                   <input
                     type="radio"
@@ -266,14 +266,14 @@ const UploadPhotoForm = () => {
                     value="car"
                     onChange={(e) => setTransportation(e.target.value)}
                   />
-                  <label htmlFor="transportation">Backpacking</label>
+                  {/* <label htmlFor="transportation">Backpacking</label>
                   <input
                     type="radio"
                     name="transportation"
                     id="transportation"
                     value="backpacking"
                     onChange={(e) => setTransportation(e.target.value)}
-                  />
+                  /> */}
                   <label htmlFor="transportation">Bike</label>
                   <input
                     type="radio"
@@ -304,14 +304,14 @@ const UploadPhotoForm = () => {
               <div className="besttimeofday-container">
                 <h1 className="radio-label">Best Time of Day: </h1>
                 <div className="below-label">
-                  <label htmlFor="bestTimeOfDay">First Light</label>
+                  {/* <label htmlFor="bestTimeOfDay">First Light</label>
                   <input
                     type="radio"
                     name="bestTimeOfDay"
                     id="bestTimeOfDay"
                     value="first light"
                     onChange={(e) => setBestTimeOfDay(e.target.value)}
-                  />
+                  /> */}
                   <label htmlFor="bestTimeOfDay">Sunrise</label>
                   <input
                     type="radio"
