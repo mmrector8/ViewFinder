@@ -130,3 +130,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.lat-long-directions{
+  width: 250px;
+  text-align: center;
+}

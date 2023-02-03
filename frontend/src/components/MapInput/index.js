@@ -23,6 +23,7 @@ export default SmallMapWrapper;
 export const SmallMap = () => {
 
     const options = {
+        disableDefaultUI: true,
         mapTypeId: "terrain",
         zoomControl: true,
         rotateControl: true

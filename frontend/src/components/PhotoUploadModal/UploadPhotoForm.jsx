@@ -103,8 +103,9 @@ const UploadPhotoForm = () => {
                     value={longitude}
                     onChange={(e) => setLongitude(e.target.value)}
                   />
+                  <p className="lat-long-directions">Click the map to get latitude and longitude.</p>
                 </div>
-                <SmallMapWrapper />
+                  <SmallMapWrapper />
             </div>
               <div className="genres-container">
                 <h1 className="radio-label">Genre: </h1>

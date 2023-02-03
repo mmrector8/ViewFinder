@@ -1,6 +1,11 @@
 .small-map-component {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 50px;
+    margin-top: 20px;
     width: 300px;
-    height: 300px;
+    height: 180px;
 }
 
 .small-map-container {
