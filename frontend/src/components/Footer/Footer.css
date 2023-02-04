@@ -30,9 +30,13 @@
   margin-top: 5px;
   display: flex;
   align-items: center;
-  gap: 3%;
+  gap: 5px;
 }
 
 a {
   color: white;
+}
+
+.account-icons{
+  font-size: 30px;
 }

@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="dev-links">
             <a href="https://github.com/celuu" target="_blank"> <GitHubIcon /></a>
             <a href="https://www.linkedin.com/in/christineeluu/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
-            <a href="" target="_blank"><AccountBoxIcon /></a>
+            <a href="" target="_blank"><AccountBoxIcon sx={{ fontSize: "27.3px" }} /></a>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@ const Footer = () => {
           <div className="dev-links">
             <a href="https://github.com/kaushaltheeG" target="_blank"> <GitHubIcon /></a>
             <a href="https://www.linkedin.com/in/kaushalsk/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
-            <a href="https://kaushalsk.com/" target="_blank"><AccountBoxIcon /></a>
+            <a href="https://kaushalsk.com/" target="_blank"><AccountBoxIcon sx={{ fontSize: "27.3px" }} /></a>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="dev-links">
             <a href="https://github.com/mmrector8?tab=repositories" target="_blank"> <GitHubIcon /></a>
             <a href="https://www.linkedin.com/in/morgan-marie-rector/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
-            <a href="https://mmrector8.github.io/mmrector8/" target="_blank"><AccountBoxIcon /></a>
+            <a href="https://mmrector8.github.io/mmrector8/" target="_blank" className="account-icon"><AccountBoxIcon sx={{ fontSize: "27.3px" }} /></a>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@ const Footer = () => {
           <div className="dev-links">
             <a href="https://github.com/T1LT" target="_blank"> <GitHubIcon /></a>
             <a href="https://www.linkedin.com/in/nishantracherla/" target="_blank"> <LinkedInIcon sx={{ fontSize: "28px" }} /></a>
-            <a href="https://nishantracherla.com" target="_blank"><AccountBoxIcon /></a>
+            <a href="https://nishantracherla.com" target="_blank" className="account-icon"><AccountBoxIcon sx={{ fontSize: "27.3px" }} /></a>
           </div>
         </div>
       </div>
