@@ -16,6 +16,7 @@ const PhotoShow = ({ photo }) => {
   const user = useSelector((store) => store.users);
   const currentUser = useSelector((store) => store.session.user);
   const [confirmation, setConfirmation] = useState(false);
+  const spotsPresent = useSelector((store)=> store.spots)
 
   useEffect(() => {
     dispatch(getPhoto(photoId));

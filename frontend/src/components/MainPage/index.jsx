@@ -73,7 +73,6 @@ const MainPage = () => {
               <MapBox locations={locations} />
             </div>
           </div>
-          <Footer />
         </>
       ) : (
         <LoadingSpinner />

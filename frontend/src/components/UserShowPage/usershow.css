@@ -3,7 +3,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .profile-pic{
@@ -32,7 +33,7 @@
 .user-photo-grid{
     display: grid;
     grid-template-columns: repeat(3, 282.5px);
-    grid-template-rows: repeat(4, 285px);
+    grid-template-rows: repeat(3, 285px);
     grid-column-gap: 30px;
     grid-row-gap: 30px;
     margin-left: 50px;
