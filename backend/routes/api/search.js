@@ -9,68 +9,52 @@ const standardizeData = require("../../utils/standardizeData");
 
 
 router.get('/', async (req, res, next) => {
-    //expect query to come in as ?type=val&body=val
+    //expect query to come in as ?body=val
     try {
-        const includedTypes = ["photos", "users", "locations"]
-        if (!includedTypes.includes(req.query.type)) throw req
-        if (!req.query.body) return res.json({message: "Missing Body"})
+      
+      //ensures body is not empty 
+      if (!req.query.body) return res.json({ message: "Missing Body" });
 
-        let data; 
-        if (req.query.type === includedTypes[0]) {
-          //queries photo based on genre, description, condition, transportation, bestTimeOfDay, and payment
-          // $ "i" case insensitive 
+      //query photos collection 
+      let photos = await Photo.find({
+        $or: [
+          {
+            description: {
+              $regex: new RegExp(req.query.body, "i"),
+            },
+          }
+        ],
+      });
 
-          data = await Photo.find({
-            $or: [
-              {
-                genre: {
-                    $regex: new RegExp(req.query.body, "i"),
-                },},
-                { description: {
-                    $regex: new RegExp(req.query.body, "i"),
-                } },
-                { condition: {
-                    $regex: new RegExp(req.query.body, "i"),
-                } },
-                { transportation: {
-                    $regex: new RegExp(req.query.body, "i"),
-                } },
-                { bestTimeOfDay: {
-                    $regex: new RegExp(req.query.body, "i"),
-                } }
-            ],
-          });
-        } else if (req.query.type === includedTypes[1]) {
-            //queries User model based on username and email 
-            data = await User.find({
-              $or: [
-                {
-                  username: {
-                    $regex: new RegExp(req.query.body, "i"),
-                  },
-                },
-                {
-                  email: {
-                    $regex: new RegExp(req.query.body, "i"),
-                  },
-                },
-              ],
-            }).select("_id username email createdAt updatedAt");
-            
-        } else if (req.query.type === includedTypes[2]) {
-            //queries Location model based on county 
-            data = await Location.find({
-              $or: [
-                {
-                  county: {
-                    $regex: new RegExp(req.query.body, "i"),
-                  },
-                },
-              ],
-            });
+      //query users collection 
+      let users = await User.find({
+        $or: [
+          {
+            username: {
+              $regex: new RegExp(req.query.body, "i"),
+            },
+          },
+          {
+            email: {
+              $regex: new RegExp(req.query.body, "i"),
+            },
+          },
+        ],
+      }).select("_id username email createdAt updatedAt");
 
-        }
-        return res.json(standardizeData(data))
+      //query locations collection 
+      let locations = await Location.find({
+        $or: [
+          {
+            county: {
+              $regex: new RegExp(req.query.body, "i"),
+            },
+          },
+        ],
+      });
+
+      //normalize the array into object and deconstruct all the objects into one object  
+      return res.json({...standardizeData(users), ... standardizeData(locations), ...standardizeData(photos)});
     }
     catch(err) {
         const error = new Error("Search failed");
