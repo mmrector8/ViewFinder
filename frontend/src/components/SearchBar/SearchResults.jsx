@@ -43,7 +43,7 @@ const SearchResults = () => {
                     {result.username}
                   </li>
                 );
-              else
+              else if (result.description)
                 return (
                   <li
                     className="result-item truncate"
@@ -52,6 +52,12 @@ const SearchResults = () => {
                   >
                     <InsertPhotoIcon sx={{ mr: "5px", opacity: "0.4" }} />
                     {result.description}
+                  </li>
+                );
+              else
+                return (
+                  <li className="result-item" key={idx}>
+                    No Results Found!
                   </li>
                 );
             })}

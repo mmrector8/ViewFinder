@@ -54,7 +54,8 @@ router.get('/', async (req, res, next) => {
       });
 
       //normalize the array into object and deconstruct all the objects into one object  
-      return res.json({...standardizeData(users), ... standardizeData(locations), ...standardizeData(photos)});
+      if (!users.length && !locations.length && !photos.length) return res.json({ search: [] });
+      return res.json({...standardizeData(users), ...standardizeData(locations), ...standardizeData(photos)});
     }
     catch(err) {
         const error = new Error("Search failed");

@@ -13,7 +13,7 @@ export const clearResults = () => ({
 });
 
 export const fetchResults = (query) => async dispatch => {
-  const res = await jwtFetch(`/api/search?type=${query.type}&body=${query.body}`);
+  const res = await jwtFetch(`/api/search?body=${query.body}`);
   const results = await res.json();
   dispatch(receiveResults(results));
 };

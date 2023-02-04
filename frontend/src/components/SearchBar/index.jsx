@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { clearResults, fetchResults } from "../../store/search";
 import { useLocation } from "react-router-dom";
@@ -8,7 +8,7 @@ import SearchResults from "./SearchResults";
 
 const SearchBar = () => {
   const [queryString, setQueryString] = useState("");
-  // const [queryType, setQueryType] = useState("");
+  const [focused, setFocused] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -38,10 +38,12 @@ const SearchBar = () => {
         name="queryString"
         placeholder="Search"
         autoComplete="off"
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
         value={queryString}
         onChange={(e) => setQueryString(e.target.value)}
       />
-      {queryString !== "" && <SearchResults />}
+      {queryString !== "" && focused && <SearchResults />}
     </form>
   );
 };

@@ -100,6 +100,7 @@ router.get("/:userId", async (req, res, next) => {
   let user;
   try {
     user = await User.findById(req.params.userId)
+      .select("_id username photo profilePicUrl")
       .populate({
           path: "photos",
           populate: { path: "likes", select: "likerId photoId" },
@@ -110,10 +111,8 @@ router.get("/:userId", async (req, res, next) => {
         })
       .populate({
           path: "photos",
-         
           populate: { path: "userId", select: "_id username" },
         })
-
 
       //sort user's photos based on most recent createdAt time stamp 
       user.photos.sort((a,b) => b.createdAt - a.createdAt);
