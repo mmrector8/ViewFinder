@@ -22,19 +22,20 @@ const SearchResults = () => {
               if (result.county)
                 return (
                   <li
-                    className="result-item"
+                    className="result-item truncate"
                     key={idx}
                     onClick={() => {
                       history.push(`/locations/${result._id}`);
                     }}
                   >
-                    <RoomIcon sx={{ mr: "5px", opacity: "0.4" }} /> {result.county}
+                    <RoomIcon sx={{ mr: "5px", opacity: "0.4" }} />{" "}
+                    {result.county}
                   </li>
                 );
               else if (result.username)
                 return (
                   <li
-                    className="result-item"
+                    className="result-item truncate"
                     key={idx}
                     onClick={() => history.push(`/users/${result._id}`)}
                   >
@@ -45,7 +46,7 @@ const SearchResults = () => {
               else
                 return (
                   <li
-                    className="result-item"
+                    className="result-item truncate"
                     key={idx}
                     onClick={() => history.push(`/spots/${result.spotId}`)}
                   >

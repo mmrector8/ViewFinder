@@ -1,9 +1,20 @@
 .searchbar {
   position: relative;
+  width: 300px;
+}
+
+.searchbar input {
+  width: 100%;
+}
+
+.truncate {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .search-results-div {
-  width: 50%;
+  width: 100%;
   position: absolute;
   top: 50px;
   background-color: white;
@@ -14,6 +25,10 @@
   height: 300px;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+
+.search-results-div::-webkit-scrollbar {
+  display: none;
 }
 
 .search-results-div > h1 {
@@ -33,11 +48,6 @@
 
 .search-results-ul > li:hover {
   background-color: rgb(214, 214, 214);
-}
-
-.searchbar input:disabled {
-  cursor: not-allowed;
-  background: none;
 }
 
 .result-item {
