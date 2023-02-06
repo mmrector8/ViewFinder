@@ -125,6 +125,7 @@ router.post(
       //retrives new photo
       let photo = await newPhoto.save();
       await photo.populate("spotId");
+      await photo.populate({path: "userId", select: "_id username"})
       //update and save spot photo ref array
       await spot.photos.addToSet(photo._id); //adds id if it does not exist
       await spot.save();
