@@ -19,7 +19,7 @@ ViewFinder uses a MERN stack (Mongo, Express, React, and Node).
 
 ### Searchbar Logic
 
-The search feature is made possible through this simple router. The route accepts a type and body as query keys, in which the type must match the one of the type within the included types array. A second check is done to ensure that the body key value is not empty. After passing the the two checks, The if else block is hit in which it will enter a specific condition based on the type. After entering a condition, the it will utilize regex to search through the different fields of the collection. If any data matched the regex pattern, that document is pulled and added to the the query array. The queried data is then normalized using the standizeData and sent back to the client.
+The search feature is made possible through this simple router. The route accepts a type and body as query keys, in which the type must match the one of the type within the included types array. A second check is done to ensure that the body key value is not empty. After passing the the two checks, The if else block is hit in which it will enter a specific condition based on the type. After entering a condition, the it will utilize regex to search through the different fields of the collection. If any data matched the regex pattern, that document is pulled and added to the the query array. The queried data is then normalized using the standardizeData and sent back to the client.
 
 ![Screen Shot 2023-01-29 at 5 21 08 PM](https://user-images.githubusercontent.com/65653163/215369271-3f1768bf-b903-4429-bbac-0d5229278abb.png)
 
