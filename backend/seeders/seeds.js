@@ -32,7 +32,7 @@ users.push(
     email: "demo-user@gmail.com",
     hashedPassword: bcrypt.hashSync("starwars", 10),
     profilePicUrl:
-      "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/def-user-pfp.png",
+      "https://viewfinder-seeds.s3.us-west-2.amazonaws.com/karsten-winegeart-NE0XGVKTmcA-unsplash.jpg",
   })
 );
 

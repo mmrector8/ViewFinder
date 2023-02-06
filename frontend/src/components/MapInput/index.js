@@ -31,10 +31,32 @@ export const SmallMap = ({ setLatitude, setLongitude, lat, lng }) => {
         draggable: true
     }
     const getCoordinates =(e)=>{
-        setLatitude(e.latLng.lat())
-        setLongitude(e.latLng.lng())
-        setClicked(true);
-        setCenter({lat: e.latLng.lat(), lng: e.latLng.lng()})
+      const geocoder = new google.maps.Geocoder();
+      const latlng = {
+        lat: e.latLng.lat(),
+        lng: e.latLng.lng(),
+      };
+
+   geocoder
+     .geocode({ location: latlng })
+     .then((response) => {
+       if (response.results[0]) {
+         const address = response.results[0].formatted_address
+         if(address.includes("CA") || address.includes("California")){
+            setLatitude(e.latLng.lat());
+            setLongitude(e.latLng.lng());
+            setClicked(true);
+            setCenter({ lat: e.latLng.lat(), lng: e.latLng.lng() });
+         } else {
+            window.alert("Must stay in California")
+         }
+       } else {
+         window.alert("No results found");
+       }
+     })
+     .catch((e) => window.alert("Geocoder failed due to: " + e));
+
+    
     }
 
     useEffect(()=>{

@@ -72,6 +72,7 @@ const UploadPhotoForm = () => {
               </div>
               <div className="upload-form-right">
                 <button
+                  disabled={!description || !picture}
                   onClick={() => setPage(2)}
                   className="upload-form-buttons"
                 >
@@ -85,7 +86,7 @@ const UploadPhotoForm = () => {
             <div className="page-2">
               <div className="latlong-and-map">
                 <div className="latlng">
-                  <input
+                  {/* <input
                     type="text"
                     name="latitude"
                     placeholder="Latitude"
@@ -102,15 +103,20 @@ const UploadPhotoForm = () => {
                     autoComplete="off"
                     value={longitude}
                     onChange={(e) => setLongitude(e.target.value)}
-                  />
-                  <p className="lat-long-directions">Click the map to get latitude and longitude.</p>
+                  /> */}
+                  <p className="lat-long-directions">
+                    Click the map to get latitude and longitude.
+                  </p>
                 </div>
-                  <SmallMapWrapper setLatitude={setLatitude} setLongitude={setLongitude} lat={latitude} lng={longitude}/>
-            </div>
+                <SmallMapWrapper
+                  setLatitude={setLatitude}
+                  setLongitude={setLongitude}
+                  lat={latitude}
+                  lng={longitude}
+                />
+              </div>
               <div className="genres-container">
-                <h1 className="radio-label">
-                  Genre: 
-                </h1>
+                <h1 className="radio-label">Genre:</h1>
                 <div className="below-label">
                   <label htmlFor="genre">Wildlife</label>
                   <input
@@ -132,7 +138,7 @@ const UploadPhotoForm = () => {
                   <label htmlFor="genre">Landscape</label>
                   <input
                     type="radio"
-                    name="genre"         
+                    name="genre"
                     id="genre"
                     value="landscape"
                     onChange={(e) => setGenre(e.target.value)}
@@ -141,14 +147,14 @@ const UploadPhotoForm = () => {
                   <input
                     type="radio"
                     name="genre"
-                    id="genre"                   
+                    id="genre"
                     value="portrait"
                     onChange={(e) => setGenre(e.target.value)}
                   />
                   <label htmlFor="genre">Astro</label>
                   <input
                     type="radio"
-                    name="genre"               
+                    name="genre"
                     id="genre"
                     value="astro"
                     onChange={(e) => setGenre(e.target.value)}
@@ -156,7 +162,7 @@ const UploadPhotoForm = () => {
                   <label htmlFor="genre">Aerial</label>
                   <input
                     type="radio"
-                    name="genre"         
+                    name="genre"
                     id="genre"
                     value="aerial"
                     onChange={(e) => setGenre(e.target.value)}
@@ -165,9 +171,7 @@ const UploadPhotoForm = () => {
               </div>
 
               <div className="conditions-container">
-                <h1 className="radio-label">
-                  Conditions:
-                </h1>
+                <h1 className="radio-label">Conditions:</h1>
                 <div className="below-label">
                   <label htmlFor="condition">Rocky</label>
                   <input
@@ -246,9 +250,7 @@ const UploadPhotoForm = () => {
               </div>
 
               <div className="transportation-container">
-                <h1 className="radio-label">
-                  Transportation:
-                </h1>
+                <h1 className="radio-label">Transportation:</h1>
                 <div className="below-label">
                   <label htmlFor="transportation">Walk</label>
                   <input
@@ -311,9 +313,7 @@ const UploadPhotoForm = () => {
               </div>
 
               <div className="besttimeofday-container">
-                <h1 className="radio-label">
-                  Best Time of Day:
-                </h1>
+                <h1 className="radio-label">Best Time of Day:</h1>
                 <div className="below-label">
                   {/* <label htmlFor="bestTimeOfDay">First Light</label>
                   <input
@@ -368,9 +368,7 @@ const UploadPhotoForm = () => {
               </div>
 
               <div className="payment-container">
-                <h1 className="radio-label">
-                  Payment:
-                </h1>
+                <h1 className="radio-label">Payment:</h1>
                 <div className="below-label">
                   <label htmlFor="Payment">0</label>
                   <input
@@ -415,7 +413,11 @@ const UploadPhotoForm = () => {
                 >
                   Back
                 </button>
-                <button type="submit" className="upload-form-buttons">
+                <button
+                  type="submit"
+                  className="upload-form-buttons"
+                  disabled={!latitude || !longitude || !genre || !condition || !transportation || !bestTimeOfDay || !payment}
+                >
                   Upload
                 </button>
               </div>
