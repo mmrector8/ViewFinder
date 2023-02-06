@@ -66,7 +66,7 @@ const Footer = () => {
           <h1 className="dev-name">Morgan Rector</h1>
           <div className="dev-links">
             <a
-              href="https://github.com/mmrector8?tab=repositories"
+              href="https://github.com/mmrector8"
               target="_blank"
             >
               {" "}

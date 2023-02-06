@@ -50,7 +50,7 @@ const CommentIndexItem = ({comment})=>{
             src={comment.userId.profilePicUrl}
             className="comment-prof-pic"
           ></img>
-          <p className="username-for-comment">{comment?.userId?.username}</p>
+          <a href={`/users/${comment?.userId?._id}`}id="username-for-comment">{comment?.userId?.username}</a>
         </div>
         <p className="comment-date">{convertDate(comment?.updatedAt)}</p>
         <div className="edit-delete-and-body">
