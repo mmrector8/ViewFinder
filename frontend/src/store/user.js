@@ -39,6 +39,10 @@ const usersReducer = (state={}, action)=>{
             return {...newState, ...action.user}
         case CLEAR_USER:
             return {};
+        case RECEIVE_PHOTO: 
+            newState.photos.pop();
+            newState.photos.unshift(action.photo);
+            return newState;
         case REMOVE_PHOTO:
             newState.photos.map((photo, i) => {
                 if (photo._id === action.photoId) {
