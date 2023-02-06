@@ -14,7 +14,7 @@ const UserShowPage = () => {
 
   useEffect(() => {
     dispatch(fetchUser(userId));
-    () => dispatch(clearUser());
+    return () => dispatch(clearUser());
   }, [dispatch, userId]);
 
   if (!user) {
