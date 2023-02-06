@@ -4,6 +4,7 @@ import { clearResults, fetchResults } from "../../store/search";
 import { useLocation } from "react-router-dom";
 import useDebounce from "../../hooks/useDebounce";
 import SearchResults from "./SearchResults";
+import ClickAwayListener from '@mui/base/ClickAwayListener';
 // import SearchIcon from "@mui/icons-material/Search";
 
 const SearchBar = () => {
@@ -32,19 +33,21 @@ const SearchBar = () => {
   }, [location.pathname]);
 
   return (
-    <form className="searchbar" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="queryString"
-        placeholder="Search"
-        autoComplete="off"
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        value={queryString}
-        onChange={(e) => setQueryString(e.target.value)}
-      />
-      {queryString !== "" && focused && <SearchResults />}
-    </form>
+    <ClickAwayListener onClickAway={()=> setFocused(false)}>
+      <form className="searchbar" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="queryString"
+          placeholder="Search"
+          autoComplete="off"
+          onFocus={() => setFocused(true)}
+          // onBlur={() => setTimeout(()=> setFocused(false), 1000)}
+          value={queryString}
+          onChange={(e) => setQueryString(e.target.value)}
+        />
+        {queryString !== "" && focused && <SearchResults />}
+      </form>
+    </ClickAwayListener>
   );
 };
 

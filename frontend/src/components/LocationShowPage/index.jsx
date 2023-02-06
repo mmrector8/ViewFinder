@@ -73,7 +73,7 @@ const LocationShowPage = () => {
   useEffect(() => {
     dispatch(fetchLocation(locationId));
     dispatch(fetchLocationSpots(locationId));
-  }, [dispatch]);
+  }, [dispatch, locationId]);
 
   return (
     <>
