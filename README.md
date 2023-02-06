@@ -4,7 +4,7 @@
 
 ViewFinder is a web application that allows photographers to find specific spots in California that would be a great place to take a picture perfect photo. The photographers can share photos with others by posting their photo and tagging the conditions in which they took it. It allows users to view the page of a specific photographer and like the photos that they love the most.
 
-![homepage](https://user-images.githubusercontent.com/65653163/215369166-cea0c239-0934-4871-afcd-1a72251a64b3.gif)
+![splashpage_compressed](https://user-images.githubusercontent.com/65653163/217108212-1f2ad2e4-9675-4104-b063-5465e5e3c62d.gif)
 
 ![clustering](https://user-images.githubusercontent.com/65653163/215369209-0bd2b775-916c-4fb5-8204-61416848c736.gif)
 
@@ -21,73 +21,66 @@ ViewFinder uses a MERN stack (Mongo, Express, React, and Node).
 
 The search feature is made possible through this simple router. The route accepts a type and body as query keys, in which the type must match the one of the type within the included types array. A second check is done to ensure that the body key value is not empty. After passing the the two checks, The if else block is hit in which it will enter a specific condition based on the type. After entering a condition, the it will utilize regex to search through the different fields of the collection. If any data matched the regex pattern, that document is pulled and added to the the query array. The queried data is then normalized using the standardizeData and sent back to the client.
 
-![Screen Shot 2023-01-29 at 5 21 08 PM](https://user-images.githubusercontent.com/65653163/215369271-3f1768bf-b903-4429-bbac-0d5229278abb.png)
+![searchbar](https://user-images.githubusercontent.com/65653163/217108806-d429310c-b824-41ac-9a93-389775f59613.png)
 
 ```javascript
 router.get('/', async (req, res, next) => {
-   try {
-       const includedTypes = ["photos", "users", "locations"]
-       if (!includedTypes.includes(req.query.type)) throw req
-       if (!req.query.body) return res.json({message: "Missing Body"})
-       let data;
-       if (req.query.type === includedTypes[0]) {
-         data = await Photo.find({
-           $or: [
-             {
-               genre: {
-                   $regex: new RegExp(req.query.body, "i"),
-               },},
-               { description: {
-                   $regex: new RegExp(req.query.body, "i"),
-               } },
-               { condition: {
-                   $regex: new RegExp(req.query.body, "i"),
-               } },
-               { transportation: {
-                   $regex: new RegExp(req.query.body, "i"),
-               } },
-               { bestTimeOfDay: {
-                   $regex: new RegExp(req.query.body, "i"),
-               } }
-           ],
-         });
-       } else if (req.query.type === includedTypes[1]) {
-           data = await User.find({
-             $or: [
-               {
-                 username: {
-                   $regex: new RegExp(req.query.body, "i"),
-                 },
-               },
-               {
-                 email: {
-                   $regex: new RegExp(req.query.body, "i"),
-                 },
-               },
-             ],
-           }).select("_id username email createdAt updatedAt");
-          
-       } else if (req.query.type === includedTypes[2]) {
-           data = await Location.find({
-             $or: [
-               {
-                 county: {
-                   $regex: new RegExp(req.query.body, "i"),
-                 },
-               },
-             ],
-           });
-       }
-       return res.json(standardizeData(data))
-   }
-   catch(err) {
-       const error = new Error("Search failed");
-       error.statusCode = 404;
-       error.errors = {
-         message: `Failed to find a photo, a location, or/and user; ${err}`,
-       };
-       return next(error);
-   }
+    //expect query to come in as ?body=val
+    try {
+      
+      //ensures body is not empty 
+      if (!req.query.body) return res.json({ message: "Missing Body" });
+
+      //query photos collection 
+      let photos = await Photo.find({
+        $or: [
+          {
+            description: {
+              $regex: new RegExp(req.query.body, "i"),
+            },
+          }
+        ],
+      });
+
+      //query users collection 
+      let users = await User.find({
+        $or: [
+          {
+            username: {
+              $regex: new RegExp(req.query.body, "i"),
+            },
+          },
+          {
+            email: {
+              $regex: new RegExp(req.query.body, "i"),
+            },
+          },
+        ],
+      }).select("_id username email createdAt updatedAt");
+
+      //query locations collection 
+      let locations = await Location.find({
+        $or: [
+          {
+            county: {
+              $regex: new RegExp(req.query.body, "i"),
+            },
+          },
+        ],
+      });
+
+      //normalize the array into object and deconstruct all the objects into one object  
+      if (!users.length && !locations.length && !photos.length) return res.json({ search: [] });
+      return res.json({...standardizeData(users), ...standardizeData(locations), ...standardizeData(photos)});
+    }
+    catch(err) {
+        const error = new Error("Search failed");
+        error.statusCode = 404;
+        error.errors = {
+          message: `Failed to find a photo, a location, or/and user; ${err}`,
+        };
+        return next(error);
+    }
 });
 
 ```
@@ -175,7 +168,7 @@ router.post(
 
 ### Spot Show Page
 
-![Screen Shot 2023-01-29 at 5 18 17 PM](https://user-images.githubusercontent.com/65653163/215369407-78217b61-10a6-4675-92f8-c7bff1c10397.png)
+![spotshowpage](https://user-images.githubusercontent.com/65653163/217108967-f682b8e6-d356-4bf1-9680-0bff368c01bb.png)
 
 ### User Profile Page
 
